@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a0a7a151-d173-49f6-88c6-8216c7107b05" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="60c23182-48ef-496a-a103-1a3f8cf1dcc1" name="Utility">
+      <comments>
+        <comment Id="fe1376a5-51a6-4457-a69c-8ec61a9ac379" name="Comment1">
+          <body>工具层，提取凭证号，格式化，比较</body>
+        </comment>
+      </comments>
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="8b85bbbc-c1f6-4646-bc5a-47b383cf6a63" direction="Forward">
+          <layerMoniker Id="30ee517b-80ab-46cc-80fa-25699b7e1eda" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="30ee517b-80ab-46cc-80fa-25699b7e1eda" name="Domain">
+      <comments>
+        <comment Id="f0010c78-e302-4e54-8221-85e0be87cb26" name="Comment1">
+          <body>领域模型，国库，财务</body>
+        </comment>
+      </comments>
+    </layer>
+    <layer Id="3766824b-bfff-4257-89e7-57edf2500ef6" name="ExcelImportExport">
+      <comments>
+        <comment Id="17d902d6-c198-4a12-a8b7-e6ce4c9c52b3" name="Comment1">
+          <body>读取Excel，导出Excel报表</body>
+        </comment>
+      </comments>
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="c5083c9c-574b-46ea-9db0-96cd55ca1217" direction="Forward">
+          <layerMoniker Id="30ee517b-80ab-46cc-80fa-25699b7e1eda" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="81b2fd65-f9fd-4f51-aad8-fbd410cddd56" direction="Forward">
+          <layerMoniker Id="60c23182-48ef-496a-a103-1a3f8cf1dcc1" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="f7fe39df-45cf-4e2a-9be4-9da81cf27e18" name="UI">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4b434ee1-243e-4946-91c7-8a3e9d808c12" direction="Forward">
+          <layerMoniker Id="3766824b-bfff-4257-89e7-57edf2500ef6" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="4d41fd0d-0474-49bf-bad2-809b37ead2eb" direction="Forward">
+          <layerMoniker Id="30ee517b-80ab-46cc-80fa-25699b7e1eda" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

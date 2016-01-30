@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JournalVoucherAudit.Service.AuditBase&lt;T&gt;">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuditBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.AmountGroupItem" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AmountGroupItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.AmountCountEqualityComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AmountGroupItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.AmountEqualityComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AmountGroupItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NumberGroupItem" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberGroupItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NumberGroupItemEqualityComparer" Collapsed="true">
+    <Position X="14.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberGroupItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.AmountWithCountAuditForGuoKu" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AmountWithCountAuditForGuoKu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.AmountWithCountAuditForCaiWu" Collapsed="true">
+    <Position X="4.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AmountWithCountAuditForCaiWu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NumberWithAmountAuditForCaiWu" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberWithAmountAuditForCaiWu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.CaiWuAuditBase">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CaiWuAuditBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.GuoKuAuditBase">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GuoKuAuditBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NumberWithAmountAuditForGuoKu" Collapsed="true">
+    <Position X="1.75" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberWithAmountAuditForGuoKu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.CaiWuAudit" Collapsed="true">
+    <Position X="8.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CaiWuAudit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.GuoKuAudit" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GuoKuAudit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NormalAuditForGuoKu" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NormalAuditForGuoKu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Service.NormalAuditForCaiWu" Collapsed="true">
+    <Position X="7" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NormalAuditForCaiWu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
