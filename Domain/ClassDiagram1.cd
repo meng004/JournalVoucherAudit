@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JournalVoucherAudit.Domain.CaiWuItem">
+    <Position X="4.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAKAAAQA=</HashCode>
+      <FileName>CaiWuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Domain.GuoKuItem">
+    <Position X="7" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAABAAAASAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>GuoKuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Domain.TiaoJieItem">
+    <Position X="7.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIgAAAABAAAACAAAAAAAAAAAABAKAAAQA=</HashCode>
+      <FileName>TiaoJieItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JournalVoucherAudit.Domain.TiaoJieTable">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAABAAAAABAAAACAA=</HashCode>
+      <FileName>TiaoJieTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
