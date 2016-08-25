@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_Caution = new System.Windows.Forms.Label();
             this.btn_GuoKuFilePath = new System.Windows.Forms.Button();
@@ -325,6 +326,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_Audit);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "财务-国库对账系统";
             this.groupBox1.ResumeLayout(false);

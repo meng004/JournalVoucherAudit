@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>##ID_STRING5##</title>
-		<subject>-</subject>
+		<subject>-v1.04</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>##ID_STRING6##</comments>
@@ -343,6 +343,7 @@
 		<row><td>Component3</td><td>{CF83CC24-6A91-4CEA-B8C3-8E34935EE3C7}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Component4</td><td>{CFE6975E-EADD-449A-8D67-EE5112363585}</td><td>INSTALLDIR</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{30A8E1DD-DCA6-4C7A-8850-793FE398D7B7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>{71E41830-838A-469F-932A-6E4552515393}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.winforms</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1054,6 +1055,7 @@
 		<row><td>INSTALLDIR</td><td>Component3</td></row>
 		<row><td>INSTALLDIR</td><td>Component4</td></row>
 		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
+		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1140,13 +1142,14 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY</td><td>ProgramFilesFolder</td><td>微软中国</td><td/><td>0</td><td/></row>
+		<row><td>DIRECTORY.04</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.04</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY1</td><td>ProgramFilesFolder</td><td>南华大学-李萌</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY2</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>DIRECTORY2</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>DIRECTORY.04</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1177,6 +1180,7 @@
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>company_name</td><td>ProgramMenuFolder</td><td>南华大~1|南华大学-李萌</td><td/><td>1</td><td/></row>
 		<row><td>product_name</td><td>company_name</td><td>财务-~1|财务-国库对账软件</td><td/><td>1</td><td/></row>
+		<row><td>product_name1</td><td>company_name</td><td>财务-~1.04|财务-国库对账软件v1.04</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1871,6 +1875,7 @@
 		<row><td>AlwaysInstall</td><td>Component3</td></row>
 		<row><td>AlwaysInstall</td><td>Component4</td></row>
 		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
+		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1887,6 +1892,7 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>File3</td><td>Component3</td><td>WinformsUI.内容文件</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|ContentFiles</td><td>3</td><td/></row>
 		<row><td>File4</td><td>Component4</td><td>WinformsUI.主输出</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|Built</td><td>3</td><td/></row>
+		<row><td>journalvoucheraudit.winforms</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>JOURNA~1.EXE|JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2032,6 +2038,7 @@
 		<row><td>Component3</td><td/><td/><td>_B2EE230A_FBF2_453D_BD7A_A0CCA0D06531_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Component4</td><td/><td/><td>_0BD2107B_1196_43BB_AD2A_5AFEE73502D3_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_E52AD1F0_FBF5_4A01_97B9_A343EFE4BD8F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td/><td>_3DB304C3_E806_4E4F_B1DF_4A8A50A1A9B0_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3444,12 +3451,24 @@
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>2052</td><td>本安装程序内建有 InstallShield 的评估版，只能用 setup.exe 文件启动。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td/><td>0</td><td/><td>1352939957</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>1352939957</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>1033</td><td/><td>0</td><td/><td>-735835968</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735835968</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td/><td>0</td><td/><td>1352985269</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>1352985269</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td/><td>0</td><td/><td>1352983797</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>1352936725</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td/><td>0</td><td/><td>-1062987562</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062942506</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td/><td>0</td><td/><td>-735832032</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>2052</td><td>Launch |ContentFiles</td><td>0</td><td/><td>-735832032</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME6</td><td>1033</td><td/><td>0</td><td/><td>-735795072</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME6</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735795072</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME7</td><td>1033</td><td/><td>0</td><td/><td>-735811424</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME7</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735811424</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>1033</td><td/><td>0</td><td/><td>-735795040</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>2052</td><td>财务-国库对账软件v1.04</td><td>0</td><td/><td>-735811392</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>1033</td><td/><td>0</td><td/><td>-735786848</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735786848</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>2052</td><td>从以下服务器列表中选择要连接的数据库服务器。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>2052</td><td>从以下的编录名称列表中，选择您希望将其作为目标的数据库编录。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>2052</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1352960117</td></row>
@@ -3747,6 +3766,12 @@
 		<row><td>ID_STRING12</td><td>2052</td><td>财务-~1|财务-国库对账</td><td>0</td><td/><td>-870036137</td></row>
 		<row><td>ID_STRING13</td><td>1033</td><td>财务-~1|财务-国库对账</td><td>0</td><td/><td>-870029993</td></row>
 		<row><td>ID_STRING13</td><td>2052</td><td>财务-~1|财务-国库对账</td><td>0</td><td/><td>-870029993</td></row>
+		<row><td>ID_STRING14</td><td>1033</td><td>Launch |ContentFiles</td><td>0</td><td/><td>-735825888</td></row>
+		<row><td>ID_STRING14</td><td>2052</td><td>Launch |ContentFiles</td><td>0</td><td/><td>-735825888</td></row>
+		<row><td>ID_STRING15</td><td>1033</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735833920</td></row>
+		<row><td>ID_STRING15</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735833920</td></row>
+		<row><td>ID_STRING16</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
+		<row><td>ID_STRING16</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
 		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>-870031209</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3876,6 +3901,9 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_895168C2EB3242D785E9F837CD857FF6.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
+		<row><td>JournalVoucherAudi_AC28172847EA46CEB5C1E585658E73AD.exe</td><td/><td>C:\Program Files (x86)\南华大学-李萌\财务-国库对账软件\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>JournalVoucherAudi_CCAD0359EB214E3AB9ADAF4A59A4F948.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>JournalVoucherAudi_DF17B1D73A7243B39E4123DEE6AA2855.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_FCEA6E3B5444488F9240335A4BDB0B50.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 		<row><td>_038E2D3163BF44358A3344011710E852.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3887,9 +3915,14 @@
 		<row><td>_1F6AD3890187451F822DFFC5CA4F4555.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_22FA76AD1FD844FAA59875D8AF5A2529.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_25BF395AEE88485997DE2DA044B02A3B.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_2B4ADAF1851947D6B1A9ABA3477F0B61.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_332B7A7EC71D4DFEBCEF2726B4C4A1E1.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_385740049FFE454B89DAA762EBABF679.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_3C76FE845E6B48A58F0EC39DFCD96001.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_3CC9FC5C30B84AD19946FCAFEBB391C6.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_3DC2187E12B4431091C14EB8BC944B53.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_40EEAD07EEE546E88FF7EFF3C2173D83.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_4226186F93E942608C559A7445CDF497.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_42A3A835E81C4B309939C43238B1C7CE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_4782A7BBF7BE4BF9A7FC9CAEB0A5A5EF.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_47A0F1946C634581A056AE1F51AE8EE5.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3897,11 +3930,17 @@
 		<row><td>_50061E41914B46C6BEED04E70B25361E.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_65670BED65244CB19C970F9A5DBFBDA3.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_6BBA5731FDE249E3825CEB709754E236.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_6C8364813BED4EC2969A7B4FEFB398AA.ico</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\icon.ico</td><td>0</td></row>
 		<row><td>_6FD499C4AF824F969FF5A697B22E666B.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_7308B353E1E0495AA52977D774FDE9D2.ico</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\icon.ico</td><td>0</td></row>
 		<row><td>_799A1FE9246C493992F78A8A65C321CF.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_84D8A3A179354FD88A9223BCBB768A45.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_87F2846E817C4D358447DFE0ACB1D6CB.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_90137275BA06488381E3E75947049CF0.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_9C3A0F3B47944096AEB0D7FE9D824470.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B299E6EF4B4245B282E5298EE23841F7.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B3388978B8C84FEE8648284338CF23D8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_B3B647849D1E4911818E3CB25C325263.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B4E797812C2D497A8610D156CA2B25B8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_BE577D18B87B469CA7A6F54F7EC225EE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_C69DEF7AE3A04FEE859925776B476437.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3909,7 +3948,11 @@
 		<row><td>_D86FA048FF7E409E822E70EE35F4C77F.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_DAA972BE360C4550981CF242A28370D2.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_DD54F82EBC264FBD90C9E1385BB503E9.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_F4442EBAD5C1414A91718BCCD0B279CE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_F8B892770D694E0F86472A6F62A20CBD.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_F9B91A29DC9449C8A223B1A532630358.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_FC8C68CC04904941A6EA39908EB2DD49.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_FE62DE64CC2A4351AB342B9437B56625.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4419,7 +4462,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/></row>
-		<row><td>ProductName</td><td>财务-国库对账软件</td><td/></row>
+		<row><td>ProductName</td><td>财务-国库对账软件v1.04</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.4000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
@@ -4497,8 +4540,9 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>NewShortcut1</td><td>Component4</td><td/><td>product_name</td><td>2</td></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td>product_name1</td><td>2</td></row>
 		<row><td>Shortcut</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>product_name</td><td>2</td></row>
+		<row><td>_Built</td><td>Component4</td><td/><td>product_name1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4584,9 +4628,10 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>product_name</td><td>##ID_STRING12##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut11</td><td>DesktopFolder</td><td>##ID_STRING12##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_CCAD0359EB214E3AB9ADAF4A59A4F948.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_DF17B1D73A7243B39E4123DEE6AA2855.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
