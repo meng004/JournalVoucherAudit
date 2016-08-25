@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
@@ -13,31 +12,7 @@ namespace JournalVoucherAudit.Service
     public class Export
     {
 
-        #region 字段
-        /// <summary>
-        /// 报表标题组
-        /// </summary>
-        private readonly Dictionary<string, Tuple<string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string>>
-        {
-            { "财政补助收入", new Tuple<string,string,string>("财政补助收入", "直接支付预算内", "直内") },
-            { "教育事业收入", new Tuple<string,string,string>("教育事业收入", "直接支付预算外", "直外")},
-            { "零余额公共财政预算" , new Tuple<string,string,string>("零余额公共财政预算" , "授权支付预算内", "授权公共")},
-            { "零余额纳入专户管理的非税收入", new Tuple<string,string,string>("零余额纳入专户管理的非税收入", "授权支付预算外", "授权非税" )}
-        };
 
-        #endregion
-
-        #region 帮助方法
-        /// <summary>
-        /// 当前报表标题
-        /// 次序分别为：财务标题、国库标题、sheet名称
-        /// </summary>
-        private Tuple<string, string, string> GetReportTitles(string title)
-        {
-            var titles = new Tuple<string, string, string>(string.Empty, string.Empty, "直内");
-            _titleDict.TryGetValue(title, out titles);
-            return titles;
-        }
 
         /// <summary>
         /// 修改第一个sheet的名称
@@ -62,20 +37,19 @@ namespace JournalVoucherAudit.Service
             //var newFilename = Path.Combine(path, sheetName + extension);
             //File.Move(filename, newFilename);
         }
-        #endregion
+        
 
         /// <summary>
         /// 导出并保存
         /// </summary>
         /// <param name="filename">保存文件名，包含路径</param>
-        /// <param name="title">财务文件中的title</param>
+        /// <param name="reportTitles">报表中的title</param>
         /// <param name="caiWuTotal">财务累计</param>
         /// <param name="guoKuTotal">国库累计</param>
         /// <param name="tiaoJieBiao">调节表</param>
-        public void Save(string filename, string title, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
+        public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
-            //设置报表内标题与sheet名称
-            var reportTitles = GetReportTitles(title);
+            
             //创建excel参数容器
             var workbookParameterContainer = new WorkbookParameterContainer();
             workbookParameterContainer.Load(@"Template\Template.xml");

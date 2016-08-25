@@ -4,17 +4,42 @@ using JournalVoucherAudit.Utility;
 using JournalVoucherAudit.WinformsUI.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace JournalVoucherAudit.WinformsUI
 {
     public partial class Form1 : Form
     {
+        #region 字段
+        /// <summary>
+        /// 报表标题组
+        /// 依次分别为财务title，国库title，sheet名称
+        /// </summary>
+        private readonly Dictionary<string, Tuple<string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string>>
+        {
+            { "财政补助收入", new Tuple<string,string,string>("财政补助收入", "直接支付预算内", "直内") },
+            { "教育事业收入", new Tuple<string,string,string>("教育事业收入", "直接支付预算外", "直外")},
+            { "零余额公共财政预算" , new Tuple<string,string,string>("零余额公共财政预算" , "授权支付预算内", "授权公共")},
+            { "零余额纳入专户管理的非税收入", new Tuple<string,string,string>("零余额纳入专户管理的非税收入", "授权支付预算外", "授权非税" )}
+        };
+
+        #endregion
+
+        #region 帮助方法
+        /// <summary>
+        /// 当前报表标题
+        /// 次序分别为：财务标题、国库标题、sheet名称
+        /// </summary>
+        private Tuple<string, string, string> GetReportTitles(string title)
+        {
+            Tuple<string, string, string> titles;
+            _titleDict.TryGetValue(title, out titles);
+            return titles;
+        }
+
+        #endregion
 
         #region 属性
 
@@ -25,11 +50,11 @@ namespace JournalVoucherAudit.WinformsUI
         /// 零余额公共财政预算
         /// 零余额纳入专户管理的非税收入
         /// </summary>
-        private string _CaiWuTitle = string.Empty;
+        private string _caiWuTitle = string.Empty;
         /// <summary>
         /// 财务数据列表
         /// </summary>
-        private IList<CaiWuItem> _CaiWuData
+        private IList<CaiWuItem> CaiWuData
         {
             get
             {
@@ -40,7 +65,7 @@ namespace JournalVoucherAudit.WinformsUI
                 var items = excelImportCaiWu.ReadCaiWu<CaiWuItem>();
 
                 //取文件标题
-                _CaiWuTitle = excelImportCaiWu.CaiWuTile;
+                _caiWuTitle = excelImportCaiWu.CaiWuTile;
 
                 return items.ToList();
             }
@@ -48,7 +73,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <summary>
         /// 国库数据列表
         /// </summary>
-        private IList<GuoKuItem> _GuoKuData
+        private IList<GuoKuItem> GuoKuData
         {
             get
             {
@@ -95,7 +120,7 @@ namespace JournalVoucherAudit.WinformsUI
         private void txt_CaiWuFilePath_DragDrop(object sender, DragEventArgs e)
         {
             //获取文件路径
-            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            string path = ((Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
             txt_CaiWuFilePath.Text = path;
         }
         /// <summary>
@@ -106,15 +131,9 @@ namespace JournalVoucherAudit.WinformsUI
         private void txt_CaiWuFilePath_DragEnter(object sender, DragEventArgs e)
         {
             //拖放的是文件
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Link;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Link : DragDropEffects.None;
         }
+
         #endregion
 
 
@@ -142,7 +161,7 @@ namespace JournalVoucherAudit.WinformsUI
         private void txt_GuoKuFilePath_DragDrop(object sender, DragEventArgs e)
         {
             //获取文件路径
-            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            string path = ((Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
             txt_GuoKuFilePath.Text = path;
         }
         #endregion
@@ -171,8 +190,8 @@ namespace JournalVoucherAudit.WinformsUI
             var caiWuAudit = new CaiWuAudit();
             var guoKuAudit = new GuoKuAudit();
             //取不符合要求的数据
-            var caiWuException = caiWuAudit.Audit(_CaiWuData, _GuoKuData);
-            var guoKuException = guoKuAudit.Audit(_CaiWuData, _GuoKuData);
+            var caiWuException = caiWuAudit.Audit(CaiWuData, GuoKuData);
+            var guoKuException = guoKuAudit.Audit(CaiWuData, GuoKuData);
             //绑定数据
             //将数据转换为可排序对象
             dgv_CaiWu.DataSource = caiWuException.OrderBy(t => t.CreditAmount).ToList();
@@ -193,11 +212,13 @@ namespace JournalVoucherAudit.WinformsUI
             //合并两个集合为一个集合，便于报表处理
             var table = new TiaoJieTable(caiWus, guoKus);
             //计算发生额累计
-            var caiWuTotal = _CaiWuData.Sum(t => t.CreditAmount);
-            var guoKuTotal = _GuoKuData.Sum(t => t.Amount);
+            var caiWuTotal = CaiWuData.Sum(t => t.CreditAmount);
+            var guoKuTotal = GuoKuData.Sum(t => t.Amount);
+            //设置报表内标题与sheet名称
+            var reportTitles = GetReportTitles(_caiWuTitle);
             //文件名
             var voucherDate = table.Data.First().VoucherDate.ToDateTime();
-            var filename = string.Format("{0}年{1}月-财务国库对账单", voucherDate.Year, voucherDate.Month);
+            var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
             SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter, FileName = filename };
 
@@ -205,10 +226,10 @@ namespace JournalVoucherAudit.WinformsUI
             {
                 //导出excel
                 var export = new Export();
-                export.Save(saveFileDlg.FileName, _CaiWuTitle, caiWuTotal, guoKuTotal, table.Data);
+                export.Save(saveFileDlg.FileName, reportTitles, caiWuTotal, guoKuTotal, table.Data);
                 //提示消息
                 lbl_Message.Text = Resources.ResultMessage;
-            };
+            }
         }
 
         #endregion
