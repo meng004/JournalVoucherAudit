@@ -68,5 +68,14 @@ namespace JournalVoucherAudit.WinformsUI.Properties {
                 return ResourceManager.GetString("FileFilter", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 导出成功 的本地化字符串。
+        /// </summary>
+        internal static string ResultMessage {
+            get {
+                return ResourceManager.GetString("ResultMessage", resourceCulture);
+            }
+        }
     }
 }

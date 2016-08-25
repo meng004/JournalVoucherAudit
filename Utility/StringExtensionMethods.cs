@@ -71,5 +71,18 @@ namespace JournalVoucherAudit.Utility
             var result = actual.TrimStart(new char[] { '0' });
             return result;
         }
+        /// <summary>
+        /// 转换为日期
+        /// 若为空则返回今日
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this string str)
+        {
+            var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);
+            return date;
+        }
+
+        
     }
 }

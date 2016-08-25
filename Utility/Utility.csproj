@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeExtensionMethod.cs" />
     <Compile Include="DoubleHelpMethod.cs" />
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="StringExtensionMethods.cs" />

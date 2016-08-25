@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
@@ -16,7 +17,7 @@ namespace JournalVoucherAudit.Service
         /// <summary>
         /// 报表标题组
         /// </summary>
-        private Dictionary<string, Tuple<string, string, string>> _TitleDict = new Dictionary<string, Tuple<string, string, string>>
+        private readonly Dictionary<string, Tuple<string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string>>
         {
             { "财政补助收入", new Tuple<string,string,string>("财政补助收入", "直接支付预算内", "直内") },
             { "教育事业收入", new Tuple<string,string,string>("教育事业收入", "直接支付预算外", "直外")},
@@ -34,7 +35,7 @@ namespace JournalVoucherAudit.Service
         private Tuple<string, string, string> GetReportTitles(string title)
         {
             var titles = new Tuple<string, string, string>(string.Empty, string.Empty, "直内");
-            _TitleDict.TryGetValue(title, out titles);
+            _titleDict.TryGetValue(title, out titles);
             return titles;
         }
 
@@ -55,6 +56,11 @@ namespace JournalVoucherAudit.Service
                 stream.Write(buffer, 0, buffer.Length);
                 stream.Flush();
             }
+            //文件更名
+            //var path = Path.GetDirectoryName(filename);
+            //var extension = Path.GetExtension(filename);
+            //var newFilename = Path.Combine(path, sheetName + extension);
+            //File.Move(filename, newFilename);
         }
         #endregion
 
@@ -76,21 +82,27 @@ namespace JournalVoucherAudit.Service
             //创建sheet的参数容器
             var sheetParameterContainer = workbookParameterContainer["直内"];
             //计算小计
-            var caiWuSubTotal = tiaoJieBiao.Sum(t => t.CreditAmount);
-            var guoKuSubTotal = tiaoJieBiao.Sum(t => t.Amount);
+            var tiaoJieItems = tiaoJieBiao as IList<TiaoJieItem> ?? tiaoJieBiao.ToList();
+            var caiWuSubTotal = tiaoJieItems.Sum(t => t.CreditAmount);
+            var guoKuSubTotal = tiaoJieItems.Sum(t => t.Amount);
+            //对账日期
+            var voucherDate = tiaoJieItems.First().VoucherDate.ToDateTime();
+            //月份的最后一天
+            var lastDayOfMonth = voucherDate.LastDayOfMonth();
+            
             //输出excel
             ExportHelper.ExportToLocal(@"Template\Template.xls", filename,
                 new SheetFormatter("直内",
                     new PartFormatter(sheetParameterContainer["CaiWuTitle"], reportTitles.Item1),
                     new PartFormatter(sheetParameterContainer["GuoKuTitle"], reportTitles.Item2),
-                    new CellFormatter(sheetParameterContainer["CurrentDate"], DateTime.Today.ToShortDateString()),
+                    new CellFormatter(sheetParameterContainer["CurrentDate"], lastDayOfMonth.ToShortDateString()),
                     new CellFormatter(sheetParameterContainer["CaiWuTotal"], caiWuTotal),
                     new CellFormatter(sheetParameterContainer["GuoKuTotal"], guoKuTotal),
                     new CellFormatter(sheetParameterContainer["CaiWuSubTotal"], caiWuSubTotal),
                     new CellFormatter(sheetParameterContainer["GuoKuSubTotal"], guoKuSubTotal),
                     new CellFormatter(sheetParameterContainer["CaiWuBalance"], caiWuTotal - caiWuSubTotal),
                     new CellFormatter(sheetParameterContainer["GuoKuBalance"], guoKuTotal - guoKuSubTotal),
-                    new TableFormatter<TiaoJieItem>(sheetParameterContainer["VoucherDate"], tiaoJieBiao,
+                    new TableFormatter<TiaoJieItem>(sheetParameterContainer["VoucherDate"], tiaoJieItems,
                         new CellFormatter<TiaoJieItem>(sheetParameterContainer["Amount"], t => t.Amount),
                         new CellFormatter<TiaoJieItem>(sheetParameterContainer["CreateDate"], t => t.CreateDate),
                         new CellFormatter<TiaoJieItem>(sheetParameterContainer["CreditAmount"], t => t.CreditAmount),
@@ -104,6 +116,6 @@ namespace JournalVoucherAudit.Service
             //修改sheetname
             SetSheetName(filename, reportTitles.Item3);
         }
-        
+
     }
 }

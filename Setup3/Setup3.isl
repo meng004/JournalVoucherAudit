@@ -2588,6 +2588,9 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
+		<row><td>_192E2FF8_34A4_4B10_8F7D_2A777FD9F908_</td><td>Microsoft .NET Framework 4.0 Full.prq</td><td/><td/><td/></row>
+		<row><td>_81C2B1C9_5F60_4210_AA90_810771BCE035_</td><td>Windows Installer 4.5 for Windows XP SP2 and later (x86).prq</td><td/><td/><td/></row>
+		<row><td>_9D01C9A5_A402_46A9_85AE_131A9630A7B7_</td><td>Windows Installer 4.5 Update for Windows XP SP3 and later (x86).prq</td><td/><td/><td/></row>
 	</table>
 
 	<table name="ISSetupType">
@@ -2621,11 +2624,11 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>2040792175</td></row>
+		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>-1314613139</td></row>
 		<row><td>DN_AlwaysInstall</td><td>2052</td><td>始终安装</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>2052</td><td>系统颜色设置不足以运行 [ProductName]。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352966325</td></row>
-		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>2052</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352966325</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>2052</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1314627443</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352964277</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>2052</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352964277</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>2052</td><td>操作系统不足以运行 [ProductName]。</td><td>0</td><td/><td>1352960117</td></row>
@@ -3733,10 +3736,10 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>2052</td><td>对于运行 [ProductName] 处理器不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>2052</td><td>对于运行 [ProductName] 内存量不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>2052</td><td>对于运行 [ProductName] 屏幕分辨率不足。</td><td>0</td><td/><td>1352960117</td></row>
-		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>2040792175</td></row>
+		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>-1314613139</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING10</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
-		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>2040792175</td></row>
+		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>-1314613139</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3864,7 +3867,6 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
-		<row><td>JournalVoucherAudi_575A010AB4C0417B8FB4435D5412B519.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_895168C2EB3242D785E9F837CD857FF6.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_FCEA6E3B5444488F9240335A4BDB0B50.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
@@ -4030,7 +4032,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{EF418B4C-74B3-47B1-BD92-56B4719151F0}</td></row>
 		<row><td>ISUSSignature</td><td>{30AE3239-003B-416E-8CEC-32D1A8F1744C}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages,viewObjects</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4378,7 +4380,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>IS_SQLSERVER_SERVER</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
-		<row><td>LAUNCHPROGRAM</td><td>1</td><td/></row>
 		<row><td>LAUNCHREADME</td><td>1</td><td/></row>
 		<row><td>Manufacturer</td><td>##COMPANY_NAME##</td><td/></row>
 		<row><td>PIDKEY</td><td/><td/></row>
@@ -4420,6 +4421,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
+		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
@@ -4572,7 +4574,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_895168C2EB3242D785E9F837CD857FF6.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>JournalVoucherAudit.WinformsUI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_575A010AB4C0417B8FB4435D5412B519.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 

@@ -1,5 +1,6 @@
 ﻿using JournalVoucherAudit.Domain;
 using JournalVoucherAudit.Service;
+using JournalVoucherAudit.Utility;
 using JournalVoucherAudit.WinformsUI.Properties;
 using System;
 using System.Collections.Generic;
@@ -170,8 +171,8 @@ namespace JournalVoucherAudit.WinformsUI
             var caiWuAudit = new CaiWuAudit();
             var guoKuAudit = new GuoKuAudit();
             //取不符合要求的数据
-            var caiWuException = caiWuAudit.Audit(_CaiWuData,_GuoKuData);
-            var guoKuException = guoKuAudit.Audit(_CaiWuData,_GuoKuData);
+            var caiWuException = caiWuAudit.Audit(_CaiWuData, _GuoKuData);
+            var guoKuException = guoKuAudit.Audit(_CaiWuData, _GuoKuData);
             //绑定数据
             //将数据转换为可排序对象
             dgv_CaiWu.DataSource = caiWuException.OrderBy(t => t.CreditAmount).ToList();
@@ -186,25 +187,27 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
+            //取出不符合要求的数据
+            var caiWus = dgv_CaiWu.DataSource as IEnumerable<CaiWuItem>;
+            var guoKus = dgv_GuoKu.DataSource as IEnumerable<GuoKuItem>;
+            //合并两个集合为一个集合，便于报表处理
+            var table = new TiaoJieTable(caiWus, guoKus);
+            //计算发生额累计
+            var caiWuTotal = _CaiWuData.Sum(t => t.CreditAmount);
+            var guoKuTotal = _GuoKuData.Sum(t => t.Amount);
+            //文件名
+            var voucherDate = table.Data.First().VoucherDate.ToDateTime();
+            var filename = string.Format("{0}年{1}月-财务国库对账单", voucherDate.Year, voucherDate.Month);
             //保存文件对话
-            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter };
+            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter, FileName = filename };
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {
-                //取出不符合要求的数据
-                var caiWus = dgv_CaiWu.DataSource as IEnumerable<CaiWuItem>;
-                var guoKus = dgv_GuoKu.DataSource as IEnumerable<GuoKuItem>;
-                //合并两个集合为一个集合，便于报表处理
-                var table = new TiaoJieTable(caiWus, guoKus);
-                //计算发生额累计
-                var caiWuTotal = _CaiWuData.Sum(t => t.CreditAmount);
-                var guoKuTotal = _GuoKuData.Sum(t => t.Amount);
-
                 //导出excel
                 var export = new Export();
                 export.Save(saveFileDlg.FileName, _CaiWuTitle, caiWuTotal, guoKuTotal, table.Data);
-
-                lbl_Message.Text = "导出成功";
+                //提示消息
+                lbl_Message.Text = Resources.ResultMessage;
             };
         }
 

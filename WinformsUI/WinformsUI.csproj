@@ -120,6 +120,10 @@
       <Project>{6cb1d6fc-049c-4df5-bd57-9bee28479f60}</Project>
       <Name>Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{4BC997E1-EE71-4E20-BACC-9F8C0F899D96}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Template\Template.xml">
