@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>##ID_STRING5##</title>
-		<subject>-v1.04</subject>
+		<subject>-v1.05</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>##ID_STRING6##</comments>
@@ -343,7 +343,6 @@
 		<row><td>Component3</td><td>{CF83CC24-6A91-4CEA-B8C3-8E34935EE3C7}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Component4</td><td>{CFE6975E-EADD-449A-8D67-EE5112363585}</td><td>INSTALLDIR</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{30A8E1DD-DCA6-4C7A-8850-793FE398D7B7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>{71E41830-838A-469F-932A-6E4552515393}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.winforms</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1055,7 +1054,6 @@
 		<row><td>INSTALLDIR</td><td>Component3</td></row>
 		<row><td>INSTALLDIR</td><td>Component4</td></row>
 		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
-		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1143,13 +1141,14 @@
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY</td><td>ProgramFilesFolder</td><td>微软中国</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY.04</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.04</td><td/><td>0</td><td/></row>
+		<row><td>DIRECTORY.05</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.05</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY1</td><td>ProgramFilesFolder</td><td>南华大学-李萌</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY2</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>DIRECTORY.04</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>DIRECTORY.05</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1875,7 +1874,6 @@
 		<row><td>AlwaysInstall</td><td>Component3</td></row>
 		<row><td>AlwaysInstall</td><td>Component4</td></row>
 		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
-		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1892,7 +1890,6 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>File3</td><td>Component3</td><td>WinformsUI.内容文件</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|ContentFiles</td><td>3</td><td/></row>
 		<row><td>File4</td><td>Component4</td><td>WinformsUI.主输出</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|Built</td><td>3</td><td/></row>
-		<row><td>journalvoucheraudit.winforms</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>JOURNA~1.EXE|JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2038,7 +2035,6 @@
 		<row><td>Component3</td><td/><td/><td>_B2EE230A_FBF2_453D_BD7A_A0CCA0D06531_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Component4</td><td/><td/><td>_0BD2107B_1196_43BB_AD2A_5AFEE73502D3_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_E52AD1F0_FBF5_4A01_97B9_A343EFE4BD8F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td/><td>_3DB304C3_E806_4E4F_B1DF_4A8A50A1A9B0_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3940,6 +3936,7 @@
 		<row><td>_9C3A0F3B47944096AEB0D7FE9D824470.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B299E6EF4B4245B282E5298EE23841F7.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B3388978B8C84FEE8648284338CF23D8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_B36DEA03B7554EDB86DEA29BD2ACFCBE.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B3B647849D1E4911818E3CB25C325263.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B4E797812C2D497A8610D156CA2B25B8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_BE577D18B87B469CA7A6F54F7EC225EE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -4067,8 +4064,8 @@
 		<col def="S0">Value</col>
 		<row><td>ActiveLanguage</td><td>2052</td></row>
 		<row><td>Comments</td><td/></row>
-		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="a4f66fafb30885f14d732b73e196bba0">
-RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
+		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="de9f554a3bc05c12be9c31b998217995">
+UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 			</td></row>
 		<row><td>DefaultProductConfiguration</td><td>Express</td></row>
 		<row><td>EnableSwidtag</td><td>0</td></row>
@@ -4085,7 +4082,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{EF418B4C-74B3-47B1-BD92-56B4719151F0}</td></row>
 		<row><td>ISUSSignature</td><td>{30AE3239-003B-416E-8CEC-32D1A8F1744C}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages,viewObjects,viewFileExtensions</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages,viewObjects,viewFileExtensions,viewAppFiles</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4462,8 +4459,8 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/></row>
-		<row><td>ProductName</td><td>财务-国库对账软件v1.04</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.4000</td><td/></row>
+		<row><td>ProductName</td><td>财务-国库对账软件v1.05</td><td/></row>
+		<row><td>ProductVersion</td><td>1.00.5000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4540,7 +4537,6 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td>product_name1</td><td>2</td></row>
 		<row><td>Shortcut</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>product_name</td><td>2</td></row>
 		<row><td>_Built</td><td>Component4</td><td/><td>product_name1</td><td>2</td></row>
 	</table>
@@ -4628,8 +4624,6 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_CCAD0359EB214E3AB9ADAF4A59A4F948.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>JournalVoucherAudit.WinformsUI.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME8##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>JournalVoucherAudi_DF17B1D73A7243B39E4123DEE6AA2855.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>

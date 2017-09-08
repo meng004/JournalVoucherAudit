@@ -17,13 +17,18 @@ namespace JournalVoucherAudit.Service
         /// <returns></returns>
         public IList<GuoKuItem> Audit(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
         {
-            //按顺序调用审计策略
+            //调用顺序为创建顺序相反，4-3-2-1
+            //1默认策略
             var normal = new NormalAuditForGuoKu();
-            var amountWithCount = new AmountWithCountAuditForGuoKu(normal);
-            var numberWithAmount = new NumberWithAmountAuditForGuoKu(amountWithCount);            
+            //2金额绝对值与金额合计
+            var absAmount=new AbsWithAmountForGuoKu(normal);
+            //3凭证号与总金额匹配
+            var numberWithAmount = new NumberWithAmountAuditForGuoKu(absAmount);
+            //4金额与记录数匹配
+            var amountWithCount = new AmountWithCountAuditForGuoKu(numberWithAmount);
             
             //执行审计
-            var result = numberWithAmount.Filter(caiWus, guoKus);
+            var result = amountWithCount.Filter(caiWus, guoKus);
             //转换为可排序列表
             var sort = new SortableBindingList<GuoKuItem>(result.Item2);
             return sort;

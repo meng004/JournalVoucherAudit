@@ -67,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbsAmountGroupItem.cs" />
+    <Compile Include="AbsWithAmountForCaiWu.cs" />
+    <Compile Include="AbsWithAmountForGuoKu.cs" />
     <Compile Include="AmountWithCountAuditForGuoKu.cs" />
     <Compile Include="AmountWithCountAuditForCaiWu.cs" />
     <Compile Include="AmountGroupItem.cs" />

@@ -31,7 +31,8 @@ namespace JournalVoucherAudit.Utility
         /// <returns></returns>
         public bool IsEqual(double doubleX, double doubleY)
         {
-            return Math.Abs(doubleX - doubleY) - double.Epsilon < _threshold;
+            //return Math.Abs(doubleX - doubleY) - double.Epsilon < _threshold;
+            return Math.Abs(doubleX - doubleY) < _threshold;
         }
     }
 }
