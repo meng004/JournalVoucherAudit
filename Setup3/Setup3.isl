@@ -342,6 +342,7 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>Component3</td><td>{CF83CC24-6A91-4CEA-B8C3-8E34935EE3C7}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Component4</td><td>{CFE6975E-EADD-449A-8D67-EE5112363585}</td><td>INSTALLDIR</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td>{48E82472-D0C9-4A5C-B1EB-1AB36355C356}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{30A8E1DD-DCA6-4C7A-8850-793FE398D7B7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1053,6 +1054,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>Component3</td></row>
 		<row><td>INSTALLDIR</td><td>Component4</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
@@ -1873,6 +1875,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>Component3</td></row>
 		<row><td>AlwaysInstall</td><td>Component4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
 	</table>
 
@@ -2034,6 +2037,7 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>Component3</td><td/><td/><td>_B2EE230A_FBF2_453D_BD7A_A0CCA0D06531_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Component4</td><td/><td/><td>_0BD2107B_1196_43BB_AD2A_5AFEE73502D3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_234A7B05_73B1_4FFF_AC28_5D1EBA49EE89_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_E52AD1F0_FBF5_4A01_97B9_A343EFE4BD8F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2627,7 +2631,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>-870031209</td></row>
+		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1151669207</td></row>
 		<row><td>DN_AlwaysInstall</td><td>2052</td><td>始终安装</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>2052</td><td>系统颜色设置不足以运行 [ProductName]。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352966325</td></row>
@@ -3464,7 +3468,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>1033</td><td/><td>0</td><td/><td>-735795040</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>2052</td><td>财务-国库对账软件v1.04</td><td>0</td><td/><td>-735811392</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>1033</td><td/><td>0</td><td/><td>-735786848</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735786848</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>1151722839</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>2052</td><td>从以下服务器列表中选择要连接的数据库服务器。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>2052</td><td>从以下的编录名称列表中，选择您希望将其作为目标的数据库编录。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>2052</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1352960117</td></row>
@@ -3753,7 +3757,7 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>2052</td><td>对于运行 [ProductName] 处理器不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>2052</td><td>对于运行 [ProductName] 内存量不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>2052</td><td>对于运行 [ProductName] 屏幕分辨率不足。</td><td>0</td><td/><td>1352960117</td></row>
-		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>-870031209</td></row>
+		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>1151669207</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING10</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td/><td>0</td><td/><td>-870019306</td></row>
@@ -3768,7 +3772,7 @@
 		<row><td>ID_STRING15</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735833920</td></row>
 		<row><td>ID_STRING16</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
 		<row><td>ID_STRING16</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
-		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>-870031209</td></row>
+		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1151669207</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3905,6 +3909,7 @@
 		<row><td>_038E2D3163BF44358A3344011710E852.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_0666218D3C934CC6A16C127BA85CFEB2.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_08319B6AB289444CB79FAFF8E584AAC3.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_0CB41D9B00EC4B96BE7965EB882829E7.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_0D6B5EC6795B4A199E8CF577AEC36834.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_14A31237ABFD46CFAD2B886BBC877226.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_14F43652BE49449A96B0BADC4F35B73F.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3916,6 +3921,7 @@
 		<row><td>_385740049FFE454B89DAA762EBABF679.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_3C76FE845E6B48A58F0EC39DFCD96001.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_3CC9FC5C30B84AD19946FCAFEBB391C6.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_3D38D9C6750E471FA8990CCFEF73E4D5.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_3DC2187E12B4431091C14EB8BC944B53.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_40EEAD07EEE546E88FF7EFF3C2173D83.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_4226186F93E942608C559A7445CDF497.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3923,6 +3929,7 @@
 		<row><td>_4782A7BBF7BE4BF9A7FC9CAEB0A5A5EF.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_47A0F1946C634581A056AE1F51AE8EE5.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_493EDA97049B44328CFE1991056F6EE7.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_4BC83819488E43B9A4DC1BBAE959F303.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_50061E41914B46C6BEED04E70B25361E.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_65670BED65244CB19C970F9A5DBFBDA3.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_6BBA5731FDE249E3825CEB709754E236.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3933,6 +3940,7 @@
 		<row><td>_84D8A3A179354FD88A9223BCBB768A45.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_87F2846E817C4D358447DFE0ACB1D6CB.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_90137275BA06488381E3E75947049CF0.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_9960C4063616474A826033E7E6E18601.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_9C3A0F3B47944096AEB0D7FE9D824470.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B299E6EF4B4245B282E5298EE23841F7.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B3388978B8C84FEE8648284338CF23D8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -3945,6 +3953,8 @@
 		<row><td>_D86FA048FF7E409E822E70EE35F4C77F.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_DAA972BE360C4550981CF242A28370D2.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_DD54F82EBC264FBD90C9E1385BB503E9.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_E52A85BCC6BC445BAAF6DF2FE66C09B2.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_F0710112A6CE4D918AE8F4EB5A5E7FF2.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_F4442EBAD5C1414A91718BCCD0B279CE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_F8B892770D694E0F86472A6F62A20CBD.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_F9B91A29DC9449C8A223B1A532630358.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
