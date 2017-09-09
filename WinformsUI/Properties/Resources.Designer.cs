@@ -61,6 +61,15 @@ namespace JournalVoucherAudit.WinformsUI.Properties {
         }
         
         /// <summary>
+        ///   查找类似 请检查数据文件 的本地化字符串。
+        /// </summary>
+        internal static string ErrorMessage {
+            get {
+                return ResourceManager.GetString("ErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Excel 2003文件|*.xls|Excel 2007文件|*.xlsx 的本地化字符串。
         /// </summary>
         internal static string FileFilter {

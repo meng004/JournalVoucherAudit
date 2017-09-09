@@ -59,7 +59,10 @@ namespace JournalVoucherAudit.WinformsUI
             get
             {
                 //检查文件路径
-                if (string.IsNullOrWhiteSpace(txt_CaiWuFilePath.Text)) return null;
+                if (string.IsNullOrWhiteSpace(txt_CaiWuFilePath.Text))
+                {
+                    return new List<CaiWuItem>();
+                }
                 //读取excel，封装为对象列表
                 var excelImportCaiWu = new Import(txt_CaiWuFilePath.Text, 4);
                 var items = excelImportCaiWu.ReadCaiWu<CaiWuItem>();
@@ -78,7 +81,10 @@ namespace JournalVoucherAudit.WinformsUI
             get
             {
                 //检查文件路径
-                if (string.IsNullOrWhiteSpace(txt_GuoKuFilePath.Text)) return null;
+                if (string.IsNullOrWhiteSpace(txt_GuoKuFilePath.Text))
+                {
+                    return new List<GuoKuItem>();
+                }
                 //读取excel，封装为对象列表
                 var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, 1);
                 var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>();
@@ -174,6 +180,13 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Audit_Click(object sender, EventArgs e)
         {
+            //检查数据文件
+            if (!CaiWuData.Any() || !GuoKuData.Any())
+            {
+                lbl_Message.Text = Resources.ErrorMessage;
+                return;
+            }
+
             //重置消息
             lbl_Message.Text = string.Empty;
 
@@ -206,9 +219,16 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
+
             //取出不符合要求的数据
             var caiWus = dgv_CaiWu.DataSource as IEnumerable<CaiWuItem>;
             var guoKus = dgv_GuoKu.DataSource as IEnumerable<GuoKuItem>;
+            //检查数据源
+            if (caiWus == null || guoKus == null)
+            {
+                lbl_Message.Text = Resources.ErrorMessage;
+                return;
+            }
             //合并两个集合为一个集合，便于报表处理
             var table = new TiaoJieTable(caiWus, guoKus);
             //计算发生额累计
