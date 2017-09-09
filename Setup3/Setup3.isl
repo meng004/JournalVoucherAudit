@@ -3906,6 +3906,7 @@
 		<row><td>JournalVoucherAudi_DF17B1D73A7243B39E4123DEE6AA2855.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_FCEA6E3B5444488F9240335A4BDB0B50.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 		<row><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>_00E93DF715224D3FAC5FCE4FB794EB88.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_038E2D3163BF44358A3344011710E852.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_0666218D3C934CC6A16C127BA85CFEB2.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_08319B6AB289444CB79FAFF8E584AAC3.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -4093,7 +4094,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{EF418B4C-74B3-47B1-BD92-56B4719151F0}</td></row>
 		<row><td>ISUSSignature</td><td>{30AE3239-003B-416E-8CEC-32D1A8F1744C}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages,viewObjects,viewFileExtensions,viewAppFiles</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpdateService,viewISToday,viewShortcuts,viewUI,viewRelease,viewSystemSearch,viewCustomActions,viewTextMessages,viewObjects,viewFileExtensions,viewAppFiles,viewUpgradePaths</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4151,7 +4152,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 	<table name="LaunchCondition">
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
-		<row><td>(Not Version9X) And (Not ((VersionNT&gt;=400 And VersionNT&lt;=500) Or (VersionNT&gt;=502 And VersionNT&lt;=600) Or (VersionNT=601 And MsiNTProductType&gt;1) Or (VersionNT&gt;=602 And VersionNT&lt;=603)))</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_OS##</td></row>
 		<row><td>DOTNETVERSION40FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL##</td></row>
 	</table>
 
