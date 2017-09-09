@@ -1159,6 +1159,7 @@
 		<row><td>MY_PRODUCT_NAME</td><td>DIRECTORY</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME1</td><td>DIRECTORY1</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
+		<row><td>NEW_FOLDER_1</td><td>TARGETDIR</td><td>NEW_FOLDER_1</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
@@ -1181,7 +1182,6 @@
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>company_name</td><td>ProgramMenuFolder</td><td>南华大~1|南华大学-李萌</td><td/><td>1</td><td/></row>
 		<row><td>product_name</td><td>company_name</td><td>财务-~1|财务-国库对账软件</td><td/><td>1</td><td/></row>
-		<row><td>product_name1</td><td>company_name</td><td>财务-~1.04|财务-国库对账软件v1.04</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -2631,7 +2631,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1151669207</td></row>
+		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1285915274</td></row>
 		<row><td>DN_AlwaysInstall</td><td>2052</td><td>始终安装</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>2052</td><td>系统颜色设置不足以运行 [ProductName]。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352966325</td></row>
@@ -3757,7 +3757,7 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>2052</td><td>对于运行 [ProductName] 处理器不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>2052</td><td>对于运行 [ProductName] 内存量不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>2052</td><td>对于运行 [ProductName] 屏幕分辨率不足。</td><td>0</td><td/><td>1352960117</td></row>
-		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>1151669207</td></row>
+		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>1285915274</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING10</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td/><td>0</td><td/><td>-870019306</td></row>
@@ -3772,7 +3772,7 @@
 		<row><td>ID_STRING15</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735833920</td></row>
 		<row><td>ID_STRING16</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
 		<row><td>ID_STRING16</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
-		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1151669207</td></row>
+		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1285915274</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3946,6 +3946,7 @@
 		<row><td>_B3388978B8C84FEE8648284338CF23D8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B36DEA03B7554EDB86DEA29BD2ACFCBE.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B3B647849D1E4911818E3CB25C325263.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_B3F67571E8C346F2BC7272B38BAAB84E.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_B4E797812C2D497A8610D156CA2B25B8.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_BE577D18B87B469CA7A6F54F7EC225EE.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_C69DEF7AE3A04FEE859925776B476437.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -4548,7 +4549,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
 		<row><td>Shortcut</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>product_name</td><td>2</td></row>
-		<row><td>_Built</td><td>Component4</td><td/><td>product_name1</td><td>2</td></row>
+		<row><td>_Built</td><td>Component4</td><td/><td>product_name</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4635,7 +4636,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
