@@ -8,11 +8,10 @@ namespace JournalVoucherAudit.Service
 {
     public abstract class CaiWuAuditBase : AuditBase<CaiWuItem>
     {
-        private AuditBase<CaiWuItem> _PreAudit;
-
+       
         public CaiWuAuditBase(AuditBase<CaiWuItem> preAudit)
         {
-            _PreAudit = preAudit;
+            PreAudit = preAudit;
         }
 
         /// <summary>
@@ -23,7 +22,7 @@ namespace JournalVoucherAudit.Service
         public override Tuple<IList<CaiWuItem>, IList<GuoKuItem>> Filter(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
         {
             //取前一个审计结果
-            var preResult = _PreAudit.Filter(caiWus, guoKus);
+            var preResult = PreAudit.Filter(caiWus, guoKus);
             var preCaiWus = preResult.Item1;
             var preGuoKus = preResult.Item2;
 

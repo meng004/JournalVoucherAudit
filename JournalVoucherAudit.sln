@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{ED24B034-DFC3-4347-96B7-40224B7BBF6A}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsUI", "WinformsUI\WinformsUI.csproj", "{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}"
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup3", "Setup3\Setup3.isproj", "{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +122,11 @@ Global
 		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.Release|Any CPU.Build.0 = SingleImage
 		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.SingleImage|Any CPU.ActiveCfg = SingleImage
 		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.SingleImage|Any CPU.Build.0 = SingleImage
+		{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}.CD_ROM|Any CPU.ActiveCfg = Release
+		{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}.Debug|Any CPU.ActiveCfg = Debug
+		{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}.DVD-5|Any CPU.ActiveCfg = Debug
+		{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}.Release|Any CPU.ActiveCfg = Release
+		{D5A256C5-8040-4FBD-B8C2-89C67ADA36CA}.SingleImage|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

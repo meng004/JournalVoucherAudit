@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>##ID_STRING5##</title>
-		<subject>-v1.05</subject>
+		<subject>##ID_STRING17##</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>##ID_STRING6##</comments>
@@ -1143,7 +1143,7 @@
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY</td><td>ProgramFilesFolder</td><td>微软中国</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY.04</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.04</td><td/><td>0</td><td/></row>
-		<row><td>DIRECTORY.05</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.05</td><td/><td>0</td><td/></row>
+		<row><td>DIRECTORY.05</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY1</td><td>ProgramFilesFolder</td><td>南华大学-李萌</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY2</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
@@ -3467,8 +3467,6 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME7</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735811424</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>1033</td><td/><td>0</td><td/><td>-735795040</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>2052</td><td>财务-国库对账软件v1.04</td><td>0</td><td/><td>-735811392</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>1033</td><td/><td>0</td><td/><td>-735786848</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>1151722839</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>2052</td><td>从以下服务器列表中选择要连接的数据库服务器。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>2052</td><td>从以下的编录名称列表中，选择您希望将其作为目标的数据库编录。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>2052</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1352960117</td></row>
@@ -3772,6 +3770,10 @@
 		<row><td>ID_STRING15</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735833920</td></row>
 		<row><td>ID_STRING16</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
 		<row><td>ID_STRING16</td><td>2052</td><td>Launch |Built</td><td>0</td><td/><td>-735807296</td></row>
+		<row><td>ID_STRING17</td><td>1033</td><td>-v1.06</td><td>0</td><td/><td>1554344972</td></row>
+		<row><td>ID_STRING17</td><td>2052</td><td>-v1.06</td><td>0</td><td/><td>1554344972</td></row>
+		<row><td>ID_STRING18</td><td>1033</td><td>NEWSHO~1|NewShortcut2</td><td>0</td><td/><td>1554334892</td></row>
+		<row><td>ID_STRING18</td><td>2052</td><td>财务-~1|财务-国库对账软件</td><td>0</td><td/><td>1554345132</td></row>
 		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1285915274</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3936,6 +3938,7 @@
 		<row><td>_6BBA5731FDE249E3825CEB709754E236.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_6C8364813BED4EC2969A7B4FEFB398AA.ico</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\icon.ico</td><td>0</td></row>
 		<row><td>_6FD499C4AF824F969FF5A697B22E666B.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>_71C59BAB62374900925348F1C5843AE5.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_7308B353E1E0495AA52977D774FDE9D2.ico</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\icon.ico</td><td>0</td></row>
 		<row><td>_799A1FE9246C493992F78A8A65C321CF.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_84D8A3A179354FD88A9223BCBB768A45.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -4470,8 +4473,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/></row>
-		<row><td>ProductName</td><td>财务-国库对账软件v1.05</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.5000</td><td/></row>
+		<row><td>ProductName</td><td>财务-国库对账软件</td><td/></row>
+		<row><td>ProductVersion</td><td>1.00.6000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4548,8 +4551,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
+		<row><td>NewShortcut2</td><td>Component4</td><td/><td>product_name</td><td>2</td></row>
 		<row><td>Shortcut</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>product_name</td><td>2</td></row>
-		<row><td>_Built</td><td>Component4</td><td/><td>product_name</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4635,8 +4638,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut2</td><td>product_name</td><td>##ID_STRING18##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>3</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME9##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
