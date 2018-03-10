@@ -5,6 +5,9 @@ using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service
 {
+    /// <summary>
+    /// 同金额多次支付
+    /// </summary>
     internal class AbsWithAmountForCaiWu : CaiWuAuditBase
     {
         public AbsWithAmountForCaiWu(AuditBase<CaiWuItem> preAudit) : base(preAudit){}

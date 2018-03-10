@@ -17,24 +17,34 @@ namespace JournalVoucherAudit.WinformsUI
         /// 报表标题组
         /// 依次分别为财务title，国库title，sheet名称
         /// </summary>
-        private readonly Dictionary<string, Tuple<string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string>>
+        private readonly Dictionary<string, Tuple<string, string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string, string>>
         {
-            { "财政补助收入", new Tuple<string,string,string>("财政补助收入", "直接支付预算内", "直内") },
-            { "教育事业收入", new Tuple<string,string,string>("教育事业收入", "直接支付预算外", "直外")},
-            { "零余额公共财政预算" , new Tuple<string,string,string>("零余额公共财政预算" , "授权支付预算内", "授权公共")},
-            { "零余额纳入专户管理的非税收入", new Tuple<string,string,string>("零余额纳入专户管理的非税收入", "授权支付预算外", "授权非税" )}
+            { caiZheng, new Tuple<string,string,string,string>(caiZheng, "直接支付预算内", "直内", string.Format(foottext,caiZheng,caiZheng)) },
+            { jiaoYu, new Tuple<string,string,string,string>(jiaoYu, "直接支付预算外", "直外",string.Format(foottext,jiaoYu,jiaoYu))},
+            { gongGong , new Tuple<string,string,string,string>(gongGong , "授权支付预算内", "授权公共", string.Empty)},
+            { zhuanHu, new Tuple<string,string,string,string>(zhuanHu, "授权支付预算外", "授权非税",string.Empty )}
         };
+
+        private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度 =";
+        private static string caiZheng = "财政补助收入";
+        private static string jiaoYu = "教育事业收入";
+        private static string gongGong = "零余额公共财政预算";
+        private static string zhuanHu = "零余额纳入专户管理的非税收入";
+        /// <summary>
+        /// 生效规则
+        /// </summary>
+        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount;
 
         #endregion
 
         #region 帮助方法
         /// <summary>
         /// 当前报表标题
-        /// 次序分别为：财务标题、国库标题、sheet名称
+        /// 次序分别为：财务标题、国库标题、sheet名称、页脚备注
         /// </summary>
-        private Tuple<string, string, string> GetReportTitles(string title)
+        private Tuple<string, string, string, string> GetReportTitles(string title)
         {
-            Tuple<string, string, string> titles;
+            Tuple<string, string, string, string> titles;
             _titleDict.TryGetValue(title, out titles);
             return titles;
         }
@@ -190,26 +200,21 @@ namespace JournalVoucherAudit.WinformsUI
             //重置消息
             lbl_Message.Text = string.Empty;
 
-            ////对账
-            //var audit = new Audit();
-            ////不符合要求的财务数据
-            //var caiWuException = audit.CNotInG(_CaiWuData, _GuoKuData);
-            ////var caiWuException = audit.CaiWuNotInGuoKu(_CaiWuData, _GuoKuData);
-            ////不符合要求的国库数据
-            //var guoKuException = audit.GNotInC(_CaiWuData, _GuoKuData);
-            ////var guoKuException = audit.GuoKuNotInCaiWu(_CaiWuData, _GuoKuData);
-
             //对账
-            var caiWuAudit = new CaiWuAudit();
-            var guoKuAudit = new GuoKuAudit();
+            var caiWuAudit = new CaiWuAudit(_rule);
+            var guoKuAudit = new GuoKuAudit(_rule);
             //取不符合要求的数据
             var caiWuException = caiWuAudit.Audit(CaiWuData, GuoKuData);
             var guoKuException = guoKuAudit.Audit(CaiWuData, GuoKuData);
+            //转换为可排序列表
+            var caiWuSort = new SortableBindingList<CaiWuItem>(caiWuException);
+            //转换为可排序列表
+            var guoKuSort = new SortableBindingList<GuoKuItem>(guoKuException);
             //绑定数据
             //将数据转换为可排序对象
-            dgv_CaiWu.DataSource = caiWuException.OrderBy(t => t.CreditAmount).ToList();
+            dgv_CaiWu.DataSource = caiWuSort.OrderBy(t => t.CreditAmount).ToList();
 
-            dgv_GuoKu.DataSource = guoKuException.OrderBy(t => t.Amount).ToList();
+            dgv_GuoKu.DataSource = guoKuSort.OrderBy(t => t.Amount).ToList();
         }
 
         /// <summary>
@@ -290,5 +295,29 @@ namespace JournalVoucherAudit.WinformsUI
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
         #endregion
+
+        private void chk_AmountWithCount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_AmountWithCount.Checked)
+                _rule = _rule | ActiveRule.AmountWithCount;
+            else
+                _rule = _rule & ~ActiveRule.AmountWithCount;
+        }
+
+        private void chk_NumberWithAmount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_NumberWithAmount.Checked)
+                _rule = _rule | ActiveRule.NumberWithAmount;
+            else
+                _rule = _rule & ~ActiveRule.NumberWithAmount;
+        }
+
+        private void chk_AbsWithAmount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_AbsWithAmount.Checked)
+                _rule = _rule | ActiveRule.AbsWithAmount;
+            else
+                _rule = _rule & ~ActiveRule.AbsWithAmount;
+        }
     }
 }

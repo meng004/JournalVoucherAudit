@@ -1,8 +1,5 @@
 ﻿using JournalVoucherAudit.Domain;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
@@ -13,21 +10,26 @@ namespace JournalVoucherAudit.Service
         /// 审计策略队列
         /// </summary>
         private readonly AuditBase<CaiWuItem> _audit;
-
         /// <summary>
         /// 加载审计策略
         /// </summary>
-        public CaiWuAudit()
+        public CaiWuAudit(ActiveRule rule)
         {
             //调用顺序为创建顺序相反，4-3-2-1
             //1默认策略
             _audit = new NormalAuditForCaiWu();
             //2金额绝对值与金额合计
-            _audit = new AbsWithAmountForCaiWu(_audit);
+            //_audit = new AbsWithAmountForCaiWu(_audit);
+            if ((rule & ActiveRule.AbsWithAmount) != 0)
+                _audit = new AbsWithAmountForCaiWu(_audit);
             //3凭证号与总金额匹配
-            _audit = new NumberWithAmountAuditForCaiWu(_audit);
+            //_audit = new NumberWithAmountAuditForCaiWu(_audit);
+            if ((rule & ActiveRule.NumberWithAmount) != 0)
+                _audit = new NumberWithAmountAuditForCaiWu(_audit);
             //4金额与记录数匹配
-            _audit = new AmountWithCountAuditForCaiWu(_audit);
+           // _audit = new AmountWithCountAuditForCaiWu(_audit);
+            if ((rule & ActiveRule.AmountWithCount) != 0)
+                _audit = new AmountWithCountAuditForCaiWu(_audit);
         }
 
         /// <summary>
@@ -37,9 +39,8 @@ namespace JournalVoucherAudit.Service
         { 
             //执行审计
             var result = _audit.Filter(caiWus, guoKus);
-            //转换为可排序列表
-            var sort = new SortableBindingList<CaiWuItem>(result.Item1);
-            return sort;
+
+            return result.Item1;
         }
     }
 }

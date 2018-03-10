@@ -6,6 +6,9 @@ using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service
 {
+    /// <summary>
+    /// 同金额多次支付
+    /// </summary>
     public class AbsWithAmountForGuoKu : GuoKuAuditBase
     {
         public AbsWithAmountForGuoKu(AuditBase<GuoKuItem> preAudit) : base(preAudit){}

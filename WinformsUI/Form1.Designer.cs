@@ -54,10 +54,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_CaiWu = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.voucherNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voucherDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chk_AmountWithCount = new System.Windows.Forms.CheckBox();
+            this.chk_NumberWithAmount = new System.Windows.Forms.CheckBox();
+            this.chk_AbsWithAmount = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.remarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creditAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voucherDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voucherNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuoKu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zhiJieGongGongBindingSource1)).BeginInit();
@@ -79,9 +83,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(26, 26);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1314, 216);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -101,7 +105,7 @@
             // btn_GuoKuFilePath
             // 
             this.btn_GuoKuFilePath.Location = new System.Drawing.Point(1152, 96);
-            this.btn_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.btn_GuoKuFilePath.Name = "btn_GuoKuFilePath";
             this.btn_GuoKuFilePath.Size = new System.Drawing.Size(150, 46);
             this.btn_GuoKuFilePath.TabIndex = 1;
@@ -112,7 +116,7 @@
             // btn_CaiWuFilePath
             // 
             this.btn_CaiWuFilePath.Location = new System.Drawing.Point(1152, 38);
-            this.btn_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.btn_CaiWuFilePath.Name = "btn_CaiWuFilePath";
             this.btn_CaiWuFilePath.Size = new System.Drawing.Size(150, 46);
             this.btn_CaiWuFilePath.TabIndex = 0;
@@ -125,7 +129,7 @@
             this.txt_GuoKuFilePath.AllowDrop = true;
             this.txt_GuoKuFilePath.BackColor = System.Drawing.SystemColors.Window;
             this.txt_GuoKuFilePath.Location = new System.Drawing.Point(134, 100);
-            this.txt_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.txt_GuoKuFilePath.Name = "txt_GuoKuFilePath";
             this.txt_GuoKuFilePath.ReadOnly = true;
             this.txt_GuoKuFilePath.Size = new System.Drawing.Size(1002, 35);
@@ -139,7 +143,7 @@
             this.txt_CaiWuFilePath.AllowDrop = true;
             this.txt_CaiWuFilePath.BackColor = System.Drawing.SystemColors.Window;
             this.txt_CaiWuFilePath.Location = new System.Drawing.Point(134, 42);
-            this.txt_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.txt_CaiWuFilePath.Name = "txt_CaiWuFilePath";
             this.txt_CaiWuFilePath.ReadOnly = true;
             this.txt_CaiWuFilePath.Size = new System.Drawing.Size(1002, 35);
@@ -190,7 +194,7 @@
             this.dgv_GuoKu.DataSource = this.zhiJieGongGongBindingSource1;
             this.dgv_GuoKu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_GuoKu.Location = new System.Drawing.Point(0, 0);
-            this.dgv_GuoKu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgv_GuoKu.Margin = new System.Windows.Forms.Padding(6);
             this.dgv_GuoKu.Name = "dgv_GuoKu";
             this.dgv_GuoKu.ReadOnly = true;
             this.dgv_GuoKu.RowTemplate.Height = 23;
@@ -248,8 +252,8 @@
             // btn_Audit
             // 
             this.btn_Audit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Audit.Location = new System.Drawing.Point(123, 70);
-            this.btn_Audit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Audit.Location = new System.Drawing.Point(455, 28);
+            this.btn_Audit.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Audit.Name = "btn_Audit";
             this.btn_Audit.Size = new System.Drawing.Size(150, 60);
             this.btn_Audit.TabIndex = 2;
@@ -260,8 +264,8 @@
             // btn_Export
             // 
             this.btn_Export.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_Export.Location = new System.Drawing.Point(467, 70);
-            this.btn_Export.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Export.Location = new System.Drawing.Point(455, 100);
+            this.btn_Export.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(150, 60);
             this.btn_Export.TabIndex = 3;
@@ -274,7 +278,7 @@
             this.lbl_Message.AutoSize = true;
             this.lbl_Message.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_Message.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Message.Location = new System.Drawing.Point(41, 157);
+            this.lbl_Message.Location = new System.Drawing.Point(13, 166);
             this.lbl_Message.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_Message.Name = "lbl_Message";
             this.lbl_Message.Size = new System.Drawing.Size(114, 33);
@@ -283,6 +287,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.chk_AbsWithAmount);
+            this.groupBox3.Controls.Add(this.chk_NumberWithAmount);
+            this.groupBox3.Controls.Add(this.chk_AmountWithCount);
             this.groupBox3.Controls.Add(this.lbl_Message);
             this.groupBox3.Controls.Add(this.btn_Audit);
             this.groupBox3.Controls.Add(this.btn_Export);
@@ -331,23 +339,61 @@
             this.panel2.Size = new System.Drawing.Size(1007, 674);
             this.panel2.TabIndex = 7;
             // 
-            // voucherNumberDataGridViewTextBoxColumn
+            // chk_AmountWithCount
             // 
-            this.voucherNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.voucherNumberDataGridViewTextBoxColumn.DataPropertyName = "VoucherNumber";
-            this.voucherNumberDataGridViewTextBoxColumn.HeaderText = "凭证号";
-            this.voucherNumberDataGridViewTextBoxColumn.Name = "voucherNumberDataGridViewTextBoxColumn";
-            this.voucherNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.voucherNumberDataGridViewTextBoxColumn.Width = 127;
+            this.chk_AmountWithCount.AutoSize = true;
+            this.chk_AmountWithCount.Checked = true;
+            this.chk_AmountWithCount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_AmountWithCount.Location = new System.Drawing.Point(136, 40);
+            this.chk_AmountWithCount.Name = "chk_AmountWithCount";
+            this.chk_AmountWithCount.Size = new System.Drawing.Size(186, 28);
+            this.chk_AmountWithCount.TabIndex = 5;
+            this.chk_AmountWithCount.Text = "金额与记录数";
+            this.chk_AmountWithCount.UseVisualStyleBackColor = true;
+            this.chk_AmountWithCount.CheckedChanged += new System.EventHandler(this.chk_AmountWithCount_CheckedChanged);
             // 
-            // voucherDateDataGridViewTextBoxColumn
+            // chk_NumberWithAmount
             // 
-            this.voucherDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.voucherDateDataGridViewTextBoxColumn.DataPropertyName = "VoucherDate";
-            this.voucherDateDataGridViewTextBoxColumn.HeaderText = "凭证日期";
-            this.voucherDateDataGridViewTextBoxColumn.Name = "voucherDateDataGridViewTextBoxColumn";
-            this.voucherDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.voucherDateDataGridViewTextBoxColumn.Width = 151;
+            this.chk_NumberWithAmount.AutoSize = true;
+            this.chk_NumberWithAmount.Checked = true;
+            this.chk_NumberWithAmount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_NumberWithAmount.Location = new System.Drawing.Point(136, 75);
+            this.chk_NumberWithAmount.Name = "chk_NumberWithAmount";
+            this.chk_NumberWithAmount.Size = new System.Drawing.Size(210, 28);
+            this.chk_NumberWithAmount.TabIndex = 5;
+            this.chk_NumberWithAmount.Text = "同凭证多笔支付";
+            this.chk_NumberWithAmount.UseVisualStyleBackColor = true;
+            this.chk_NumberWithAmount.CheckedChanged += new System.EventHandler(this.chk_NumberWithAmount_CheckedChanged);
+            // 
+            // chk_AbsWithAmount
+            // 
+            this.chk_AbsWithAmount.AutoSize = true;
+            this.chk_AbsWithAmount.Checked = true;
+            this.chk_AbsWithAmount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_AbsWithAmount.Location = new System.Drawing.Point(136, 107);
+            this.chk_AbsWithAmount.Name = "chk_AbsWithAmount";
+            this.chk_AbsWithAmount.Size = new System.Drawing.Size(210, 28);
+            this.chk_AbsWithAmount.TabIndex = 5;
+            this.chk_AbsWithAmount.Text = "同金额多次支付";
+            this.chk_AbsWithAmount.UseVisualStyleBackColor = true;
+            this.chk_AbsWithAmount.CheckedChanged += new System.EventHandler(this.chk_AbsWithAmount_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 24);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "生效规则";
+            // 
+            // remarkDataGridViewTextBoxColumn
+            // 
+            this.remarkDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
+            this.remarkDataGridViewTextBoxColumn.HeaderText = "摘要";
+            this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
+            this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // creditAmountDataGridViewTextBoxColumn
             // 
@@ -358,13 +404,23 @@
             this.creditAmountDataGridViewTextBoxColumn.ReadOnly = true;
             this.creditAmountDataGridViewTextBoxColumn.Width = 151;
             // 
-            // remarkDataGridViewTextBoxColumn
+            // voucherDateDataGridViewTextBoxColumn
             // 
-            this.remarkDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.remarkDataGridViewTextBoxColumn.DataPropertyName = "Remark";
-            this.remarkDataGridViewTextBoxColumn.HeaderText = "摘要";
-            this.remarkDataGridViewTextBoxColumn.Name = "remarkDataGridViewTextBoxColumn";
-            this.remarkDataGridViewTextBoxColumn.ReadOnly = true;
+            this.voucherDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.voucherDateDataGridViewTextBoxColumn.DataPropertyName = "VoucherDate";
+            this.voucherDateDataGridViewTextBoxColumn.HeaderText = "凭证日期";
+            this.voucherDateDataGridViewTextBoxColumn.Name = "voucherDateDataGridViewTextBoxColumn";
+            this.voucherDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.voucherDateDataGridViewTextBoxColumn.Width = 151;
+            // 
+            // voucherNumberDataGridViewTextBoxColumn
+            // 
+            this.voucherNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.voucherNumberDataGridViewTextBoxColumn.DataPropertyName = "VoucherNumber";
+            this.voucherNumberDataGridViewTextBoxColumn.HeaderText = "凭证号";
+            this.voucherNumberDataGridViewTextBoxColumn.Name = "voucherNumberDataGridViewTextBoxColumn";
+            this.voucherNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.voucherNumberDataGridViewTextBoxColumn.Width = 127;
             // 
             // Form1
             // 
@@ -376,7 +432,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "财务-国库对账系统";
             this.groupBox1.ResumeLayout(false);
@@ -419,6 +475,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgv_CaiWu;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox chk_AbsWithAmount;
+        private System.Windows.Forms.CheckBox chk_NumberWithAmount;
+        private System.Windows.Forms.CheckBox chk_AmountWithCount;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn voucherNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voucherDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn creditAmountDataGridViewTextBoxColumn;

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using JournalVoucherAudit.Domain;
+using JournalVoucherAudit.Service;
 
 namespace JournalVoucherAudit.Service
 {
-    /// <summary>
-    /// 同凭证多笔支付
-    /// </summary>
-    public class NumberWithAmountAuditForCaiWu : CaiWuAuditBase
+    public class SingleNumberForCaiWu : CaiWuAuditBase
     {
-        public NumberWithAmountAuditForCaiWu(AuditBase<CaiWuItem> preAudit) : base(preAudit) { }
+        public SingleNumberForCaiWu(AuditBase<CaiWuItem> preAudit) : base(preAudit)
+        {
+        }
 
         internal override IList<CaiWuItem> GetSpecialItems(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
         {
-            //按凭证号与总金额分组
-            var caiWuGroup = caiWus.GroupBy(c => c.GetNumber()).Select(g => new NumberGroupItem { Number = g.Key, Total = g.Sum(i => i.CreditAmount) }).ToList();
-            var guoKuGroup = guoKus.GroupBy(c => c.GetNumber()).Select(g => new NumberGroupItem { Number = g.Key, Total = g.Sum(i => i.Amount) }).ToList();
+            //按凭证号与金额分组
+            var caiWuGroup = caiWus.GroupBy(c => new { Number = c.GetNumber(), Amount = c.CreditAmount }).Select(g => new NumberGroupItem { Number = g.Key.Number, Total = g.Key.Amount }).ToList();
+            var guoKuGroup = guoKus.GroupBy(c => new { Number = c.GetNumber(), Amount = c.Amount }).Select(g => new NumberGroupItem { Number = g.Key.Number, Total = g.Key.Amount }).ToList();
 
             //交集，取凭证号与总金额相同
             var numberAndAmountAreEqual = caiWuGroup.Intersect(guoKuGroup, new NumberGroupItemEqualityComparer()).ToList();
@@ -25,6 +25,5 @@ namespace JournalVoucherAudit.Service
             var result = caiWus.Where(c => numberAndAmountAreEqual.Select(n => n.Number).Contains(c.GetNumber())).ToList();
             return result;
         }
-
     }
 }

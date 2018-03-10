@@ -37,7 +37,7 @@ namespace JournalVoucherAudit.Service
             //var newFilename = Path.Combine(path, sheetName + extension);
             //File.Move(filename, newFilename);
         }
-        
+
 
         /// <summary>
         /// 导出并保存
@@ -47,9 +47,9 @@ namespace JournalVoucherAudit.Service
         /// <param name="caiWuTotal">财务累计</param>
         /// <param name="guoKuTotal">国库累计</param>
         /// <param name="tiaoJieBiao">调节表</param>
-        public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
+        public void Save(string filename, Tuple<string, string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
-            
+
             //创建excel参数容器
             var workbookParameterContainer = new WorkbookParameterContainer();
             workbookParameterContainer.Load(@"Template\Template.xml");
@@ -63,7 +63,7 @@ namespace JournalVoucherAudit.Service
             var voucherDate = tiaoJieItems.First().VoucherDate.ToDateTime();
             //月份的最后一天
             var lastDayOfMonth = voucherDate.LastDayOfMonth();
-            
+
             //输出excel
             ExportHelper.ExportToLocal(@"Template\Template.xls", filename,
                 new SheetFormatter("直内",
@@ -76,6 +76,7 @@ namespace JournalVoucherAudit.Service
                     new CellFormatter(sheetParameterContainer["GuoKuSubTotal"], guoKuSubTotal),
                     new CellFormatter(sheetParameterContainer["CaiWuBalance"], caiWuTotal - caiWuSubTotal),
                     new CellFormatter(sheetParameterContainer["GuoKuBalance"], guoKuTotal - guoKuSubTotal),
+                    new CellFormatter(sheetParameterContainer["FootText"], reportTitles.Item4),
                     new TableFormatter<TiaoJieItem>(sheetParameterContainer["VoucherDate"], tiaoJieItems,
                         new CellFormatter<TiaoJieItem>(sheetParameterContainer["Amount"], t => t.Amount),
                         new CellFormatter<TiaoJieItem>(sheetParameterContainer["CreateDate"], t => t.CreateDate),

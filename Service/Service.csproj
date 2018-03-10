@@ -76,6 +76,7 @@
     <Compile Include="AuditBase.cs" />
     <Compile Include="CaiWuAudit.cs" />
     <Compile Include="CaiWuAuditBase.cs" />
+    <Compile Include="ActiveRule.cs" />
     <Compile Include="GuoKuAudit.cs" />
     <Compile Include="GuoKuAuditBase.cs" />
     <Compile Include="NormalAuditForCaiWu.cs" />

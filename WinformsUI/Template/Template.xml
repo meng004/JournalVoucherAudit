@@ -83,10 +83,11 @@
         <RowIndex>11</RowIndex>
         <ColumnIndex>7</ColumnIndex>
       </Parameter>
+      <Parameter>
+        <Name>FootText</Name>
+        <RowIndex>13</RowIndex>
+        <ColumnIndex>0</ColumnIndex>
+      </Parameter>
     </ParameterList>
-  </SheetParameterContainer>
-  <SheetParameterContainer>
-    <SheetName>Sheet3</SheetName>
-    <ParameterList />
   </SheetParameterContainer>
 </ArrayOfSheetParameterContainer>
