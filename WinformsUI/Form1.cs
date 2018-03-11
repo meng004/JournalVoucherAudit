@@ -190,6 +190,9 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Audit_Click(object sender, EventArgs e)
         {
+            //lbl_Caution.Text = System.AppDomain.CurrentDomain.BaseDirectory + @"Template\Template.xml";
+            //return;
+
             //检查数据文件
             if (!CaiWuData.Any() || !GuoKuData.Any())
             {
@@ -224,7 +227,6 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
-
             //取出不符合要求的数据
             var caiWus = dgv_CaiWu.DataSource as IEnumerable<CaiWuItem>;
             var guoKus = dgv_GuoKu.DataSource as IEnumerable<GuoKuItem>;

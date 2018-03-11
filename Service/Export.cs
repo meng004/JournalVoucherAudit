@@ -11,9 +11,6 @@ namespace JournalVoucherAudit.Service
 {
     public class Export
     {
-
-
-
         /// <summary>
         /// 修改第一个sheet的名称
         /// </summary>
@@ -52,7 +49,13 @@ namespace JournalVoucherAudit.Service
 
             //创建excel参数容器
             var workbookParameterContainer = new WorkbookParameterContainer();
-            workbookParameterContainer.Load(@"Template\Template.xml");
+            var path = System.AppDomain.CurrentDomain.BaseDirectory;
+
+            //var file = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + "log.txt");
+            //file.WriteLine(path);
+            //file.Close();
+
+            workbookParameterContainer.Load(path + @"Template\Template.xml");
             //创建sheet的参数容器
             var sheetParameterContainer = workbookParameterContainer["直内"];
             //计算小计
@@ -65,7 +68,7 @@ namespace JournalVoucherAudit.Service
             var lastDayOfMonth = voucherDate.LastDayOfMonth();
 
             //输出excel
-            ExportHelper.ExportToLocal(@"Template\Template.xls", filename,
+            ExportHelper.ExportToLocal(path + @"Template\Template.xls", filename,
                 new SheetFormatter("直内",
                     new PartFormatter(sheetParameterContainer["CaiWuTitle"], reportTitles.Item1),
                     new PartFormatter(sheetParameterContainer["GuoKuTitle"], reportTitles.Item2),

@@ -341,9 +341,19 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>Component3</td><td>{CF83CC24-6A91-4CEA-B8C3-8E34935EE3C7}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component4</td><td>{CFE6975E-EADD-449A-8D67-EE5112363585}</td><td>INSTALLDIR</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ExcelReport.dll</td><td>{97A404DB-4B4F-45AE-8398-F98AC73BCC3A}</td><td>INSTALLDIR</td><td>2</td><td/><td>excelreport.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ICSharpCode.SharpZipLib.dll</td><td>{152A9035-7FE3-4995-83A0-A74B00B159C8}</td><td>INSTALLDIR</td><td>2</td><td/><td>icsharpcode.sharpziplib.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{48E82472-D0C9-4A5C-B1EB-1AB36355C356}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td>{30A8E1DD-DCA6-4C7A-8850-793FE398D7B7}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>JournalVoucherAudit.Domain.dll</td><td>{EB08A761-256F-4F5D-B9EC-4495CFF5899C}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.domain.d</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>JournalVoucherAudit.Service.dll</td><td>{EBC55918-FC58-4585-8A18-26906D34037A}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.service.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>JournalVoucherAudit.Utility.dll</td><td>{DAEC804F-9E94-4478-923D-77C15B082BCD}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.utility.</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td>{BA503090-F06C-42CF-B351-172CB32F700C}</td><td>INSTALLDIR</td><td>2</td><td/><td>journalvoucheraudit.winforms</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NPOI.Extend.dll</td><td>{AE184570-80CA-497F-9128-0AE5872C6EE7}</td><td>INSTALLDIR</td><td>2</td><td/><td>npoi.extend.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NPOI.OOXML.dll</td><td>{DA27C38E-5D0D-44AB-83FC-424843EEF4EF}</td><td>INSTALLDIR</td><td>2</td><td/><td>npoi.ooxml.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NPOI.OpenXml4Net.dll</td><td>{8ECEFBCA-A22E-4CE8-ADC2-CEA2FFE06EC3}</td><td>INSTALLDIR</td><td>2</td><td/><td>npoi.openxml4net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NPOI.OpenXmlFormats.dll</td><td>{9C66E1F3-076D-4462-A962-C4992BFF3D2E}</td><td>INSTALLDIR</td><td>2</td><td/><td>npoi.openxmlformats.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NPOI.dll</td><td>{DAB4ECF3-50AD-4FF9-8909-50B55413ED19}</td><td>INSTALLDIR</td><td>2</td><td/><td>npoi.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1053,9 +1063,19 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>Component3</td></row>
-		<row><td>INSTALLDIR</td><td>Component4</td></row>
+		<row><td>INSTALLDIR</td><td>ExcelReport.dll</td></row>
+		<row><td>INSTALLDIR</td><td>ICSharpCode.SharpZipLib.dll</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>IS_ININSTALL_SHORTCUT</td></row>
+		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.Domain.dll</td></row>
+		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.Service.dll</td></row>
+		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.Utility.dll</td></row>
+		<row><td>INSTALLDIR</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
+		<row><td>INSTALLDIR</td><td>NPOI.Extend.dll</td></row>
+		<row><td>INSTALLDIR</td><td>NPOI.OOXML.dll</td></row>
+		<row><td>INSTALLDIR</td><td>NPOI.OpenXml4Net.dll</td></row>
+		<row><td>INSTALLDIR</td><td>NPOI.OpenXmlFormats.dll</td></row>
+		<row><td>INSTALLDIR</td><td>NPOI.dll</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1142,10 +1162,7 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DIRECTORY</td><td>ProgramFilesFolder</td><td>微软中国</td><td/><td>0</td><td/></row>
-		<row><td>DIRECTORY.04</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件v1.04</td><td/><td>0</td><td/></row>
-		<row><td>DIRECTORY.05</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
-		<row><td>DIRECTORY1</td><td>ProgramFilesFolder</td><td>南华大学-李萌</td><td/><td>0</td><td/></row>
-		<row><td>DIRECTORY2</td><td>DIRECTORY1</td><td>财务-国库对~1|财务-国库对账软件</td><td/><td>0</td><td/></row>
+		<row><td>DIRECTORY.05</td><td>USC_LIMENG</td><td>JOURNA~1|JournalVoucherAudit</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
@@ -1157,7 +1174,7 @@
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME</td><td>DIRECTORY</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
-		<row><td>MY_PRODUCT_NAME1</td><td>DIRECTORY1</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
+		<row><td>MY_PRODUCT_NAME1</td><td>USC_LIMENG</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NEW_FOLDER_1</td><td>TARGETDIR</td><td>NEW_FOLDER_1</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
@@ -1177,6 +1194,7 @@
 		<row><td>TARGETDIR</td><td/><td>SourceDir</td><td/><td>0</td><td/></row>
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
 		<row><td>TemplateFolder</td><td>TARGETDIR</td><td>.:ShellNew</td><td/><td>0</td><td/></row>
+		<row><td>USC_LIMENG</td><td>ProgramFilesFolder</td><td>USC-LI~1|Usc-limeng</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
@@ -1874,9 +1892,19 @@
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>Component3</td></row>
-		<row><td>AlwaysInstall</td><td>Component4</td></row>
+		<row><td>AlwaysInstall</td><td>ExcelReport.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ICSharpCode.SharpZipLib.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>IS_ININSTALL_SHORTCUT</td></row>
+		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.Domain.dll</td></row>
+		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.Service.dll</td></row>
+		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.Utility.dll</td></row>
+		<row><td>AlwaysInstall</td><td>JournalVoucherAudit.WinformsUI.exe</td></row>
+		<row><td>AlwaysInstall</td><td>NPOI.Extend.dll</td></row>
+		<row><td>AlwaysInstall</td><td>NPOI.OOXML.dll</td></row>
+		<row><td>AlwaysInstall</td><td>NPOI.OpenXml4Net.dll</td></row>
+		<row><td>AlwaysInstall</td><td>NPOI.OpenXmlFormats.dll</td></row>
+		<row><td>AlwaysInstall</td><td>NPOI.dll</td></row>
 	</table>
 
 	<table name="File">
@@ -1892,7 +1920,17 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>File3</td><td>Component3</td><td>WinformsUI.内容文件</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|ContentFiles</td><td>3</td><td/></row>
-		<row><td>File4</td><td>Component4</td><td>WinformsUI.主输出</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;WinformsUI&gt;|Built</td><td>3</td><td/></row>
+		<row><td>excelreport.dll</td><td>ExcelReport.dll</td><td>EXCELR~1.DLL|ExcelReport.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\ExcelReport.dll</td><td>1</td><td/></row>
+		<row><td>icsharpcode.sharpziplib.dll</td><td>ICSharpCode.SharpZipLib.dll</td><td>ICSHAR~1.DLL|ICSharpCode.SharpZipLib.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\ICSharpCode.SharpZipLib.dll</td><td>1</td><td/></row>
+		<row><td>journalvoucheraudit.domain.d</td><td>JournalVoucherAudit.Domain.dll</td><td>JOURNA~1.DLL|JournalVoucherAudit.Domain.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.Domain.dll</td><td>1</td><td/></row>
+		<row><td>journalvoucheraudit.service.</td><td>JournalVoucherAudit.Service.dll</td><td>JOURNA~1.DLL|JournalVoucherAudit.Service.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.Service.dll</td><td>1</td><td/></row>
+		<row><td>journalvoucheraudit.utility.</td><td>JournalVoucherAudit.Utility.dll</td><td>JOURNA~1.DLL|JournalVoucherAudit.Utility.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.Utility.dll</td><td>1</td><td/></row>
+		<row><td>journalvoucheraudit.winforms</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>JOURNA~1.EXE|JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>1</td><td/></row>
+		<row><td>npoi.dll</td><td>NPOI.dll</td><td>NPOI.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\NPOI.dll</td><td>1</td><td/></row>
+		<row><td>npoi.extend.dll</td><td>NPOI.Extend.dll</td><td>NPOIEX~1.DLL|NPOI.Extend.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\NPOI.Extend.dll</td><td>1</td><td/></row>
+		<row><td>npoi.ooxml.dll</td><td>NPOI.OOXML.dll</td><td>NPOIOO~1.DLL|NPOI.OOXML.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\NPOI.OOXML.dll</td><td>1</td><td/></row>
+		<row><td>npoi.openxml4net.dll</td><td>NPOI.OpenXml4Net.dll</td><td>NPOIOP~1.DLL|NPOI.OpenXml4Net.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\NPOI.OpenXml4Net.dll</td><td>1</td><td/></row>
+		<row><td>npoi.openxmlformats.dll</td><td>NPOI.OpenXmlFormats.dll</td><td>NPOIOP~1.DLL|NPOI.OpenXmlFormats.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\NPOI.OpenXmlFormats.dll</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2036,9 +2074,19 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>Component3</td><td/><td/><td>_B2EE230A_FBF2_453D_BD7A_A0CCA0D06531_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component4</td><td/><td/><td>_0BD2107B_1196_43BB_AD2A_5AFEE73502D3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ExcelReport.dll</td><td/><td/><td>_B0E218E2_9BE2_4A84_A7B1_56F49C776E4B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ICSharpCode.SharpZipLib.dll</td><td/><td/><td>_37C32538_2AA3_4922_9609_DBFA7AAE745D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_234A7B05_73B1_4FFF_AC28_5D1EBA49EE89_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>IS_ININSTALL_SHORTCUT</td><td/><td/><td>_E52AD1F0_FBF5_4A01_97B9_A343EFE4BD8F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.Domain.dll</td><td/><td/><td>_435072B9_CAFF_43CF_98D0_3A4595ECC26D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.Service.dll</td><td/><td/><td>_27B78AD2_79E8_411E_9AB9_0EC2726E86A5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.Utility.dll</td><td/><td/><td>_47D6F582_C640_4A46_86FC_4704E5511801_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td/><td>_A860BF75_8441_4873_9B5C_D2058BCAA37A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NPOI.Extend.dll</td><td/><td/><td>_8402128B_3370_45EC_B2A0_8EC1846AFDE3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NPOI.OOXML.dll</td><td/><td/><td>_707C02A4_8F83_468B_A56C_7A3DDA7FA2BB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NPOI.OpenXml4Net.dll</td><td/><td/><td>_75CFF505_82B8_4165_9480_32BE1B006C9D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NPOI.OpenXmlFormats.dll</td><td/><td/><td>_597206FB_4B43_4550_B277_CB54235A28A1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NPOI.dll</td><td/><td/><td>_4810BCFF_31C9_4BC8_9824_BEC857C1C02E_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2631,7 +2679,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1285915274</td></row>
+		<row><td>COMPANY_NAME</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1504109684</td></row>
 		<row><td>DN_AlwaysInstall</td><td>2052</td><td>始终安装</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>2052</td><td>系统颜色设置不足以运行 [ProductName]。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40FULL</td><td>1033</td><td>Microsoft .NET Framework 4.0 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>1352966325</td></row>
@@ -3467,6 +3515,8 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME7</td><td>2052</td><td>LAUNCH~1.EXE|Launch JournalVoucherAudit.WinformsUI.exe</td><td>0</td><td/><td>-735811424</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>1033</td><td/><td>0</td><td/><td>-735795040</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME8</td><td>2052</td><td>财务-国库对账软件v1.04</td><td>0</td><td/><td>-735811392</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>1033</td><td/><td>0</td><td/><td>1504107668</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME9</td><td>2052</td><td>启动对账软件</td><td>0</td><td/><td>1504058548</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>2052</td><td>从以下服务器列表中选择要连接的数据库服务器。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>2052</td><td>从以下的编录名称列表中，选择您希望将其作为目标的数据库编录。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>2052</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1352960117</td></row>
@@ -3755,7 +3805,7 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>2052</td><td>对于运行 [ProductName] 处理器不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>2052</td><td>对于运行 [ProductName] 内存量不足。</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>2052</td><td>对于运行 [ProductName] 屏幕分辨率不足。</td><td>0</td><td/><td>1352960117</td></row>
-		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>1285915274</td></row>
+		<row><td>ID_STRING1</td><td>2052</td><td>http://www.南华大学-李萌.com</td><td>0</td><td/><td>1504109684</td></row>
 		<row><td>ID_STRING10</td><td>1033</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING10</td><td>2052</td><td>财务-国库对账软件</td><td>0</td><td/><td>-1062936362</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td/><td>0</td><td/><td>-870019306</td></row>
@@ -3774,7 +3824,13 @@
 		<row><td>ID_STRING17</td><td>2052</td><td>-v1.06</td><td>0</td><td/><td>1554344972</td></row>
 		<row><td>ID_STRING18</td><td>1033</td><td>NEWSHO~1|NewShortcut2</td><td>0</td><td/><td>1554334892</td></row>
 		<row><td>ID_STRING18</td><td>2052</td><td>财务-~1|财务-国库对账软件</td><td>0</td><td/><td>1554345132</td></row>
-		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1285915274</td></row>
+		<row><td>ID_STRING19</td><td>1033</td><td>启动对账软件</td><td>0</td><td/><td>1504072884</td></row>
+		<row><td>ID_STRING19</td><td>2052</td><td>启动对账软件</td><td>0</td><td/><td>1504072884</td></row>
+		<row><td>ID_STRING2</td><td>2052</td><td>南华大学-李萌</td><td>0</td><td/><td>1504109684</td></row>
+		<row><td>ID_STRING20</td><td>1033</td><td>NEWSHO~1|NewShortcut1</td><td>0</td><td/><td>1504112436</td></row>
+		<row><td>ID_STRING20</td><td>2052</td><td>启动对~1|启动 对账软件</td><td>0</td><td/><td>1504063316</td></row>
+		<row><td>ID_STRING21</td><td>1033</td><td>启动对~1|启动 对账软件</td><td>0</td><td/><td>1504057204</td></row>
+		<row><td>ID_STRING21</td><td>2052</td><td>启动对~1|启动 对账软件</td><td>0</td><td/><td>1504057204</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>13974790025</td><td>0</td><td/><td>1352960117</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>Email:mlemon@usc.edu.cn</td><td>0</td><td/><td>1352947861</td></row>
@@ -3907,7 +3963,9 @@
 		<row><td>JournalVoucherAudi_CCAD0359EB214E3AB9ADAF4A59A4F948.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_DF17B1D73A7243B39E4123DEE6AA2855.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>JournalVoucherAudi_FCEA6E3B5444488F9240335A4BDB0B50.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
-		<row><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>NewShortcut11_8696495423C74E4BB60257C2AED5DD06.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_D3BBC158A49E4CCBAA791D5A3E35A66A.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Release\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
+		<row><td>Shortcut_02A30E13BA994190BB3182F1F095B58B.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2015LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
 		<row><td>_00E93DF715224D3FAC5FCE4FB794EB88.exe</td><td/><td>D:\Code\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_038E2D3163BF44358A3344011710E852.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
 		<row><td>_0666218D3C934CC6A16C127BA85CFEB2.exe</td><td/><td>D:\Codes\JournalVoucherAudit\WinformsUI\bin\Debug\JournalVoucherAudit.WinformsUI.exe</td><td>0</td></row>
@@ -4444,7 +4502,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>IS_SQLSERVER_SERVER</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
-		<row><td>LAUNCHPROGRAM</td><td>1</td><td/></row>
 		<row><td>LAUNCHREADME</td><td>1</td><td/></row>
 		<row><td>Manufacturer</td><td>##COMPANY_NAME##</td><td/></row>
 		<row><td>PIDKEY</td><td/><td/></row>
@@ -4474,7 +4531,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/></row>
 		<row><td>ProductName</td><td>财务-国库对账软件</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.6000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.00.7000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4486,7 +4543,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
-		<row><td>SHOWLAUNCHPROGRAM</td><td>-1</td><td/></row>
+		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
@@ -4551,7 +4608,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>NewShortcut2</td><td>Component4</td><td/><td>product_name</td><td>2</td></row>
+		<row><td>NewShortcut1</td><td>JournalVoucherAudit.WinformsUI.exe</td><td/><td>product_name</td><td>2</td></row>
 		<row><td>Shortcut</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>product_name</td><td>2</td></row>
 	</table>
 
@@ -4638,8 +4695,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut2</td><td>product_name</td><td>##ID_STRING18##</td><td>Component4</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>3</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_0B45A45FC5654485BB2F2F3833A91CEC.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut1</td><td>product_name</td><td>##ID_STRING20##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>[INSTALLDIR]JournalVoucherAudit.WinformsUI.exe</td><td/><td/><td/><td>NewShortcut1_D3BBC158A49E4CCBAA791D5A3E35A66A.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut11</td><td>DesktopFolder</td><td>##ID_STRING20##</td><td>JournalVoucherAudit.WinformsUI.exe</td><td>[INSTALLDIR]JournalVoucherAudit.WinformsUI.exe</td><td/><td/><td/><td>NewShortcut11_8696495423C74E4BB60257C2AED5DD06.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>Shortcut</td><td>product_name</td><td>UNINST|Uninstall 财务-国库对账软件</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {169627F6-8B20-4DED-AB87-0A97F5B3552C}</td><td/><td/><td>Shortcut_02A30E13BA994190BB3182F1F095B58B.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
