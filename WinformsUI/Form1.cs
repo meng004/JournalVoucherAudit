@@ -33,7 +33,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <summary>
         /// 生效规则
         /// </summary>
-        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount;
+        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount | ActiveRule.NumberWithSingleRecord;
 
         #endregion
 
@@ -104,6 +104,8 @@ namespace JournalVoucherAudit.WinformsUI
 
         #endregion
 
+        #region 初始化
+
         public Form1()
         {
             InitializeComponent();
@@ -111,7 +113,7 @@ namespace JournalVoucherAudit.WinformsUI
             dgv_GuoKu.RowPostPaint += dgv_GuoKu_RowPostPaint;
         }
 
-        #region 事件处理
+        #endregion
 
         #region 财务文件路径
         /// <summary>
@@ -151,8 +153,7 @@ namespace JournalVoucherAudit.WinformsUI
         }
 
         #endregion
-
-
+        
         #region 国库文件路径
         /// <summary>
         /// 选择国库excel文件
@@ -181,7 +182,8 @@ namespace JournalVoucherAudit.WinformsUI
             txt_GuoKuFilePath.Text = path;
         }
         #endregion
-
+        
+        #region 对账与导出
 
         /// <summary>
         /// 对账
@@ -247,7 +249,7 @@ namespace JournalVoucherAudit.WinformsUI
             var voucherDate = table.Data.First().VoucherDate.ToDateTime();
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
-            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter, FileName = filename };
+            SaveFileDialog saveFileDlg = new SaveFileDialog {Filter = Resources.FileFilter, FileName = filename};
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {
@@ -298,6 +300,8 @@ namespace JournalVoucherAudit.WinformsUI
         }
         #endregion
 
+        #region 生效规则
+
         private void chk_AmountWithCount_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_AmountWithCount.Checked)
@@ -321,5 +325,16 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.AbsWithAmount;
         }
+
+        private void chk_NumberWithSingleRecord_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_NumberWithSingleRecord.Checked)
+                _rule = _rule | ActiveRule.NumberWithSingleRecord;
+            else
+                _rule = _rule & ~ActiveRule.NumberWithSingleRecord;
+        }
+
+        #endregion
+
     }
 }
