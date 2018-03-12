@@ -1,5 +1,4 @@
 ﻿using JournalVoucherAudit.Domain;
-using JournalVoucherAudit.Utility;
 using System.Collections.Generic;
 
 namespace JournalVoucherAudit.Service
@@ -16,20 +15,21 @@ namespace JournalVoucherAudit.Service
         /// </summary>
         public GuoKuAudit(ActiveRule rule)
         {
-            
             //调用顺序为创建顺序相反，4-3-2-1
             //1默认策略
             _audit = new NormalAuditForGuoKu();
             //2金额绝对值与金额合计，同金额多次支付
-            //_audit = new AbsWithAmountForGuoKu(_audit);
-            if((rule & ActiveRule.AbsWithAmount)!=0)
+            if ((rule & ActiveRule.AbsWithAmount) != 0)
                 _audit = new AbsWithAmountForGuoKu(_audit);
             //3凭证号与总金额匹配，同凭证多笔支付
-            //_audit = new NumberWithAmountAuditForGuoKu(_audit);
             if ((rule & ActiveRule.NumberWithAmount) != 0)
                 _audit = new NumberWithAmountAuditForGuoKu(_audit);
+            //单条记录凭证号与金额匹配
+            if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
+            {
+                _audit = new NumberWithSingleRecordAuditForGuoKu(_audit);
+            }
             //4金额与记录数匹配
-            // _audit = new AmountWithCountAuditForGuoKu(_audit);
             if ((rule & ActiveRule.AmountWithCount) != 0)
                 _audit = new AmountWithCountAuditForGuoKu(_audit);
         }

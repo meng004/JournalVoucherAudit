@@ -2,15 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace JournalVoucherAudit.Service
 {
     public abstract class GuoKuAuditBase : AuditBase<GuoKuItem>
     {
-        
-
-        public GuoKuAuditBase(AuditBase<GuoKuItem> preAudit)
+        protected GuoKuAuditBase(AuditBase<GuoKuItem> preAudit)
         {
             PreAudit = preAudit;
         }
@@ -29,14 +26,14 @@ namespace JournalVoucherAudit.Service
             var preGuoKus = preResult.Item2;
 
             //取金额与记录数相等的财务数据项
-            var amountAndCountAreEqual = GetSpecialItems(preCaiWus, preGuoKus);
+            var specialItems = GetSpecialItems(preCaiWus, preGuoKus);
             //从国库列表中去除
-            var guoKu = preGuoKus.Except(amountAndCountAreEqual).ToList();
+            var guoKu = preGuoKus.Except(specialItems).ToList();
             //从财务列表中去除
-            var equalInCaiWus = preCaiWus.Where(t => amountAndCountAreEqual.Select(a => a.Amount).Contains(t.CreditAmount)).ToList();
-            var caiWu = preCaiWus.Except(equalInCaiWus).ToList();
+            //var equalInCaiWus = preCaiWus.Where(t => specialItems.Select(a => a.Amount).Contains(t.CreditAmount)).ToList();
+            //var caiWu = preCaiWus.Except(equalInCaiWus).ToList();
             //返回
-            return new Tuple<IList<CaiWuItem>, IList<GuoKuItem>>(caiWu, guoKu);
+            return new Tuple<IList<CaiWuItem>, IList<GuoKuItem>>(preCaiWus, guoKu);
         }
 
     }

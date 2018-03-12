@@ -86,6 +86,8 @@
     <Compile Include="Export.cs" />
     <Compile Include="NumberWithAmountAuditForCaiWu.cs" />
     <Compile Include="NumberWithAmountAuditForGuoKu.cs" />
+    <Compile Include="NumberWithSingleRecordAuditForCaiWu.cs" />
+    <Compile Include="NumberWithSingleRecordAuditForGuoKu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,5 @@
 ﻿using JournalVoucherAudit.Domain;
 using System.Collections.Generic;
-using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
@@ -19,15 +18,18 @@ namespace JournalVoucherAudit.Service
             //1默认策略
             _audit = new NormalAuditForCaiWu();
             //2金额绝对值与金额合计
-            //_audit = new AbsWithAmountForCaiWu(_audit);
             if ((rule & ActiveRule.AbsWithAmount) != 0)
                 _audit = new AbsWithAmountForCaiWu(_audit);
             //3凭证号与总金额匹配
-            //_audit = new NumberWithAmountAuditForCaiWu(_audit);
             if ((rule & ActiveRule.NumberWithAmount) != 0)
                 _audit = new NumberWithAmountAuditForCaiWu(_audit);
+            //单条记录凭证号与金额匹配
+            if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
+            {
+                _audit = new NumberWithSingleRecordAuditForCaiWu(_audit);
+            }
             //4金额与记录数匹配
-           // _audit = new AmountWithCountAuditForCaiWu(_audit);
+
             if ((rule & ActiveRule.AmountWithCount) != 0)
                 _audit = new AmountWithCountAuditForCaiWu(_audit);
         }
@@ -36,7 +38,7 @@ namespace JournalVoucherAudit.Service
         /// 审计财务数据项
         /// </summary>
         public IList<CaiWuItem> Audit(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
-        { 
+        {
             //执行审计
             var result = _audit.Filter(caiWus, guoKus);
 

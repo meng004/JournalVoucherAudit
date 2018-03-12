@@ -13,11 +13,16 @@ namespace JournalVoucherAudit.Service
         [Description("金额与记录数匹配规则生效")]
         AmountWithCount = 1,
 
+        [Description("单条记录凭证号与金额匹配规则生效")]
+        NumberWithSingleRecord = 2,
+
         [Description("凭证号与总金额匹配规则生效")]
-        NumberWithAmount = 2,
+        NumberWithAmount = 4,
 
         [Description("金额绝对值与金额合计匹配规则生效")]
-        AbsWithAmount = 4,
+        AbsWithAmount = 8,
+
+
 
     }
 }
