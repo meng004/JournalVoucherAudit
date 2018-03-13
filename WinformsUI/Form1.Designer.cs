@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,7 +39,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_GuoKu = new System.Windows.Forms.DataGridView();
-            this.zhiJieGongGongBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.PaymentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemarkReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Audit = new System.Windows.Forms.Button();
             this.btn_Export = new System.Windows.Forms.Button();
             this.lbl_Message = new System.Windows.Forms.Label();
@@ -52,26 +54,17 @@
             this.chk_AmountWithCount = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_CaiWu = new System.Windows.Forms.DataGridView();
-            this.caiZhengBuZhuShouRuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.zhiJieGongGongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VoucherNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VoucherDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreditAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemarkReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuoKu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zhiJieGongGongBindingSource1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CaiWu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.caiZhengBuZhuShouRuBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zhiJieGongGongBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -191,6 +184,35 @@
             this.dgv_GuoKu.TabIndex = 0;
             this.dgv_GuoKu.TabStop = false;
             // 
+            // PaymentNumber
+            // 
+            this.PaymentNumber.DataPropertyName = "PaymentNumber";
+            this.PaymentNumber.HeaderText = "支付令号";
+            this.PaymentNumber.Name = "PaymentNumber";
+            this.PaymentNumber.ReadOnly = true;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CreateDate";
+            this.CreateDate.HeaderText = "生成日期";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "金额";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // RemarkReason
+            // 
+            this.RemarkReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RemarkReason.DataPropertyName = "RemarkReason";
+            this.RemarkReason.HeaderText = "摘要事由";
+            this.RemarkReason.Name = "RemarkReason";
+            this.RemarkReason.ReadOnly = true;
+            // 
             // btn_Audit
             // 
             this.btn_Audit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -263,7 +285,7 @@
             this.chk_AbsWithAmount.Name = "chk_AbsWithAmount";
             this.chk_AbsWithAmount.Size = new System.Drawing.Size(108, 16);
             this.chk_AbsWithAmount.TabIndex = 5;
-            this.chk_AbsWithAmount.Text = "同金额多次支付";
+            this.chk_AbsWithAmount.Text = "同凭证多次支付";
             this.chk_AbsWithAmount.UseVisualStyleBackColor = true;
             this.chk_AbsWithAmount.CheckedChanged += new System.EventHandler(this.chk_AbsWithAmount_CheckedChanged);
             // 
@@ -289,9 +311,9 @@
             this.chk_NumberWithAmount.Location = new System.Drawing.Point(68, 51);
             this.chk_NumberWithAmount.Margin = new System.Windows.Forms.Padding(2);
             this.chk_NumberWithAmount.Name = "chk_NumberWithAmount";
-            this.chk_NumberWithAmount.Size = new System.Drawing.Size(108, 16);
+            this.chk_NumberWithAmount.Size = new System.Drawing.Size(120, 16);
             this.chk_NumberWithAmount.TabIndex = 5;
-            this.chk_NumberWithAmount.Text = "同凭证多笔支付";
+            this.chk_NumberWithAmount.Text = "同凭证分多笔支付";
             this.chk_NumberWithAmount.UseVisualStyleBackColor = true;
             this.chk_NumberWithAmount.CheckedChanged += new System.EventHandler(this.chk_NumberWithAmount_CheckedChanged);
             // 
@@ -337,15 +359,6 @@
             this.dgv_CaiWu.TabIndex = 0;
             this.dgv_CaiWu.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dgv_CaiWu);
-            this.panel2.Location = new System.Drawing.Point(13, 127);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(504, 337);
-            this.panel2.TabIndex = 7;
-            // 
             // VoucherNumber
             // 
             this.VoucherNumber.DataPropertyName = "VoucherNumber";
@@ -375,34 +388,14 @@
             this.Remark.Name = "Remark";
             this.Remark.ReadOnly = true;
             // 
-            // PaymentNumber
+            // panel2
             // 
-            this.PaymentNumber.DataPropertyName = "PaymentNumber";
-            this.PaymentNumber.HeaderText = "支付令号";
-            this.PaymentNumber.Name = "PaymentNumber";
-            this.PaymentNumber.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CreateDate";
-            this.CreateDate.HeaderText = "生成日期";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "金额";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // RemarkReason
-            // 
-            this.RemarkReason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RemarkReason.DataPropertyName = "RemarkReason";
-            this.RemarkReason.HeaderText = "摘要事由";
-            this.RemarkReason.Name = "RemarkReason";
-            this.RemarkReason.ReadOnly = true;
+            this.panel2.Controls.Add(this.dgv_CaiWu);
+            this.panel2.Location = new System.Drawing.Point(13, 127);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(504, 337);
+            this.panel2.TabIndex = 7;
             // 
             // Form1
             // 
@@ -422,14 +415,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuoKu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zhiJieGongGongBindingSource1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CaiWu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.caiZhengBuZhuShouRuBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.zhiJieGongGongBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,13 +437,6 @@
         private System.Windows.Forms.DataGridView dgv_GuoKu;
         private System.Windows.Forms.Button btn_Audit;
         private System.Windows.Forms.Button btn_Export;
-        private System.Windows.Forms.BindingSource zhiJieGongGongBindingSource;
-        private System.Windows.Forms.BindingSource caiZhengBuZhuShouRuBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remarkReasonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource zhiJieGongGongBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lbl_Message;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel panel1;
@@ -463,10 +446,6 @@
         private System.Windows.Forms.CheckBox chk_NumberWithAmount;
         private System.Windows.Forms.CheckBox chk_AmountWithCount;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn voucherNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn voucherDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remarkDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox chk_NumberWithSingleRecord;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
