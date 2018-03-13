@@ -6,7 +6,7 @@ using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service
 {
-    public class NormalAuditForGuoKu : AuditBase<GuoKuItem>
+    public class DefaultAuditForGuoKu : AuditBase<GuoKuItem>
     {
         public override Tuple<IList<CaiWuItem>, IList<GuoKuItem>> Filter(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
         {

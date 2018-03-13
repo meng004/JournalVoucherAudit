@@ -16,8 +16,23 @@ namespace JournalVoucherAudit.Service
         internal override IList<CaiWuItem> GetSpecialItems(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
         {
             //按凭证号与总金额分组
-            var caiWuGroup = caiWus.GroupBy(c => c.GetNumber()).Select(g => new NumberGroupItem { Number = g.Key, Total = g.Sum(i => i.CreditAmount) }).ToList();
-            var guoKuGroup = guoKus.GroupBy(c => c.GetNumber()).Select(g => new NumberGroupItem { Number = g.Key, Total = g.Sum(i => i.Amount) }).ToList();
+            var caiWuGroup =
+                caiWus.GroupBy(c => c.GetNumber())
+                .Where(w => w.Count(c => c.CreditAmount < 0) == 0) 
+                .Select(g => new NumberGroupItem
+                {
+                    Number = g.Key,
+                    Total = g.Sum(i => i.CreditAmount)
+                }).ToList();
+            var guoKuGroup =
+                guoKus.GroupBy(c => c.GetNumber())
+                .Where(w => w.Count(c => c.Amount < 0) == 0)//去除存在负数的记录
+                .Where(w => w.Count() > 1)
+                .Select(g => new NumberGroupItem
+                {
+                    Number = g.Key,
+                    Total = g.Sum(i => i.Amount)
+                }).ToList();
 
             //交集，取凭证号与总金额相同
             var numberAndAmountAreEqual = caiWuGroup.Intersect(guoKuGroup, new NumberGroupItemEqualityComparer()).ToList();

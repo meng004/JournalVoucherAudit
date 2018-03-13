@@ -79,8 +79,8 @@
     <Compile Include="ActiveRule.cs" />
     <Compile Include="GuoKuAudit.cs" />
     <Compile Include="GuoKuAuditBase.cs" />
-    <Compile Include="NormalAuditForCaiWu.cs" />
-    <Compile Include="NormalAuditForGuoKu.cs" />
+    <Compile Include="DefaultAuditForCaiWu.cs" />
+    <Compile Include="DefaultAuditForGuoKu.cs" />
     <Compile Include="NumberGroupItem.cs" />
     <Compile Include="Import.cs" />
     <Compile Include="Export.cs" />
