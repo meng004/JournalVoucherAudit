@@ -55,7 +55,7 @@ namespace JournalVoucherAudit.Service
             var sheet = workbook.GetSheetAt(0);
             //读取标题行
             var row = sheet.GetRow(_TitleRowIndex);
-            //用标题列创建‘列名-索引’字典
+            //用表头创建‘标题名-列号’字典
             var cells = new Dictionary<string, int>();
             if (null != row)
             {
@@ -65,8 +65,10 @@ namespace JournalVoucherAudit.Service
                     var cell = row.GetCell(i);
                     if (null == cell) continue;
                     //新建item
-                    var key = cell.ToString();
+                    var key = cell.StringCellValue;
                     var value = cell.ColumnIndex;
+                    //检查标题名是否为空
+                    if (string.IsNullOrWhiteSpace(key)) continue;
                     //添加到字典
                     cells.Add(key, i);
                 }
@@ -121,7 +123,7 @@ namespace JournalVoucherAudit.Service
             var sheet = workbook.GetSheetAt(0);
             //读取标题行
             var row = sheet.GetRow(_TitleRowIndex);
-            //用标题列创建‘列名-索引’字典
+            //用表头创建‘标题名-列号’字典
             var cells = new Dictionary<string, int>();
             if (null != row)
             {
@@ -133,6 +135,8 @@ namespace JournalVoucherAudit.Service
                     //新建item
                     var key = cell.ToString();
                     var value = cell.ColumnIndex;
+                    //检查标题名是否为空
+                    if (string.IsNullOrWhiteSpace(key)) continue;
                     //添加到字典
                     cells.Add(key, i);
                 }

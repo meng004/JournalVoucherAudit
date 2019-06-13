@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace JournalVoucherAudit.WinformsUI
 {
@@ -35,6 +36,12 @@ namespace JournalVoucherAudit.WinformsUI
         /// </summary>
         private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount | ActiveRule.NumberWithSingleRecord;
 
+        /// <summary>
+        /// 报表类型，与配置文件中的key相同
+        /// </summary>
+        private const string _CaiWu = "CaiWu";
+        private const string _GuoKu = "GuoKu";
+
         #endregion
 
         #region 帮助方法
@@ -47,6 +54,16 @@ namespace JournalVoucherAudit.WinformsUI
             Tuple<string, string, string, string> titles;
             _titleDict.TryGetValue(title, out titles);
             return titles;
+        }
+
+        private int GetTitleIndex(string reportName)
+        {
+            //读取配置文件中标题行的行号
+            var value = ConfigurationManager.AppSettings[reportName];
+            int index = 0;
+            //转换为整数
+            int.TryParse(value, out index);
+            return index;
         }
 
         #endregion
@@ -74,7 +91,11 @@ namespace JournalVoucherAudit.WinformsUI
                     return new List<CaiWuItem>();
                 }
                 //读取excel，封装为对象列表
-                var excelImportCaiWu = new Import(txt_CaiWuFilePath.Text, 4);
+                //var excelImportCaiWu = new Import(txt_CaiWuFilePath.Text, 4);
+
+                //读取标题行的行号
+                var index = GetTitleIndex(_CaiWu);
+                var excelImportCaiWu = new Import(txt_CaiWuFilePath.Text, index);
                 var items = excelImportCaiWu.ReadCaiWu<CaiWuItem>();
 
                 //取文件标题
@@ -96,7 +117,11 @@ namespace JournalVoucherAudit.WinformsUI
                     return new List<GuoKuItem>();
                 }
                 //读取excel，封装为对象列表
-                var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, 1);
+                //var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, 1);
+
+                //读取标题行的行号
+                var index = GetTitleIndex(_GuoKu);
+                var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, index);
                 var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>();
                 return items.ToList();
             }
@@ -153,7 +178,7 @@ namespace JournalVoucherAudit.WinformsUI
         }
 
         #endregion
-        
+
         #region 国库文件路径
         /// <summary>
         /// 选择国库excel文件
@@ -182,7 +207,7 @@ namespace JournalVoucherAudit.WinformsUI
             txt_GuoKuFilePath.Text = path;
         }
         #endregion
-        
+
         #region 对账与导出
 
         /// <summary>
@@ -249,7 +274,7 @@ namespace JournalVoucherAudit.WinformsUI
             var voucherDate = table.Data.First().VoucherDate.ToDateTime();
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
-            SaveFileDialog saveFileDlg = new SaveFileDialog {Filter = Resources.FileFilter, FileName = filename};
+            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter, FileName = filename };
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {

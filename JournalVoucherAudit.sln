@@ -20,6 +20,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsUI", "WinformsUI\WinformsUI.csproj", "{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}"
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup3", "Setup3\Setup3.isproj", "{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C} = {1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
