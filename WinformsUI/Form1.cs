@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Reflection;
 
 namespace JournalVoucherAudit.WinformsUI
 {
@@ -126,6 +127,31 @@ namespace JournalVoucherAudit.WinformsUI
                 return items.ToList();
             }
         }
+        /// <summary>
+        /// 读取程序集信息，构造窗体的标题
+        /// </summary>
+        private string FormTitle
+        {
+            get
+            {
+                var title = string.Empty;
+                var version = string.Empty;
+                //读取程序集的title
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                if (attributes.Length > 0)
+                {
+                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                    if (!string.IsNullOrWhiteSpace(titleAttribute.Title))
+                    {
+                        title = titleAttribute.Title;
+                    }
+                }
+                //读取程序集的版本
+                version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+                return title + "-" + version;
+            }
+        }
 
         #endregion
 
@@ -136,6 +162,7 @@ namespace JournalVoucherAudit.WinformsUI
             InitializeComponent();
             dgv_CaiWu.RowPostPaint += dgv_CaiWu_RowPostPaint;
             dgv_GuoKu.RowPostPaint += dgv_GuoKu_RowPostPaint;
+            Text = FormTitle;
         }
 
         #endregion
