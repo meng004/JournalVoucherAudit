@@ -100,7 +100,7 @@ namespace JournalVoucherAudit.WinformsUI
                 var items = excelImportCaiWu.ReadCaiWu<CaiWuItem>();
 
                 //取文件标题
-                _caiWuTitle = excelImportCaiWu.CaiWuTile;
+                _caiWuTitle = excelImportCaiWu.CaiWuTitle;
 
                 return items.ToList();
             }
