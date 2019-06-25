@@ -16,10 +16,10 @@ namespace JournalVoucherAudit.Service
         /// </summary>
         private Dictionary<string, string> _TitleDict = new Dictionary<string, string>
         {
-            { "财政补助收入","财政补助收入" },
-            { "教育事业收入","教育事业收入" },
+            { "财政拨款收入","财政补助收入" },
+            { "事业收入","教育事业收入" },
             { "公共财政预算", "零余额公共财政预算" },
-            { "纳入专户管理的非税收入", "零余额纳入专户管理的非税收入" }
+            { "纳入专户管理非税收入", "零余额纳入专户管理的非税收入" }
         };
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace JournalVoucherAudit.Service
         /// <summary>
         /// 标准化财务报表标题
         /// </summary>
-        public string CaiWuTile
+        public string CaiWuTitle
         {
             get
             {
