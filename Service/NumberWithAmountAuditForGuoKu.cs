@@ -18,7 +18,7 @@ namespace JournalVoucherAudit.Service
         {
             //按凭证号与总金额分组
             var caiWuGroup =
-                caiWus.GroupBy(c => c.GetNumber())
+                caiWus.GroupBy(c => c.Number)
                 .Where(w => w.Count(c => c.CreditAmount < 0) == 0) //去除存在负数的记录
                 .Select(g => new NumberGroupItem
                 {
@@ -26,7 +26,7 @@ namespace JournalVoucherAudit.Service
                     Total = g.Sum(i => i.CreditAmount)
                 }).ToList();
             var guoKuGroup =
-                guoKus.GroupBy(c => c.GetNumber())
+                guoKus.GroupBy(c => c.Number)
                 .Where(w => w.Count(c => c.Amount < 0) == 0)
                 .Where(w => w.Count() > 1)
                 .Select(g => new NumberGroupItem
@@ -37,7 +37,7 @@ namespace JournalVoucherAudit.Service
             //比较凭证号与总金额
             var numberAndAmountAreEqual = caiWuGroup.Intersect(guoKuGroup, new NumberGroupItemEqualityComparer()).ToList();
             //根据凭证号与总金额比较结果，取出记录
-            var result = guoKus.Where(c => numberAndAmountAreEqual.Select(n => n.Number).Contains(c.GetNumber())).ToList();
+            var result = guoKus.Where(c => numberAndAmountAreEqual.Select(n => n.Number).Contains(c.Number)).ToList();
             return result;
         }
 

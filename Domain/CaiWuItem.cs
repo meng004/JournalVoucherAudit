@@ -31,13 +31,16 @@ namespace JournalVoucherAudit.Domain
         /// 取出凭证号
         /// </summary>
         /// <returns></returns>
-        public string GetNumber()
+        public string Number
         {
-            //转换为半角
-            var sbc = VoucherNumber.ToSbc();
-            //取数字
-            var number = sbc.GetNumber();
-            return number;
+            get
+            {
+                //转换为半角
+                var sbc = VoucherNumber.ToSbc();
+                //取数字
+                var number = sbc.GetNumber();
+                return number;
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <summary>
         /// 生效规则
         /// </summary>
-        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount | ActiveRule.NumberWithSingleRecord;
+        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount | ActiveRule.NumberWithSingleRecord | ActiveRule.NumberAmountAndCount;
 
         /// <summary>
         /// 报表类型，与配置文件中的key相同
@@ -148,7 +148,7 @@ namespace JournalVoucherAudit.WinformsUI
                 }
                 //读取程序集的版本
                 version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
+                
                 return title + "-" + version;
             }
         }
@@ -385,8 +385,15 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.NumberWithSingleRecord;
         }
-
+        private void chk_NumberAmountAndCount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_NumberAmountAndCount.Checked)
+                _rule = _rule | ActiveRule.NumberAmountAndCount;
+            else
+                _rule = _rule & ~ActiveRule.NumberAmountAndCount;
+        }
         #endregion
+
 
     }
 }

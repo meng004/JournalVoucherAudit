@@ -18,9 +18,11 @@ namespace JournalVoucherAudit.Service
             //1默认策略
             _audit = new DefaultAuditForCaiWu();
             //4金额与记录数匹配
-
             if ((rule & ActiveRule.AmountWithCount) != 0)
                 _audit = new AmountWithCountAuditForCaiWu(_audit);
+            //5 凭证号、金额和支付笔数匹配
+            if ((rule & ActiveRule.NumberAmountAndCount) != 0)
+                _audit = new NumberAmountAndCountAuditForCaiWu(_audit);
             //单条记录凭证号与金额匹配
             if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
             {

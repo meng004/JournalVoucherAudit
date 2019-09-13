@@ -27,8 +27,8 @@ namespace JournalVoucherAudit.Domain
         {
             var result = false;
             //取凭证号
-            var caiWuNumber = caiWu.GetNumber();
-            var guoKuNumber = guoKu.GetNumber();
+            var caiWuNumber = caiWu.Number;
+            var guoKuNumber = guoKu.Number;
             //比较凭证号
             if (caiWuNumber == guoKuNumber)
             {

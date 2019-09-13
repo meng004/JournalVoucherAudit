@@ -22,7 +22,7 @@ namespace JournalVoucherAudit.Service
         [Description("金额绝对值与金额合计匹配规则生效")]
         AbsWithAmount = 8,
 
-
-
+        [Description("凭证号、金额和支付笔数匹配规则生效")]
+        NumberAmountAndCount = 16,
     }
 }

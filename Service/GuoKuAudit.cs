@@ -20,7 +20,10 @@ namespace JournalVoucherAudit.Service
             _audit = new DefaultAuditForGuoKu();
             //4金额与记录数匹配
             if ((rule & ActiveRule.AmountWithCount) != 0)
-                _audit = new AmountWithCountAuditForGuoKu(_audit); 
+                _audit = new AmountWithCountAuditForGuoKu(_audit);
+            //5 凭证号、金额和支付笔数匹配
+            if ((rule & ActiveRule.NumberAmountAndCount) != 0)
+                _audit = new NumberAmountAndCountAuditForGuoKu(_audit);
              //单条记录凭证号与金额匹配
             if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
             {

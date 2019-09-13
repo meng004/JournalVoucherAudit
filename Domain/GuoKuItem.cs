@@ -31,13 +31,16 @@ namespace JournalVoucherAudit.Domain
         /// 从摘要事由中取出凭证号
         /// </summary>
         /// <returns></returns>
-        public string GetNumber()
+        public string Number
         {
-            //转半角
-            var sbc = RemarkReason.ToSbc();
-            //取出数字
-            var number = sbc.GetNumber();
-            return number;
+            get
+            {
+                //转半角
+                var sbc = RemarkReason.ToSbc();
+                //取出数字
+                var number = sbc.GetNumber();
+                return number;
+            }
         }
     }
 }

@@ -81,6 +81,9 @@
     <Compile Include="GuoKuAuditBase.cs" />
     <Compile Include="DefaultAuditForCaiWu.cs" />
     <Compile Include="DefaultAuditForGuoKu.cs" />
+    <Compile Include="NumberAmountAndCountAuditForCaiWu.cs" />
+    <Compile Include="NumberAmountAndCountAuditForGuoKu.cs" />
+    <Compile Include="NumberAmountGroupItem.cs" />
     <Compile Include="NumberGroupItem.cs" />
     <Compile Include="Import.cs" />
     <Compile Include="Export.cs" />
