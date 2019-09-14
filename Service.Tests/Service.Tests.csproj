@@ -55,7 +55,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CaiWuAuditTests.cs" />
     <Compile Include="ExcelImportTests.cs" />
+    <Compile Include="GuoKuAuditTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
