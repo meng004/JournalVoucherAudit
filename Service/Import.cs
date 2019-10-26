@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using JournalVoucherAudit.Domain;
 using NPOI.Extend;
-using JournalVoucherAudit.Domain;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JournalVoucherAudit.Service
 {
@@ -181,12 +181,15 @@ namespace JournalVoucherAudit.Service
                 //取单元值
                 var titleCell = titleRow.Cells[0].StringCellValue;
                 //取标题关键字
-                var keys = _TitleDict.Keys;
+                //var keys = _TitleDict.Keys;
                 //excel文件中是否包含该关键字
-                var key = keys.SingleOrDefault(k => titleCell.Contains(k));
+                //var key = keys.SingleOrDefault(k => titleCell.Contains(k));
                 //取标准标题
                 var value = string.Empty;
-                _TitleDict.TryGetValue(key, out value);
+                //_TitleDict.TryGetValue(key, out value);
+                var index = titleCell.IndexOf(']');
+                value = titleCell.Substring(index + 1);
+
                 return value;
             }
         }

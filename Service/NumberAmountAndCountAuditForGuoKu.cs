@@ -1,9 +1,7 @@
-﻿using System;
+﻿using JournalVoucherAudit.Domain;
+using JournalVoucherAudit.Utility;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Domain;
-using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
@@ -20,7 +18,7 @@ namespace JournalVoucherAudit.Service
         {
             //按凭证号与总金额分组
             var caiWuGroup =
-                caiWus.GroupBy(c => new { c.Number, c.CreditAmount})
+                caiWus.GroupBy(c => new { c.Number, c.CreditAmount })
                 .Select(g => new NumberAmountGroupItem
                 {
                     Number = g.Key.Number,

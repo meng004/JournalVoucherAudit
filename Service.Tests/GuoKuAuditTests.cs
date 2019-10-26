@@ -1,10 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JournalVoucherAudit.Service;
-using System;
+﻿using JournalVoucherAudit.Domain;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service.Tests
 {

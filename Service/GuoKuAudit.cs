@@ -24,14 +24,14 @@ namespace JournalVoucherAudit.Service
             //5 凭证号、金额和支付笔数匹配
             if ((rule & ActiveRule.NumberAmountAndCount) != 0)
                 _audit = new NumberAmountAndCountAuditForGuoKu(_audit);
-             //单条记录凭证号与金额匹配
+            //单条记录凭证号与金额匹配
             if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
             {
                 _audit = new NumberWithSingleRecordAuditForGuoKu(_audit);
-            }          
+            }
             //3凭证号与总金额匹配，同凭证多笔支付
             if ((rule & ActiveRule.NumberWithAmount) != 0)
-                _audit = new NumberWithAmountAuditForGuoKu(_audit);            
+                _audit = new NumberWithAmountAuditForGuoKu(_audit);
             //2金额绝对值与金额合计，同金额多次支付
             if ((rule & ActiveRule.AbsWithAmount) != 0)
                 _audit = new AbsWithAmountForGuoKu(_audit);

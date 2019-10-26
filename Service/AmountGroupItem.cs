@@ -1,12 +1,9 @@
-﻿using System;
+﻿using JournalVoucherAudit.Utility;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
-    internal class AmountGroupItem 
+    internal class AmountGroupItem
     {
         public double Amount { get; set; }
         public int Count { get; set; }

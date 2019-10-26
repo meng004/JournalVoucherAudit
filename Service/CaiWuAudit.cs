@@ -27,10 +27,10 @@ namespace JournalVoucherAudit.Service
             if ((rule & ActiveRule.NumberWithSingleRecord) != 0)
             {
                 _audit = new NumberWithSingleRecordAuditForCaiWu(_audit);
-            }            
+            }
             //3凭证号与总金额匹配
             if ((rule & ActiveRule.NumberWithAmount) != 0)
-                _audit = new NumberWithAmountAuditForCaiWu(_audit);            
+                _audit = new NumberWithAmountAuditForCaiWu(_audit);
             //2金额绝对值与金额合计
             if ((rule & ActiveRule.AbsWithAmount) != 0)
                 _audit = new AbsWithAmountForCaiWu(_audit);

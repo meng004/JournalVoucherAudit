@@ -1,9 +1,6 @@
-﻿using System;
+﻿using JournalVoucherAudit.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Domain;
-using System.Collections;
 
 namespace JournalVoucherAudit.Service
 {
@@ -18,7 +15,7 @@ namespace JournalVoucherAudit.Service
         /// </summary>
         /// <returns></returns>
         internal override IList<CaiWuItem> GetSpecialItems(IList<CaiWuItem> caiWus, IList<GuoKuItem> guoKus)
-        {            
+        {
             //按金额与记录数分组
             var caiWuGroup = caiWus.GroupBy(c => c.CreditAmount).Select(g => new AmountGroupItem { Amount = g.Key, Count = g.Count() }).ToList();
             var guoKuGroup = guoKus.GroupBy(c => c.Amount).Select(g => new AmountGroupItem { Amount = g.Key, Count = g.Count() }).ToList();

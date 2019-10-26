@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using JournalVoucherAudit.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JournalVoucherAudit.Domain;
+using System.Linq;
 
 namespace JournalVoucherAudit.Service.Tests
 {
@@ -28,7 +27,7 @@ namespace JournalVoucherAudit.Service.Tests
             var excelImport = new Import(filePath, 1);
             //act
             var actual = excelImport.ReadGuoKu<GuoKuItem>();
-            
+
             //assert
             Assert.IsTrue(actual.Count() > 1);
         }

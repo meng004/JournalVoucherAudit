@@ -1,8 +1,6 @@
-﻿using System;
+﻿using JournalVoucherAudit.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service
 {

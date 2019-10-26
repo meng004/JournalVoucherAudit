@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JournalVoucherAudit.Domain;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JournalVoucherAudit.Domain.Tests
 {

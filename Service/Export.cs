@@ -1,16 +1,21 @@
 ﻿using ExcelReport;
+using ExcelReport.Driver.NPOI;
+using ExcelReport.Renderers;
 using JournalVoucherAudit.Domain;
+using JournalVoucherAudit.Utility;
 using NPOI.Extend;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
     public class Export
     {
+
+        private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度";
+
         /// <summary>
         /// 修改第一个sheet的名称
         /// </summary>
@@ -44,20 +49,21 @@ namespace JournalVoucherAudit.Service
         /// <param name="caiWuTotal">财务累计</param>
         /// <param name="guoKuTotal">国库累计</param>
         /// <param name="tiaoJieBiao">调节表</param>
-        public void Save(string filename, Tuple<string, string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
+        public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
-
+            // 项目启动时，添加
+            Configurator.Put(".xlsx", new WorkbookLoader());
             //创建excel参数容器
-            var workbookParameterContainer = new WorkbookParameterContainer();
+            //var workbookParameterContainer = new WorkbookParameterContainer();
             var path = System.AppDomain.CurrentDomain.BaseDirectory;
 
             //var file = File.AppendText(System.AppDomain.CurrentDomain.BaseDirectory + "log.txt");
             //file.WriteLine(path);
             //file.Close();
 
-            workbookParameterContainer.Load(path + @"Template\Template.xml");
+            //workbookParameterContainer.Load(path + @"Template\Template.xml");
             //创建sheet的参数容器
-            var sheetParameterContainer = workbookParameterContainer["直内"];
+            //var sheetParameterContainer = workbookParameterContainer["直内"];
             //计算小计
             var tiaoJieItems = tiaoJieBiao as IList<TiaoJieItem> ?? tiaoJieBiao.ToList();
             var caiWuSubTotal = tiaoJieItems.Sum(t => t.CreditAmount);
@@ -68,26 +74,30 @@ namespace JournalVoucherAudit.Service
             var lastDayOfMonth = voucherDate.LastDayOfMonth();
 
             //输出excel
-            ExportHelper.ExportToLocal(path + @"Template\Template.xls", filename,
-                new SheetFormatter("直内",
-                    new PartFormatter(sheetParameterContainer["CaiWuTitle"], reportTitles.Item1),
-                    new PartFormatter(sheetParameterContainer["GuoKuTitle"], reportTitles.Item2),
-                    new CellFormatter(sheetParameterContainer["CurrentDate"], lastDayOfMonth.ToShortDateString()),
-                    new CellFormatter(sheetParameterContainer["CaiWuTotal"], caiWuTotal),
-                    new CellFormatter(sheetParameterContainer["GuoKuTotal"], guoKuTotal),
-                    new CellFormatter(sheetParameterContainer["CaiWuSubTotal"], caiWuSubTotal),
-                    new CellFormatter(sheetParameterContainer["GuoKuSubTotal"], guoKuSubTotal),
-                    new CellFormatter(sheetParameterContainer["CaiWuBalance"], caiWuTotal - caiWuSubTotal),
-                    new CellFormatter(sheetParameterContainer["GuoKuBalance"], guoKuTotal - guoKuSubTotal),
-                    new CellFormatter(sheetParameterContainer["FootText"], reportTitles.Item4),
-                    new TableFormatter<TiaoJieItem>(sheetParameterContainer["VoucherDate"], tiaoJieItems,
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["Amount"], t => t.Amount),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["CreateDate"], t => t.CreateDate),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["CreditAmount"], t => t.CreditAmount),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["Remark"], t => t.Remark),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["RemarkReason"], t => t.RemarkReason),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["VoucherDate"], t => t.VoucherDate),
-                        new CellFormatter<TiaoJieItem>(sheetParameterContainer["VoucherNumber"], t => t.VoucherNumber)
+            ExportHelper.ExportToLocal(path + @"Template\Template.xlsx", filename,
+                new SheetRenderer("直内",
+                    new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
+                    new ParameterRenderer("GuoKuTitle", reportTitles.Item2),
+                    new ParameterRenderer("CurrentDate", lastDayOfMonth.ToShortDateString()),
+                    new ParameterRenderer("CaiWuTotal", caiWuTotal),
+                    new ParameterRenderer("GuoKuTotal", guoKuTotal),
+                    new ParameterRenderer("CaiWuSubTotal", caiWuSubTotal),
+                    new ParameterRenderer("GuoKuSubTotal", guoKuSubTotal),
+                    new ParameterRenderer("CaiWuBalance", caiWuTotal - caiWuSubTotal),
+                    new ParameterRenderer("GuoKuBalance", guoKuTotal - guoKuSubTotal),
+                    new ParameterRenderer("FootText", string.Format(foottext, reportTitles.Item1, reportTitles.Item1)),
+                    new RepeaterRenderer<TiaoJieItem>("Reconciliation", tiaoJieItems,
+                        // 财务，已入账未付款
+                        // 日期，凭证号，摘要，金额
+                        new ParameterRenderer<TiaoJieItem>("VoucherDate", t => t.VoucherDate),
+                        new ParameterRenderer<TiaoJieItem>("VoucherNumber", t => t.VoucherNumber),
+                        new ParameterRenderer<TiaoJieItem>("Remark", t => t.Remark),
+                        new ParameterRenderer<TiaoJieItem>("CreditAmount", t => t.CreditAmount),
+                        // 国库，已付款未入账
+                        // 日期，摘要，金额
+                        new ParameterRenderer<TiaoJieItem>("CreateDate", t => t.CreateDate),
+                        new ParameterRenderer<TiaoJieItem>("RemarkReason", t => t.RemarkReason),
+                        new ParameterRenderer<TiaoJieItem>("Amount", t => t.Amount)
                         )
                     )
                 );

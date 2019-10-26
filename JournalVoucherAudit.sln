@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{ED24B034-DFC3-4347-96B7-40224B7BBF6A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{04743619-B121-47A9-821B-0E496ECF716C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{4BC997E1-EE71-4E20-BACC-9F8C0F899D96}"
@@ -19,11 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Tests", "Service.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformsUI", "WinformsUI\WinformsUI.csproj", "{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}"
 EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup3", "Setup3\Setup3.isproj", "{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C} = {1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -33,16 +26,6 @@ Global
 		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
-		{ED24B034-DFC3-4347-96B7-40224B7BBF6A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 		{04743619-B121-47A9-821B-0E496ECF716C}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
 		{04743619-B121-47A9-821B-0E496ECF716C}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{04743619-B121-47A9-821B-0E496ECF716C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -113,18 +96,11 @@ Global
 		{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{1D2AFA9D-A83C-46B4-8C4C-EF1C30B9338C}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.CD_ROM|Any CPU.Build.0 = CD_ROM
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.Debug|Any CPU.ActiveCfg = SingleImage
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.Debug|Any CPU.Build.0 = SingleImage
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.DVD-5|Any CPU.ActiveCfg = DVD-5
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.DVD-5|Any CPU.Build.0 = DVD-5
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.Release|Any CPU.ActiveCfg = SingleImage
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.Release|Any CPU.Build.0 = SingleImage
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.SingleImage|Any CPU.ActiveCfg = SingleImage
-		{D13D2DF4-FB8A-44DC-B13D-8E175236E97E}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8B1F317-66CC-4B42-A30A-C693E37FED52}
 	EndGlobalSection
 EndGlobal

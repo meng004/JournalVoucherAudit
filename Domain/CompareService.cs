@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace JournalVoucherAudit.Domain
+﻿namespace JournalVoucherAudit.Domain
 {
     /// <summary>
     /// 比较
@@ -36,7 +31,7 @@ namespace JournalVoucherAudit.Domain
                 if (caiWu.CreditAmount == guoKu.Amount)
                 {
                     result = true;
-                }                
+                }
             }
             return result;
         }

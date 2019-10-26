@@ -1,8 +1,6 @@
-﻿using System;
+﻿using JournalVoucherAudit.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using JournalVoucherAudit.Domain;
 
 namespace JournalVoucherAudit.Service
 {
@@ -18,11 +16,11 @@ namespace JournalVoucherAudit.Service
             var caiWuGroup =
                 caiWus.GroupBy(c => c.Number)
                     .Where(g => g.Count() == 1)
-                    .Select(w => new NumberGroupItem {Number = w.Key, Total = w.Sum(i => i.CreditAmount)});
+                    .Select(w => new NumberGroupItem { Number = w.Key, Total = w.Sum(i => i.CreditAmount) });
             var guoKuGroup =
                 guoKus.GroupBy(c => c.Number)
                     .Where(g => g.Count() == 1)
-                    .Select(w => new NumberGroupItem {Number = w.Key, Total = w.Sum(i => i.Amount)});
+                    .Select(w => new NumberGroupItem { Number = w.Key, Total = w.Sum(i => i.Amount) });
             //比较凭证号与金额
             var numberAndAmountAreEqualWithSingleRecord =
                 caiWuGroup.Intersect(guoKuGroup, new NumberGroupItemEqualityComparer()).ToList();

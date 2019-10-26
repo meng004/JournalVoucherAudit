@@ -51,6 +51,7 @@
             this.chk_AbsWithAmount = new System.Windows.Forms.CheckBox();
             this.chk_NumberWithSingleRecord = new System.Windows.Forms.CheckBox();
             this.chk_NumberWithAmount = new System.Windows.Forms.CheckBox();
+            this.chk_NumberAmountAndCount = new System.Windows.Forms.CheckBox();
             this.chk_AmountWithCount = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_CaiWu = new System.Windows.Forms.DataGridView();
@@ -59,7 +60,6 @@
             this.CreditAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.chk_NumberAmountAndCount = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuoKu)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -78,9 +78,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(26, 26);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1314, 216);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -100,7 +100,7 @@
             // btn_GuoKuFilePath
             // 
             this.btn_GuoKuFilePath.Location = new System.Drawing.Point(1152, 96);
-            this.btn_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.btn_GuoKuFilePath.Name = "btn_GuoKuFilePath";
             this.btn_GuoKuFilePath.Size = new System.Drawing.Size(150, 46);
             this.btn_GuoKuFilePath.TabIndex = 1;
@@ -111,7 +111,7 @@
             // btn_CaiWuFilePath
             // 
             this.btn_CaiWuFilePath.Location = new System.Drawing.Point(1152, 38);
-            this.btn_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.btn_CaiWuFilePath.Name = "btn_CaiWuFilePath";
             this.btn_CaiWuFilePath.Size = new System.Drawing.Size(150, 46);
             this.btn_CaiWuFilePath.TabIndex = 0;
@@ -124,7 +124,7 @@
             this.txt_GuoKuFilePath.AllowDrop = true;
             this.txt_GuoKuFilePath.BackColor = System.Drawing.SystemColors.Window;
             this.txt_GuoKuFilePath.Location = new System.Drawing.Point(134, 100);
-            this.txt_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_GuoKuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.txt_GuoKuFilePath.Name = "txt_GuoKuFilePath";
             this.txt_GuoKuFilePath.ReadOnly = true;
             this.txt_GuoKuFilePath.Size = new System.Drawing.Size(1002, 35);
@@ -138,7 +138,7 @@
             this.txt_CaiWuFilePath.AllowDrop = true;
             this.txt_CaiWuFilePath.BackColor = System.Drawing.SystemColors.Window;
             this.txt_CaiWuFilePath.Location = new System.Drawing.Point(134, 42);
-            this.txt_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_CaiWuFilePath.Margin = new System.Windows.Forms.Padding(6);
             this.txt_CaiWuFilePath.Name = "txt_CaiWuFilePath";
             this.txt_CaiWuFilePath.ReadOnly = true;
             this.txt_CaiWuFilePath.Size = new System.Drawing.Size(1002, 35);
@@ -171,6 +171,7 @@
             // 
             this.dgv_GuoKu.AllowUserToAddRows = false;
             this.dgv_GuoKu.AllowUserToDeleteRows = false;
+            this.dgv_GuoKu.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -187,7 +188,7 @@
             this.RemarkReason});
             this.dgv_GuoKu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_GuoKu.Location = new System.Drawing.Point(0, 0);
-            this.dgv_GuoKu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgv_GuoKu.Margin = new System.Windows.Forms.Padding(6);
             this.dgv_GuoKu.Name = "dgv_GuoKu";
             this.dgv_GuoKu.ReadOnly = true;
             this.dgv_GuoKu.RowTemplate.Height = 23;
@@ -228,7 +229,7 @@
             // 
             this.btn_Audit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_Audit.Location = new System.Drawing.Point(556, 24);
-            this.btn_Audit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Audit.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Audit.Name = "btn_Audit";
             this.btn_Audit.Size = new System.Drawing.Size(150, 60);
             this.btn_Audit.TabIndex = 2;
@@ -240,7 +241,7 @@
             // 
             this.btn_Export.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_Export.Location = new System.Drawing.Point(556, 96);
-            this.btn_Export.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Export.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(150, 60);
             this.btn_Export.TabIndex = 3;
@@ -272,9 +273,9 @@
             this.groupBox3.Controls.Add(this.btn_Audit);
             this.groupBox3.Controls.Add(this.btn_Export);
             this.groupBox3.Location = new System.Drawing.Point(1360, 26);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(716, 216);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
@@ -293,10 +294,8 @@
             // chk_AbsWithAmount
             // 
             this.chk_AbsWithAmount.AutoSize = true;
-            this.chk_AbsWithAmount.Checked = true;
-            this.chk_AbsWithAmount.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_AbsWithAmount.Location = new System.Drawing.Point(24, 128);
-            this.chk_AbsWithAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chk_AbsWithAmount.Margin = new System.Windows.Forms.Padding(4);
             this.chk_AbsWithAmount.Name = "chk_AbsWithAmount";
             this.chk_AbsWithAmount.Size = new System.Drawing.Size(210, 28);
             this.chk_AbsWithAmount.TabIndex = 5;
@@ -307,10 +306,8 @@
             // chk_NumberWithSingleRecord
             // 
             this.chk_NumberWithSingleRecord.AutoSize = true;
-            this.chk_NumberWithSingleRecord.Checked = true;
-            this.chk_NumberWithSingleRecord.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_NumberWithSingleRecord.Location = new System.Drawing.Point(24, 95);
-            this.chk_NumberWithSingleRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chk_NumberWithSingleRecord.Margin = new System.Windows.Forms.Padding(4);
             this.chk_NumberWithSingleRecord.Name = "chk_NumberWithSingleRecord";
             this.chk_NumberWithSingleRecord.Size = new System.Drawing.Size(234, 28);
             this.chk_NumberWithSingleRecord.TabIndex = 5;
@@ -321,10 +318,8 @@
             // chk_NumberWithAmount
             // 
             this.chk_NumberWithAmount.AutoSize = true;
-            this.chk_NumberWithAmount.Checked = true;
-            this.chk_NumberWithAmount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_NumberWithAmount.Location = new System.Drawing.Point(259, 95);
-            this.chk_NumberWithAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chk_NumberWithAmount.Location = new System.Drawing.Point(265, 95);
+            this.chk_NumberWithAmount.Margin = new System.Windows.Forms.Padding(4);
             this.chk_NumberWithAmount.Name = "chk_NumberWithAmount";
             this.chk_NumberWithAmount.Size = new System.Drawing.Size(234, 28);
             this.chk_NumberWithAmount.TabIndex = 5;
@@ -332,13 +327,27 @@
             this.chk_NumberWithAmount.UseVisualStyleBackColor = true;
             this.chk_NumberWithAmount.CheckedChanged += new System.EventHandler(this.chk_NumberWithAmount_CheckedChanged);
             // 
+            // chk_NumberAmountAndCount
+            // 
+            this.chk_NumberAmountAndCount.AutoSize = true;
+            this.chk_NumberAmountAndCount.Checked = true;
+            this.chk_NumberAmountAndCount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_NumberAmountAndCount.Location = new System.Drawing.Point(265, 60);
+            this.chk_NumberAmountAndCount.Margin = new System.Windows.Forms.Padding(4);
+            this.chk_NumberAmountAndCount.Name = "chk_NumberAmountAndCount";
+            this.chk_NumberAmountAndCount.Size = new System.Drawing.Size(282, 28);
+            this.chk_NumberAmountAndCount.TabIndex = 5;
+            this.chk_NumberAmountAndCount.Text = "凭证号、金额与记录数";
+            this.chk_NumberAmountAndCount.UseVisualStyleBackColor = true;
+            this.chk_NumberAmountAndCount.CheckedChanged += new System.EventHandler(this.chk_NumberAmountAndCount_CheckedChanged);
+            // 
             // chk_AmountWithCount
             // 
             this.chk_AmountWithCount.AutoSize = true;
             this.chk_AmountWithCount.Checked = true;
             this.chk_AmountWithCount.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_AmountWithCount.Location = new System.Drawing.Point(24, 60);
-            this.chk_AmountWithCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chk_AmountWithCount.Margin = new System.Windows.Forms.Padding(4);
             this.chk_AmountWithCount.Name = "chk_AmountWithCount";
             this.chk_AmountWithCount.Size = new System.Drawing.Size(186, 28);
             this.chk_AmountWithCount.TabIndex = 5;
@@ -350,7 +359,7 @@
             // 
             this.panel1.Controls.Add(this.dgv_GuoKu);
             this.panel1.Location = new System.Drawing.Point(1056, 254);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1044, 674);
             this.panel1.TabIndex = 6;
@@ -359,6 +368,7 @@
             // 
             this.dgv_CaiWu.AllowUserToAddRows = false;
             this.dgv_CaiWu.AllowUserToDeleteRows = false;
+            this.dgv_CaiWu.AllowUserToOrderColumns = true;
             this.dgv_CaiWu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CaiWu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VoucherNumber,
@@ -367,7 +377,7 @@
             this.Remark});
             this.dgv_CaiWu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_CaiWu.Location = new System.Drawing.Point(0, 0);
-            this.dgv_CaiWu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgv_CaiWu.Margin = new System.Windows.Forms.Padding(6);
             this.dgv_CaiWu.Name = "dgv_CaiWu";
             this.dgv_CaiWu.ReadOnly = true;
             this.dgv_CaiWu.RowTemplate.Height = 23;
@@ -408,24 +418,10 @@
             // 
             this.panel2.Controls.Add(this.dgv_CaiWu);
             this.panel2.Location = new System.Drawing.Point(26, 254);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1008, 674);
             this.panel2.TabIndex = 7;
-            // 
-            // chk_NumberAmountAndCount
-            // 
-            this.chk_NumberAmountAndCount.AutoSize = true;
-            this.chk_NumberAmountAndCount.Checked = true;
-            this.chk_NumberAmountAndCount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_NumberAmountAndCount.Location = new System.Drawing.Point(259, 60);
-            this.chk_NumberAmountAndCount.Margin = new System.Windows.Forms.Padding(4);
-            this.chk_NumberAmountAndCount.Name = "chk_NumberAmountAndCount";
-            this.chk_NumberAmountAndCount.Size = new System.Drawing.Size(282, 28);
-            this.chk_NumberAmountAndCount.TabIndex = 5;
-            this.chk_NumberAmountAndCount.Text = "凭证号、金额与记录数";
-            this.chk_NumberAmountAndCount.UseVisualStyleBackColor = true;
-            this.chk_NumberAmountAndCount.CheckedChanged += new System.EventHandler(this.chk_NumberAmountAndCount_CheckedChanged);
             // 
             // Form1
             // 
@@ -437,7 +433,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximumSize = new System.Drawing.Size(2138, 981);
             this.MinimumSize = new System.Drawing.Size(1908, 981);
             this.Name = "Form1";

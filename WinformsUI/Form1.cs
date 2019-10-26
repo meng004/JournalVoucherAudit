@@ -4,11 +4,11 @@ using JournalVoucherAudit.Utility;
 using JournalVoucherAudit.WinformsUI.Properties;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using System.Configuration;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace JournalVoucherAudit.WinformsUI
 {
@@ -27,7 +27,7 @@ namespace JournalVoucherAudit.WinformsUI
             { zhuanHu, new Tuple<string,string,string,string>(zhuanHu, "授权支付预算外", "授权非税",string.Empty )}
         };
 
-        private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度 =";
+        private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度";
         private static string caiZheng = "财政补助收入";
         private static string jiaoYu = "教育事业收入";
         private static string gongGong = "零余额公共财政预算";
@@ -50,13 +50,17 @@ namespace JournalVoucherAudit.WinformsUI
         /// 当前报表标题
         /// 次序分别为：财务标题、国库标题、sheet名称、页脚备注
         /// </summary>
-        private Tuple<string, string, string, string> GetReportTitles(string title)
+        private Tuple<string, string, string, string> GetReportTitle(string title)
         {
             Tuple<string, string, string, string> titles;
             _titleDict.TryGetValue(title, out titles);
             return titles;
         }
-
+        /// <summary>
+        /// 按照报表名称，读取财务/国库数据标题列的行号
+        /// </summary>
+        /// <param name="reportName"></param>
+        /// <returns></returns>
         private int GetTitleIndex(string reportName)
         {
             //读取配置文件中标题行的行号
@@ -65,6 +69,26 @@ namespace JournalVoucherAudit.WinformsUI
             //转换为整数
             int.TryParse(value, out index);
             return index;
+        }
+
+        /// <summary>
+        /// 读取配置文件中的字段
+        /// 依据财务报表标题，读取国库报表标题和excel中sheet的名称
+        /// </summary>
+        /// <param name="caiwuTitle">财务报表的标题</param>
+        /// <returns></returns>
+        private Tuple<string, string, string> GetReportTitles(string caiwuTitle)
+        {
+            Tuple<string, string, string> result = new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
+            //依据报表编号，读取配置文件value
+            var value = ConfigurationManager.AppSettings[caiwuTitle];
+            //使用逗号做分隔符
+            var titles = value.Split(',');
+            if (titles.Length > 0)
+            {
+                result = new Tuple<string, string, string>(caiwuTitle, titles[0], titles[1]);
+            }
+            return result;
         }
 
         #endregion
@@ -148,7 +172,7 @@ namespace JournalVoucherAudit.WinformsUI
                 }
                 //读取程序集的版本
                 version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                
+
                 return title + "-" + version;
             }
         }
@@ -163,6 +187,10 @@ namespace JournalVoucherAudit.WinformsUI
             dgv_CaiWu.RowPostPaint += dgv_CaiWu_RowPostPaint;
             dgv_GuoKu.RowPostPaint += dgv_GuoKu_RowPostPaint;
             Text = FormTitle;
+            //不允许自动生成列
+            dgv_CaiWu.AutoGenerateColumns = false;
+            dgv_GuoKu.AutoGenerateColumns = false;
+
         }
 
         #endregion
@@ -244,8 +272,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Audit_Click(object sender, EventArgs e)
         {
-            //lbl_Caution.Text = System.AppDomain.CurrentDomain.BaseDirectory + @"Template\Template.xml";
-            //return;
+
 
             //检查数据文件
             if (!CaiWuData.Any() || !GuoKuData.Any())
