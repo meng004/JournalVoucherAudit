@@ -337,6 +337,8 @@ namespace JournalVoucherAudit.WinformsUI
             //设置提示信息
             lbl_Caution.Text = string.Format(post_caution, isBalance ? "已" : "未");
             lbl_Caution.ForeColor = Color.Red;
+            //关闭操作提示信息
+            lbl_Message.Text = string.Empty;
 
             //转换为可排序列表
             var caiWuSort = new SortableBindingList<CaiWuItem>(caiWuException.OrderBy(t => t.CreditAmount).ToList());
@@ -355,6 +357,9 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
+            //关闭提示消息
+            lbl_Caution.Text = string.Empty;
+
             //取出不符合要求的数据
             var caiWus = dgv_CaiWu.DataSource as IEnumerable<CaiWuItem>;
             var guoKus = dgv_GuoKu.DataSource as IEnumerable<GuoKuItem>;
