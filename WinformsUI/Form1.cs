@@ -32,10 +32,14 @@ namespace JournalVoucherAudit.WinformsUI
         private static string jiaoYu = "教育事业收入";
         private static string gongGong = "零余额公共财政预算";
         private static string zhuanHu = "零余额纳入专户管理的非税收入";
+
+        private static string caution = "请先将国库与财务导出文件另存为xls文件";
+        private static string post_caution = "调节后余额 {0} 平衡";
         /// <summary>
         /// 生效规则
+        /// 默认按凭证号、金额与记录数匹配
         /// </summary>
-        private ActiveRule _rule = ActiveRule.AbsWithAmount | ActiveRule.AmountWithCount | ActiveRule.NumberWithAmount | ActiveRule.NumberWithSingleRecord | ActiveRule.NumberAmountAndCount;
+        private ActiveRule _rule = ActiveRule.NumberAmountAndCount;
 
         /// <summary>
         /// 报表类型，与配置文件中的key相同
@@ -89,6 +93,32 @@ namespace JournalVoucherAudit.WinformsUI
                 result = new Tuple<string, string, string>(caiwuTitle, titles[0], titles[1]);
             }
             return result;
+        }
+        /// <summary>
+        /// 依据界面规则选中情况，设置rule
+        /// </summary>
+        private void SetRule()
+        {
+            if (chk_AmountWithCount.Checked)
+            {
+                _rule = _rule | ActiveRule.AmountWithCount;
+            }
+            if (chk_NumberAmountAndCount.Checked)
+            {
+                _rule = _rule | ActiveRule.NumberAmountAndCount;
+            }
+            if (chk_AbsWithAmount.Checked)
+            {
+                _rule = _rule | ActiveRule.AbsWithAmount;
+            }
+            if (chk_NumberWithAmount.Checked)
+            {
+                _rule = _rule | ActiveRule.NumberWithAmount;
+            }
+            if (chk_NumberWithSingleRecord.Checked)
+            {
+                _rule = _rule | ActiveRule.NumberWithSingleRecord;
+            }
         }
 
         #endregion
@@ -187,10 +217,15 @@ namespace JournalVoucherAudit.WinformsUI
             dgv_CaiWu.RowPostPaint += dgv_CaiWu_RowPostPaint;
             dgv_GuoKu.RowPostPaint += dgv_GuoKu_RowPostPaint;
             Text = FormTitle;
+            lbl_Caution.Text = caution;
+            lbl_Message.Text = string.Empty;
             //不允许自动生成列
             dgv_CaiWu.AutoGenerateColumns = false;
             dgv_GuoKu.AutoGenerateColumns = false;
-
+            //禁用规则
+            chk_AbsWithAmount.Enabled = false;
+            chk_NumberWithAmount.Enabled = false;
+            chk_NumberWithSingleRecord.Enabled = false;
         }
 
         #endregion
@@ -272,8 +307,6 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_Audit_Click(object sender, EventArgs e)
         {
-
-
             //检查数据文件
             if (!CaiWuData.Any() || !GuoKuData.Any())
             {
@@ -283,22 +316,36 @@ namespace JournalVoucherAudit.WinformsUI
 
             //重置消息
             lbl_Message.Text = string.Empty;
-
+            //设置rule
+            SetRule();
             //对账
             var caiWuAudit = new CaiWuAudit(_rule);
             var guoKuAudit = new GuoKuAudit(_rule);
             //取不符合要求的数据
             var caiWuException = caiWuAudit.Audit(CaiWuData, GuoKuData);
             var guoKuException = guoKuAudit.Audit(CaiWuData, GuoKuData);
-            //转换为可排序列表
-            var caiWuSort = new SortableBindingList<CaiWuItem>(caiWuException);
-            //转换为可排序列表
-            var guoKuSort = new SortableBindingList<GuoKuItem>(guoKuException);
-            //绑定数据
-            //将数据转换为可排序对象
-            dgv_CaiWu.DataSource = caiWuSort.OrderBy(t => t.CreditAmount).ToList();
 
-            dgv_GuoKu.DataSource = guoKuSort.OrderBy(t => t.Amount).ToList();
+            //统计数据
+            var caiwu_total = CaiWuData.Sum(t => t.CreditAmount);
+            var guoku_total = GuoKuData.Sum(t => t.Amount);
+            var caiwu_subtotal = caiWuException.Sum(t => t.CreditAmount);
+            var guoku_subtotal = guoKuException.Sum(t => t.Amount);
+            var caiwu_balance = caiwu_total - caiwu_subtotal;
+            var guoku_balance = guoku_total - guoku_subtotal;
+            //是否平衡
+            var isBalance = (caiwu_balance - guoku_balance) < 1e-7;
+            //设置提示信息
+            lbl_Caution.Text = string.Format(post_caution, isBalance ? "已" : "未");
+            lbl_Caution.ForeColor = Color.Red;
+
+            //转换为可排序列表
+            var caiWuSort = new SortableBindingList<CaiWuItem>(caiWuException.OrderBy(t => t.CreditAmount).ToList());
+
+            var guoKuSort = new SortableBindingList<GuoKuItem>(guoKuException.OrderBy(t => t.Amount).ToList());
+            //绑定数据            
+            dgv_CaiWu.DataSource = caiWuSort;//caiWuSort.OrderBy(t => t.CreditAmount).ToList();
+
+            dgv_GuoKu.DataSource = guoKuSort;//.OrderBy(t => t.Amount).ToList();
         }
 
         /// <summary>
@@ -380,7 +427,11 @@ namespace JournalVoucherAudit.WinformsUI
         #endregion
 
         #region 生效规则
-
+        /// <summary>
+        /// 金额与记录数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chk_AmountWithCount_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_AmountWithCount.Checked)
@@ -388,7 +439,11 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.AmountWithCount;
         }
-
+        /// <summary>
+        /// 单凭证分多笔支付
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chk_NumberWithAmount_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_NumberWithAmount.Checked)
@@ -396,7 +451,11 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.NumberWithAmount;
         }
-
+        /// <summary>
+        /// 同凭证分多笔支付
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chk_AbsWithAmount_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_AbsWithAmount.Checked)
@@ -404,7 +463,11 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.AbsWithAmount;
         }
-
+        /// <summary>
+        /// 单笔凭证号与小计
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chk_NumberWithSingleRecord_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_NumberWithSingleRecord.Checked)
@@ -412,6 +475,11 @@ namespace JournalVoucherAudit.WinformsUI
             else
                 _rule = _rule & ~ActiveRule.NumberWithSingleRecord;
         }
+        /// <summary>
+        /// 凭证号、金额与记录数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chk_NumberAmountAndCount_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_NumberAmountAndCount.Checked)
