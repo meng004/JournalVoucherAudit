@@ -15,17 +15,6 @@ namespace JournalVoucherAudit.WinformsUI
     public partial class Form1 : Form
     {
         #region 字段
-        /// <summary>
-        /// 报表标题组
-        /// 依次分别为财务title，国库title，sheet名称
-        /// </summary>
-        private readonly Dictionary<string, Tuple<string, string, string, string>> _titleDict = new Dictionary<string, Tuple<string, string, string, string>>
-        {
-            { caiZheng, new Tuple<string,string,string,string>(caiZheng, "直接支付预算内", "直内", string.Format(foottext,caiZheng,caiZheng)) },
-            { jiaoYu, new Tuple<string,string,string,string>(jiaoYu, "直接支付预算外", "直外",string.Format(foottext,jiaoYu,jiaoYu))},
-            { gongGong , new Tuple<string,string,string,string>(gongGong , "授权支付预算内", "授权公共", string.Empty)},
-            { zhuanHu, new Tuple<string,string,string,string>(zhuanHu, "授权支付预算外", "授权非税",string.Empty )}
-        };
 
         private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度";
         private static string caiZheng = "财政补助收入";
@@ -50,16 +39,7 @@ namespace JournalVoucherAudit.WinformsUI
         #endregion
 
         #region 帮助方法
-        /// <summary>
-        /// 当前报表标题
-        /// 次序分别为：财务标题、国库标题、sheet名称、页脚备注
-        /// </summary>
-        private Tuple<string, string, string, string> GetReportTitle(string title)
-        {
-            Tuple<string, string, string, string> titles;
-            _titleDict.TryGetValue(title, out titles);
-            return titles;
-        }
+
         /// <summary>
         /// 按照报表名称，读取财务/国库数据标题列的行号
         /// </summary>
@@ -86,6 +66,7 @@ namespace JournalVoucherAudit.WinformsUI
             Tuple<string, string, string> result = new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
             //依据报表编号，读取配置文件value
             var value = ConfigurationManager.AppSettings[caiwuTitle];
+
             //使用逗号做分隔符
             var titles = value.Split(',');
             if (titles.Length > 0)
@@ -93,6 +74,7 @@ namespace JournalVoucherAudit.WinformsUI
                 result = new Tuple<string, string, string>(caiwuTitle, titles[0], titles[1]);
             }
             return result;
+
         }
         /// <summary>
         /// 依据界面规则选中情况，设置rule
