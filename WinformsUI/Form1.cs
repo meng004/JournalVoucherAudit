@@ -16,12 +16,6 @@ namespace JournalVoucherAudit.WinformsUI
     {
         #region 字段
 
-        private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度";
-        private static string caiZheng = "财政补助收入";
-        private static string jiaoYu = "教育事业收入";
-        private static string gongGong = "零余额公共财政预算";
-        private static string zhuanHu = "零余额纳入专户管理的非税收入";
-
         private static string caution = "请先将国库与财务导出文件另存为xls文件";
         private static string post_caution = "调节后余额 {0} 平衡";
         /// <summary>
@@ -64,14 +58,30 @@ namespace JournalVoucherAudit.WinformsUI
         private Tuple<string, string, string> GetReportTitles(string caiwuTitle)
         {
             Tuple<string, string, string> result = new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
-            //依据报表编号，读取配置文件value
-            var value = ConfigurationManager.AppSettings[caiwuTitle];
+            
+            //取科目编号和科目名称
+            //[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
+            //编号:41010101
+            //名称:事业收入_教育事业收入_纳入专户管理的非税收入
+            var index_begin= caiwuTitle.IndexOf('[');
+            var index_end = caiwuTitle.IndexOf(']');
+
+            var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
+            var name = caiwuTitle.Substring(index_end + 1);
+
+            //依据财务报表科目编号，读取配置文件中的国库报表标题和导出excel的sheet名称
+            //"零余额公共"101101
+            //"零余额非税";//101102
+            //"财政拨款";//400101
+            //"教育事业收入";//41010101 
+            var value = ConfigurationManager.AppSettings[number];
 
             //使用逗号做分隔符
             var titles = value.Split(',');
             if (titles.Length > 0)
             {
-                result = new Tuple<string, string, string>(caiwuTitle, titles[0], titles[1]);
+                //依次为财务科目名称，国库科目名称，导出excel的sheet名称
+                result = new Tuple<string, string, string>(name, titles[0], titles[1]);
             }
             return result;
 
@@ -220,7 +230,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_CaiWuFilePath_Click(object sender, EventArgs e)
         {
-            var dialog = new OpenFileDialog { Filter = Resources.FileFilter };
+            var dialog = new OpenFileDialog { Filter = Resources.FileFilter_xls_first };
             if (DialogResult.OK.Equals(dialog.ShowDialog()))
             {
                 //保存文件路径                
@@ -259,7 +269,7 @@ namespace JournalVoucherAudit.WinformsUI
         /// <param name="e"></param>
         private void btn_GuoKuFilePath_Click(object sender, EventArgs e)
         {
-            var dialog = new OpenFileDialog { Filter = Resources.FileFilter };
+            var dialog = new OpenFileDialog { Filter = Resources.FileFilter_xlsx_first };
             if (DialogResult.OK.Equals(dialog.ShowDialog()))
             {
                 //保存文件路径
@@ -362,7 +372,7 @@ namespace JournalVoucherAudit.WinformsUI
             var voucherDate = table.Data.First().VoucherDate.ToDateTime();
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
-            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter, FileName = filename };
+            SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter_xls_first, FileName = filename };
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {

@@ -72,9 +72,18 @@ namespace JournalVoucherAudit.WinformsUI.Properties {
         /// <summary>
         ///   查找类似 Excel 2003文件|*.xls|Excel 2007文件|*.xlsx 的本地化字符串。
         /// </summary>
-        internal static string FileFilter {
+        internal static string FileFilter_xls_first {
             get {
-                return ResourceManager.GetString("FileFilter", resourceCulture);
+                return ResourceManager.GetString("FileFilter_xls_first", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Excel 2007文件|*.xlsx|Excel 2003文件|*.xls 的本地化字符串。
+        /// </summary>
+        internal static string FileFilter_xlsx_first {
+            get {
+                return ResourceManager.GetString("FileFilter_xlsx_first", resourceCulture);
             }
         }
         

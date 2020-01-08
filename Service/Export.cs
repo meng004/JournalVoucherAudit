@@ -78,7 +78,7 @@ namespace JournalVoucherAudit.Service
                 new SheetRenderer("直内",
                     new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
                     new ParameterRenderer("GuoKuTitle", reportTitles.Item2),
-                    new ParameterRenderer("CurrentDate", lastDayOfMonth.ToShortDateString()),
+                    new ParameterRenderer("CurrentDate", lastDayOfMonth.ToLongDateString()),//格式为2019年12月31日
                     new ParameterRenderer("CaiWuTotal", caiWuTotal),
                     new ParameterRenderer("GuoKuTotal", guoKuTotal),
                     new ParameterRenderer("CaiWuSubTotal", caiWuSubTotal),

@@ -120,7 +120,10 @@
   <data name="ErrorMessage" xml:space="preserve">
     <value>请检查数据文件</value>
   </data>
-  <data name="FileFilter" xml:space="preserve">
+  <data name="FileFilter_xlsx_first" xml:space="preserve">
+    <value>Excel 2007文件|*.xlsx|Excel 2003文件|*.xls</value>
+  </data>
+  <data name="FileFilter_xls_first" xml:space="preserve">
     <value>Excel 2003文件|*.xls|Excel 2007文件|*.xlsx</value>
   </data>
   <data name="ResultMessage" xml:space="preserve">
