@@ -187,8 +187,12 @@ namespace JournalVoucherAudit.Service
                 //取标准标题
                 var value = string.Empty;
                 //_TitleDict.TryGetValue(key, out value);
-                var index = titleCell.IndexOf(']');
-                value = titleCell.Substring(index + 1);
+
+                //取科目编号
+                //如[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
+                var index_begin = titleCell.IndexOf('[');
+                //var index_end = titleCell.IndexOf(']');
+                value = titleCell.Substring(index_begin);
 
                 return value;
             }
