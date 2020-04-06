@@ -69,7 +69,12 @@ namespace JournalVoucherAudit.Service
             var caiWuSubTotal = tiaoJieItems.Sum(t => t.CreditAmount);
             var guoKuSubTotal = tiaoJieItems.Sum(t => t.Amount);
             //对账日期
-            var voucherDate = tiaoJieItems.First().VoucherDate.ToDateTime();
+            //文件名包含了报表日期，如：2020年3月-授权非税-财务国库对账单
+            //因文件名使用绝对路径，所以先取文件名
+            //文件名采用日期-科目-报表名的固定样式，日期取第一段
+            var reportFilename = filename.Split('\\').Last();
+            var tempDate = reportFilename.Split('-').First();
+            var voucherDate = tempDate.ToDateTime();
             //月份的最后一天
             var lastDayOfMonth = voucherDate.LastDayOfMonth();
 
