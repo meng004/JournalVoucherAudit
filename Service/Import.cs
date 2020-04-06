@@ -114,7 +114,7 @@ namespace JournalVoucherAudit.Service
         /// </summary>
         /// <typeparam name="GuoKu">国库</typeparam>
         /// <returns></returns>
-        public IEnumerable<GuoKu> ReadGuoKu<GuoKu>()
+        public IEnumerable<GuoKu> ReadGuoKu<GuoKu>(string natureOfFunds = "经费拨款")
             where GuoKu : GuoKuItem, new()
         {
             //读取excel
@@ -146,17 +146,20 @@ namespace JournalVoucherAudit.Service
             //新建list
             var list = new List<GuoKu>();
             //在list中插入数据
-            for (int i = _TitleRowIndex + 1; i <= sheet.LastRowNum; i++)
+            //排除最后一行，总计金额
+            for (int i = _TitleRowIndex + 1; i <= sheet.LastRowNum - 1; i++)
             {
                 //取excel的行数据
                 var sheetRow = sheet.GetRow(i);
                 //如果没有数据，读取下一行
                 if (null == sheetRow) continue;
+                //如果资金性质不匹配，读取下一行
+                if (natureOfFunds != sheetRow.GetCell(cells["资金性质"]).StringCellValue) continue;
                 //新建财务
                 var guoKu = new GuoKu();
                 guoKu.Amount = sheetRow.GetCell(cells["金额"]).NumericCellValue;
                 guoKu.RemarkReason = sheetRow.GetCell(cells["摘要事由"]).StringCellValue;
-                guoKu.CreateDate = sheetRow.GetCell(cells["支付令生成日期"]).StringCellValue;
+                guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).StringCellValue;
                 guoKu.PaymentNumber = sheetRow.GetCell(cells["支付令编号"]).StringCellValue;
                 list.Add(guoKu);
             }
