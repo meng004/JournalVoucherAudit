@@ -48,43 +48,76 @@ namespace JournalVoucherAudit.WinformsUI
             int.TryParse(value, out index);
             return index;
         }
+        /// <summary>
+        /// 依据财务报表的标题，如：[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
+        /// 读取配置文件
+        /// 调节表（国库标题）、调节表sheet名称、国库报表的资金性质
+        /// </summary>
+        private List<string> GetConfig
+        {
+            get
+            {
+                var caiwuTitle = _caiWuTitle;
+                //取科目编号和科目名称
+                //[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
+                //编号:41010101
+                //名称:事业收入_教育事业收入_纳入专户管理的非税收入
+                var index_begin = caiwuTitle.IndexOf('[');
+                var index_end = caiwuTitle.IndexOf(']');
 
+                var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
+                var name = caiwuTitle.Substring(index_end + 1);
+
+                //依据财务报表科目编号，读取配置文件中的国库报表标题和导出excel的sheet名称
+                //"零余额公共"101101
+                //"零余额非税";//101102
+                //"财政拨款";//400101
+                //"教育事业收入";//41010101 
+                var value = ConfigurationManager.AppSettings[number];
+
+                //使用逗号做分隔符
+                var titles = value.Split(',');
+                var list = titles.ToList();
+                //报表名称放在最后
+                list.Add(name);
+                return list;
+            }
+        }
+
+        /// <summary>
+        /// 读取国库报表的资金性质
+        /// </summary>
+        private string GetNatureOfFunds
+        {
+            get
+            {
+                var titles = GetConfig;
+                string natureOfFunds = titles[2];
+                return natureOfFunds;
+            }
+        }
         /// <summary>
         /// 读取配置文件中的字段
         /// 依据财务报表标题，读取国库报表标题和excel中sheet的名称
         /// </summary>
         /// <param name="caiwuTitle">财务报表的标题</param>
         /// <returns></returns>
-        private Tuple<string, string, string> GetReportTitles(string caiwuTitle)
+        private Tuple<string, string, string> GetReportTitles
         {
-            Tuple<string, string, string> result = new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
-            
-            //取科目编号和科目名称
-            //[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
-            //编号:41010101
-            //名称:事业收入_教育事业收入_纳入专户管理的非税收入
-            var index_begin= caiwuTitle.IndexOf('[');
-            var index_end = caiwuTitle.IndexOf(']');
-
-            var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
-            var name = caiwuTitle.Substring(index_end + 1);
-
-            //依据财务报表科目编号，读取配置文件中的国库报表标题和导出excel的sheet名称
-            //"零余额公共"101101
-            //"零余额非税";//101102
-            //"财政拨款";//400101
-            //"教育事业收入";//41010101 
-            var value = ConfigurationManager.AppSettings[number];
-
-            //使用逗号做分隔符
-            var titles = value.Split(',');
-            if (titles.Length > 0)
+            get
             {
-                //依次为财务科目名称，国库科目名称，导出excel的sheet名称
-                result = new Tuple<string, string, string>(name, titles[0], titles[1]);
-            }
-            return result;
+                Tuple<string, string, string> result =
+                    new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
 
+                var titles = GetConfig;
+
+                if (titles.Count > 0)
+                {
+                    //依次为财务科目名称，调节表中国库科目名称，导出excel的sheet名称、国库报表资金性质
+                    result = new Tuple<string, string, string>(titles.LastOrDefault(), titles[0], titles[1]);
+                }
+                return result;
+            }
         }
         /// <summary>
         /// 依据界面规则选中情况，设置rule
@@ -168,8 +201,11 @@ namespace JournalVoucherAudit.WinformsUI
 
                 //读取标题行的行号
                 var index = GetTitleIndex(_GuoKu);
+                //创建导入对象
                 var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, index);
-                var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>();
+                //创建国库数据项
+                var natureOfFunds = GetNatureOfFunds;
+                var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>(natureOfFunds);
                 return items.ToList();
             }
         }
@@ -367,9 +403,19 @@ namespace JournalVoucherAudit.WinformsUI
             var caiWuTotal = CaiWuData.Sum(t => t.CreditAmount);
             var guoKuTotal = GuoKuData.Sum(t => t.Amount);
             //设置报表内标题与sheet名称
-            var reportTitles = GetReportTitles(_caiWuTitle);
+            var reportTitles = GetReportTitles;
             //文件名
-            var voucherDate = table.Data.First().VoucherDate.ToDateTime();
+            var voucherDate = DateTime.Today;
+            //处理数据集为空
+            if (table.Data.Count() == 0)
+            {
+                voucherDate = CaiWuData.First().VoucherDate.ToDateTime(); 
+            }
+            else
+            {
+                voucherDate = table.Data.First().VoucherDate.ToDateTime();
+            }
+
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
             SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter_xls_first, FileName = filename };
