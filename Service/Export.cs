@@ -78,9 +78,13 @@ namespace JournalVoucherAudit.Service
             //月份的最后一天
             var lastDayOfMonth = voucherDate.LastDayOfMonth();
 
+            //调节表title
+            var title = reportTitles.Item1.Split('_').LastOrDefault();
+
             //输出excel
             ExportHelper.ExportToLocal(path + @"Template\Template.xlsx", filename,
                 new SheetRenderer("直内",
+                    new ParameterRenderer("Title", title),
                     new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
                     new ParameterRenderer("GuoKuTitle", reportTitles.Item2),
                     new ParameterRenderer("CurrentDate", lastDayOfMonth.ToLongDateString()),//格式为2019年12月31日
