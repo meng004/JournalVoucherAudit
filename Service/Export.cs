@@ -94,7 +94,7 @@ namespace JournalVoucherAudit.Service
                     new ParameterRenderer("GuoKuSubTotal", guoKuSubTotal),
                     new ParameterRenderer("CaiWuBalance", caiWuTotal - caiWuSubTotal),
                     new ParameterRenderer("GuoKuBalance", guoKuTotal - guoKuSubTotal),
-                    new ParameterRenderer("FootText", string.Format(foottext, reportTitles.Item1, reportTitles.Item1)),
+                    //new ParameterRenderer("FootText", string.Format(foottext, reportTitles.Item1, reportTitles.Item1)),
                     new RepeaterRenderer<TiaoJieItem>("Reconciliation", tiaoJieItems,
                         // 财务，已入账未付款
                         // 日期，凭证号，摘要，金额
