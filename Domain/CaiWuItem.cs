@@ -35,7 +35,9 @@ namespace JournalVoucherAudit.Domain
                 var sbc = VoucherNumber.ToSbc();
                 //取数字
                 var number = sbc.GetNumber();
-                return number;
+                //去掉前面的零，如0487转换为487
+                var result = number.TrimStart('0');
+                return result;
             }
         }
     }
