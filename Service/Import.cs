@@ -159,7 +159,7 @@ namespace JournalVoucherAudit.Service
                 var guoKu = new GuoKu();
                 guoKu.Amount = sheetRow.GetCell(cells["金额"]).NumericCellValue;
                 guoKu.RemarkReason = sheetRow.GetCell(cells["摘要事由"]).StringCellValue;
-                guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).StringCellValue;
+                guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).DateCellValue.ToShortDateString();
                 guoKu.PaymentNumber = sheetRow.GetCell(cells["支付令编号"]).StringCellValue;
                 list.Add(guoKu);
             }
