@@ -35,6 +35,15 @@ namespace JournalVoucherAudit.Domain
                 var sbc = RemarkReason.ToSbc();
                 //取出数字
                 var number = sbc.GetNumber();
+                //提取凭证号，格式为“报版面费4-1087”，4为四月，1087为凭证号
+                var pingzhen = number.Split('-');
+                //没有-
+                var result = pingzhen[0];
+                //处理数字中有-，则取凭证号
+                if (pingzhen.Length == 2)
+                {
+                    result = pingzhen[1];
+                }
                 return number;
             }
         }
