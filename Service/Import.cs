@@ -146,8 +146,9 @@ namespace JournalVoucherAudit.Service
             //新建list
             var list = new List<GuoKu>();
             //在list中插入数据
-            //排除最后一行，总计金额
-            for (int i = _TitleRowIndex + 1; i <= sheet.LastRowNum - 1; i++)
+            //排除最后一行，总计金额，取lastrownum-1
+            //2020.5.9 国库报表格式变更，最后一行不是总计金额，取lastrownum即可
+            for (int i = _TitleRowIndex + 1; i <= sheet.LastRowNum ; i++)
             {
                 //取excel的行数据
                 var sheetRow = sheet.GetRow(i);
