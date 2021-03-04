@@ -18,6 +18,7 @@ namespace JournalVoucherAudit.WinformsUI
 
         private static string caution = "请先将国库与财务导出文件另存为xls文件";
         private static string post_caution = "调节后余额 {0} 平衡";
+        private static double delta = 1e-7;
         /// <summary>
         /// 生效规则
         /// 默认按凭证号、金额与记录数匹配
@@ -361,7 +362,7 @@ namespace JournalVoucherAudit.WinformsUI
             var caiwu_balance = caiwu_total - caiwu_subtotal;
             var guoku_balance = guoku_total - guoku_subtotal;
             //是否平衡
-            var isBalance = (caiwu_balance - guoku_balance) < 1e-7;
+            var isBalance = (caiwu_balance - guoku_balance) < delta;
             //设置提示信息
             lbl_Caution.Text = string.Format(post_caution, isBalance ? "已" : "未");
             lbl_Caution.ForeColor = Color.Red;
@@ -407,7 +408,7 @@ namespace JournalVoucherAudit.WinformsUI
             //文件名
             var voucherDate = DateTime.Today;
             //处理数据集为空
-            if (table.Data.Count() == 0)
+            if (!table.Data.Any())
             {
                 voucherDate = CaiWuData.First().VoucherDate.ToDateTime(); 
             }
