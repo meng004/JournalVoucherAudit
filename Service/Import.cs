@@ -148,19 +148,21 @@ namespace JournalVoucherAudit.Service
             //在list中插入数据
             //排除最后一行，总计金额，取lastrownum-1
             //2020.5.9 国库报表格式变更，最后一行不是总计金额，取lastrownum即可
-            for (int i = _TitleRowIndex + 1; i <= sheet.LastRowNum; i++)
+            for (int i = _TitleRowIndex + 2; i <= sheet.LastRowNum; i++)
             {
                 //取excel的行数据
                 var sheetRow = sheet.GetRow(i);
                 //如果没有数据，读取下一行
                 if (null == sheetRow) continue;
                 //如果资金性质不匹配，读取下一行
-                if (!natureOfFunds.Contains(sheetRow.GetCell(cells["资金性质"]).StringCellValue)) continue;
+                var str = sheetRow.GetCell(cells["资金性质"]).StringCellValue;
+                //资金性质为空，或字符串没有匹配，则读取下一行
+                if (string.IsNullOrWhiteSpace(str) || !natureOfFunds.Contains(str)) continue;
                 //新建财务
                 var guoKu = new GuoKu();
                 guoKu.Amount = sheetRow.GetCell(cells["金额"]).NumericCellValue;
                 guoKu.RemarkReason = sheetRow.GetCell(cells["摘要事由"]).StringCellValue;
-                guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).DateCellValue.ToShortDateString();
+                guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).DateCellValue.ToString("yyyy-MM-dd");
                 guoKu.PaymentNumber = sheetRow.GetCell(cells["申请令号"]).StringCellValue;
                 list.Add(guoKu);
             }
