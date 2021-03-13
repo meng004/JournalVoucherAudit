@@ -51,8 +51,12 @@ namespace JournalVoucherAudit.Service
         /// <param name="tiaoJieBiao">调节表</param>
         public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
+            //取扩展名以确定模板文件
+            var index = filename.LastIndexOf(".");
+            var extension = filename.Substring(index, filename.Length - index);
+
             // 项目启动时，添加
-            Configurator.Put(".xls", new WorkbookLoader());
+            Configurator.Put(extension, new WorkbookLoader());
             //创建excel参数容器
             //var workbookParameterContainer = new WorkbookParameterContainer();
             var path = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -83,7 +87,7 @@ namespace JournalVoucherAudit.Service
             try
             {
                 //输出excel
-                ExportHelper.ExportToLocal(@"Template\Template.xls", filename,
+                ExportHelper.ExportToLocal(@"Template\Template" + extension, filename,
                     new SheetRenderer("report",
                         new ParameterRenderer("Title", title),
                         new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
@@ -117,7 +121,7 @@ namespace JournalVoucherAudit.Service
                 throw e;
             }
             //修改sheetname
-            //SetSheetName(filename, reportTitles.Item3);
+            SetSheetName(filename, reportTitles.Item3);
         }
 
     }
