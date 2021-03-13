@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="StringExtensionMethodsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DateTimeExtensionMethodTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utility\Utility.csproj">
