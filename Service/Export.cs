@@ -52,7 +52,7 @@ namespace JournalVoucherAudit.Service
         public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
             // 项目启动时，添加
-            Configurator.Put(".xlsx", new WorkbookLoader());
+            Configurator.Put(".xls", new WorkbookLoader());
             //创建excel参数容器
             //var workbookParameterContainer = new WorkbookParameterContainer();
             var path = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -80,38 +80,44 @@ namespace JournalVoucherAudit.Service
 
             //调节表title
             var title = reportTitles.Item1.Split('_').LastOrDefault();
-
-            //输出excel
-            ExportHelper.ExportToLocal(path + @"Template\Template.xlsx", filename,
-                new SheetRenderer("直内",
-                    new ParameterRenderer("Title", title),
-                    new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
-                    new ParameterRenderer("GuoKuTitle", reportTitles.Item2),
-                    new ParameterRenderer("CurrentDate", lastDayOfMonth.ToLongDateString()),//格式为2019年12月31日
-                    new ParameterRenderer("CaiWuTotal", caiWuTotal),
-                    new ParameterRenderer("GuoKuTotal", guoKuTotal),
-                    new ParameterRenderer("CaiWuSubTotal", caiWuSubTotal),
-                    new ParameterRenderer("GuoKuSubTotal", guoKuSubTotal),
-                    new ParameterRenderer("CaiWuBalance", caiWuTotal - caiWuSubTotal),
-                    new ParameterRenderer("GuoKuBalance", guoKuTotal - guoKuSubTotal),
-                    //new ParameterRenderer("FootText", string.Format(foottext, reportTitles.Item1, reportTitles.Item1)),
-                    new RepeaterRenderer<TiaoJieItem>("Reconciliation", tiaoJieItems,
-                        // 财务，已入账未付款
-                        // 日期，凭证号，摘要，金额
-                        new ParameterRenderer<TiaoJieItem>("VoucherDate", t => t.VoucherDate),
-                        new ParameterRenderer<TiaoJieItem>("VoucherNumber", t => t.VoucherNumber),
-                        new ParameterRenderer<TiaoJieItem>("Remark", t => t.Remark),
-                        new ParameterRenderer<TiaoJieItem>("CreditAmount", t => t.CreditAmount),
-                        // 国库，已付款未入账
-                        // 日期，摘要，金额
-                        new ParameterRenderer<TiaoJieItem>("CreateDate", t => t.CreateDate),
-                        new ParameterRenderer<TiaoJieItem>("RemarkReason", t => t.RemarkReason),
-                        new ParameterRenderer<TiaoJieItem>("Amount", t => t.Amount)
+            try
+            {
+                //输出excel
+                ExportHelper.ExportToLocal(@"Template\Template.xls", filename,
+                    new SheetRenderer("report",
+                        new ParameterRenderer("Title", title),
+                        new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
+                        new ParameterRenderer("GuoKuTitle", reportTitles.Item2),
+                        new ParameterRenderer("CurrentDate", lastDayOfMonth.ToLongDateString()),//格式为2019年12月31日
+                        new ParameterRenderer("CaiWuTotal", caiWuTotal),
+                        new ParameterRenderer("GuoKuTotal", guoKuTotal),
+                        new ParameterRenderer("CaiWuSubTotal", caiWuSubTotal),
+                        new ParameterRenderer("GuoKuSubTotal", guoKuSubTotal),
+                        new ParameterRenderer("CaiWuBalance", caiWuTotal - caiWuSubTotal),
+                        new ParameterRenderer("GuoKuBalance", guoKuTotal - guoKuSubTotal),
+                        //new ParameterRenderer("FootText", string.Format(foottext, reportTitles.Item1, reportTitles.Item1)),
+                        new RepeaterRenderer<TiaoJieItem>("lemon", tiaoJieItems,
+                            // 财务，已入账未付款
+                            // 日期，凭证号，摘要，金额
+                            new ParameterRenderer<TiaoJieItem>("VoucherDate", t => t.VoucherDate),
+                            new ParameterRenderer<TiaoJieItem>("VoucherNumber", t => t.VoucherNumber),
+                            new ParameterRenderer<TiaoJieItem>("Remark", t => t.Remark),
+                            new ParameterRenderer<TiaoJieItem>("CreditAmount", t => t.CreditAmount),
+                            // 国库，已付款未入账
+                            // 日期，摘要，金额
+                            new ParameterRenderer<TiaoJieItem>("CreateDate", t => t.CreateDate),
+                            new ParameterRenderer<TiaoJieItem>("RemarkReason", t => t.RemarkReason),
+                            new ParameterRenderer<TiaoJieItem>("Amount", t => t.Amount)
+                            )
                         )
-                    )
-                );
+                    );
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             //修改sheetname
-            SetSheetName(filename, reportTitles.Item3);
+            //SetSheetName(filename, reportTitles.Item3);
         }
 
     }
