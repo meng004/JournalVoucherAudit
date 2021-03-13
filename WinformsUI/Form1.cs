@@ -405,27 +405,27 @@ namespace JournalVoucherAudit.WinformsUI
             var guoKuTotal = GuoKuData.Sum(t => t.Amount);
             //设置报表内标题与sheet名称
             var reportTitles = GetReportTitles;
+            //取财务的入账日期
+            var voucherDate = CaiWuData.First().VoucherDate.ToDateTime();
             //文件名
-            var voucherDate = DateTime.Today;
-            //处理数据集为空
-            if (!table.Data.Any())
-            {
-                voucherDate = CaiWuData.First().VoucherDate.ToDateTime(); 
-            }
-            else
-            {
-                voucherDate = table.Data.First().VoucherDate.ToDateTime();
-            }
-
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
             SaveFileDialog saveFileDlg = new SaveFileDialog { Filter = Resources.FileFilter_xls_first, FileName = filename };
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {
-                //导出excel
-                var export = new Export();
-                export.Save(saveFileDlg.FileName, reportTitles, caiWuTotal, guoKuTotal, table.Data);
+             
+                try
+                {
+                    //导出excel
+                    var export = new Export();
+                    export.Save(saveFileDlg.FileName, reportTitles, caiWuTotal, guoKuTotal, table.Data);
+                }
+                catch (Exception ex)
+                {                    
+                    MessageBox.Show(ex.Message);
+                }
+                
                 //提示消息
                 lbl_Message.Text = Resources.ResultMessage;
             }
