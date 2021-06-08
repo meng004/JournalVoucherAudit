@@ -11,9 +11,7 @@ namespace JournalVoucherAudit.Utility
         /// <returns></returns>
         public static DateTime LastDayOfMonth(this DateTime date)
         {
-
-            var nextMonth = new DateTime(date.Year, date.Month + 1, 1);
-            var lastDayOfMonth = nextMonth.AddDays(-1);
+            var lastDayOfMonth = date.AddDays(1 - date.Day).AddMonths(1).AddDays(-1);
             return lastDayOfMonth;
         }
     }
