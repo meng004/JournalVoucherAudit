@@ -21,6 +21,10 @@ namespace JournalVoucherAudit.Service
             { "公共财政预算", "零余额公共财政预算" },
             { "纳入专户管理非税收入", "零余额纳入专户管理的非税收入" }
         };
+        /// <summary>
+        /// 国库报表的列标题
+        /// </summary>
+        private string[] _CellTitle = { "凭证号", "银行支付日期", "金额", "资金性质", "摘要事由" };
 
         /// <summary>
         /// 标题行的行号
@@ -123,7 +127,7 @@ namespace JournalVoucherAudit.Service
             var sheet = workbook.GetSheetAt(0);
             //读取标题行
             var row = sheet.GetRow(_TitleRowIndex);
-            //用表头创建‘标题名-列号’字典
+            //取标题的列索引号
             var cells = new Dictionary<string, int>();
             if (null != row)
             {
@@ -137,8 +141,13 @@ namespace JournalVoucherAudit.Service
                     var value = cell.ColumnIndex;
                     //检查标题名是否为空
                     if (string.IsNullOrWhiteSpace(key)) continue;
-                    //添加到字典
-                    cells.Add(key, i);
+                    //只考虑列表中标题
+                    if (_CellTitle.Contains(key))
+                    {
+                        //添加到字典
+                        cells.Add(key, i);
+                    }
+                    
                 }
             }
 
@@ -163,7 +172,7 @@ namespace JournalVoucherAudit.Service
                 guoKu.Amount = sheetRow.GetCell(cells["金额"]).NumericCellValue;
                 guoKu.RemarkReason = sheetRow.GetCell(cells["摘要事由"]).StringCellValue;
                 guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).DateCellValue.ToString("yyyy-MM-dd");
-                guoKu.PaymentNumber = sheetRow.GetCell(cells["支付令编号"]).StringCellValue;
+                guoKu.PaymentNumber = sheetRow.GetCell(cells["凭证号"]).StringCellValue;
                 list.Add(guoKu);
             }
 
