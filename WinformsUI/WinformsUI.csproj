@@ -133,6 +133,12 @@
     <Content Include="Template\Template.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Template\Template2022.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template2022.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Template\Template_backup.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
