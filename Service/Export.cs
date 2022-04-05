@@ -15,7 +15,27 @@ namespace JournalVoucherAudit.Service
     {
 
         private static string foottext = "注：{0}贷方本月发生额={1}贷方合计 - 收到财政授权支付资金额度";
-
+        /// <summary>
+        /// 模板路径
+        /// </summary>
+        private string template_fullpath = @"Template\Template2022.xls";
+        /// <summary>
+        /// 模板文件扩展名
+        /// </summary>
+        private string template_extension = ".xlsx";
+        /// <summary>
+        /// 模板文件
+        /// </summary>
+        private string template
+        {
+            get
+            {
+                //更改扩展名
+                var filename = Path.ChangeExtension(template_fullpath, template_extension);
+                return filename;
+            }
+        }
+        
         /// <summary>
         /// 修改第一个sheet的名称
         /// </summary>
@@ -52,11 +72,12 @@ namespace JournalVoucherAudit.Service
         public void Save(string filename, Tuple<string, string, string> reportTitles, double caiWuTotal, double guoKuTotal, IEnumerable<TiaoJieItem> tiaoJieBiao)
         {
             //取扩展名以确定模板文件
-            var index = filename.LastIndexOf(".");
-            var extension = filename.Substring(index, filename.Length - index);
+            //var index = filename.LastIndexOf(".");
+            //extension = filename.Substring(index, filename.Length - index);
+            template_extension = Path.GetExtension(filename);
 
             // 项目启动时，添加
-            Configurator.Put(extension, new WorkbookLoader());
+            Configurator.Put(template_extension, new WorkbookLoader());
             //创建excel参数容器
             //var workbookParameterContainer = new WorkbookParameterContainer();
             var path = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -87,7 +108,7 @@ namespace JournalVoucherAudit.Service
             try
             {
                 //输出excel
-                ExportHelper.ExportToLocal(@"Template\Template" + extension, filename,
+                ExportHelper.ExportToLocal(template, filename,
                     new SheetRenderer("report",
                         new ParameterRenderer("Title", title),
                         new ParameterRenderer("CaiWuTitle", reportTitles.Item1),
