@@ -76,7 +76,10 @@ namespace JournalVoucherAudit.Utility
         /// <returns></returns>
         public static DateTime ToDateTime(this string str)
         {
-            var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);
+            //无法处理20211108格式
+            //var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);
+            var date = DateTime.Now;
+            DateTime.TryParseExact(str, "yyyyMMdd", null, System.Globalization.DateTimeStyles.None, out date);
             return date;
         }
 
