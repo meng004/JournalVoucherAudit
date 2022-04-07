@@ -128,6 +128,8 @@ namespace JournalVoucherAudit.Service
                             new ParameterRenderer<TiaoJieItem>("VoucherNumber", t => t.VoucherNumber),
                             new ParameterRenderer<TiaoJieItem>("Remark", t => t.Remark),
                             new ParameterRenderer<TiaoJieItem>("CreditAmount", t => t.CreditAmount),
+                            new ParameterRenderer<TiaoJieItem>("Originator", t => t.Originator),
+                            new ParameterRenderer<TiaoJieItem>("SubjectCode", t => t.SubjectCode),
                             // 国库，已付款未入账
                             // 日期，摘要，金额
                             new ParameterRenderer<TiaoJieItem>("CreateDate", t => t.CreateDate),

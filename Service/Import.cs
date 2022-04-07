@@ -121,8 +121,9 @@ namespace JournalVoucherAudit.Service
         /// 处理国库数据
         /// </summary>
         /// <typeparam name="GuoKu">国库</typeparam>
+        /// <param name="natureOfFunds">资金性质</param>
         /// <returns></returns>
-        public IEnumerable<GuoKu> ReadGuoKu<GuoKu>(string natureOfFunds = "经费拨款")
+        public IEnumerable<GuoKu> ReadGuoKu<GuoKu>()
             where GuoKu : GuoKuItem, new()
         {
             //读取excel
@@ -168,15 +169,16 @@ namespace JournalVoucherAudit.Service
                 //如果没有数据，读取下一行
                 if (null == sheetRow) continue;
                 //如果资金性质不匹配，读取下一行
-                var str = sheetRow.GetCell(cells["资金性质"]).StringCellValue;
+                //var str = sheetRow.GetCell(cells["资金性质"]).StringCellValue;
                 //资金性质为空，或字符串没有匹配，则读取下一行
-                if (string.IsNullOrWhiteSpace(str) || !natureOfFunds.Contains(str)) continue;
+                //if (string.IsNullOrWhiteSpace(str) || !natureOfFunds.Contains(str)) continue;
                 //新建财务
                 var guoKu = new GuoKu();
                 guoKu.Amount = sheetRow.GetCell(cells["金额"]).NumericCellValue;
                 guoKu.RemarkReason = sheetRow.GetCell(cells["摘要事由"]).StringCellValue;
                 guoKu.CreateDate = sheetRow.GetCell(cells["银行支付日期"]).DateCellValue.ToString("yyyy-MM-dd");
                 guoKu.PaymentNumber = sheetRow.GetCell(cells["凭证号"]).StringCellValue;
+                guoKu.NatureOfFunds = sheetRow.GetCell(cells["资金性质"]).StringCellValue;
                 list.Add(guoKu);
             }
 
