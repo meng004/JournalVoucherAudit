@@ -69,7 +69,7 @@ namespace JournalVoucherAudit.WinformsUI
                 //var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
                 //var name = caiwuTitle.Substring(index_end + 1);
 
-                //依据财务报表科目编号，读取配置文件中的国库报表标题和导出excel的sheet名称
+                //依据财务报表科目编号，读取配置文件中的调节表（国库标题）、调节表sheet名称、国库报表资金性质
                 //"零余额公共"101101
                 //"零余额非税";//101102
                 //"财政拨款";//400101
@@ -79,12 +79,31 @@ namespace JournalVoucherAudit.WinformsUI
                 //使用逗号做分隔符
                 var titles = value.Split(',');
                 var list = titles.ToList();
-                //报表名称放在最后
-                //list.Add(name);
+                //财务科目编号放在最后
+                list.Add(caiwuTitle);
                 return list;
             }
         }
-
+        /// <summary>
+        /// 根据国库资金性质，返回财务科目编号
+        /// </summary>
+        /// <param name="natureOfFunds"></param>
+        /// <returns></returns>
+        private string GetSubjectCode(string natureOfFunds)
+        {
+            var key = string.Empty;
+            //读取配置文件
+            foreach (var item in ConfigurationManager.AppSettings.AllKeys)
+            {
+                var value = ConfigurationManager.AppSettings[item];
+                if (value.Contains(natureOfFunds))
+                {
+                    key = item;
+                    break;
+                }
+            };
+            return key;
+        }
         /// <summary>
         /// 读取国库报表的资金性质
         /// </summary>
@@ -205,8 +224,10 @@ namespace JournalVoucherAudit.WinformsUI
                 //创建导入对象
                 var excelImportGuoKu = new Import(txt_GuoKuFilePath.Text, index);
                 //创建国库数据项
-                var natureOfFunds = GetNatureOfFunds;
-                var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>(natureOfFunds);
+                //读取资金性质
+                //var natureOfFunds = GetNatureOfFunds;
+                var items = excelImportGuoKu.ReadGuoKu<GuoKuItem>();
+
                 return items.ToList();
             }
         }
@@ -347,16 +368,20 @@ namespace JournalVoucherAudit.WinformsUI
             lbl_Message.Text = string.Empty;
             //设置rule
             SetRule();
+            //读取资金性质
+            var natureOfFunds = GetNatureOfFunds;
+            //筛选国库
+            var guoKuData = GuoKuData.Where(t => natureOfFunds.Contains(t.NatureOfFunds)).ToList();
             //对账
             var caiWuAudit = new CaiWuAudit(_rule);
             var guoKuAudit = new GuoKuAudit(_rule);
             //取不符合要求的数据
-            var caiWuException = caiWuAudit.Audit(CaiWuData, GuoKuData);
-            var guoKuException = guoKuAudit.Audit(CaiWuData, GuoKuData);
+            var caiWuException = caiWuAudit.Audit(CaiWuData, guoKuData);
+            var guoKuException = guoKuAudit.Audit(CaiWuData, guoKuData);
 
             //统计数据
             var caiwu_total = CaiWuData.Sum(t => t.CreditAmount);
-            var guoku_total = GuoKuData.Sum(t => t.Amount);
+            var guoku_total = guoKuData.Sum(t => t.Amount);
             var caiwu_subtotal = caiWuException.Sum(t => t.CreditAmount);
             var guoku_subtotal = guoKuException.Sum(t => t.Amount);
             var caiwu_balance = caiwu_total - caiwu_subtotal;
@@ -398,15 +423,36 @@ namespace JournalVoucherAudit.WinformsUI
                 lbl_Message.Text = Resources.ErrorMessage;
                 return;
             }
+            //处理实际支付科目与记账科目不一致的情况
+            //根据凭证号匹配财务与国库记录，依据国库的资金性质更新财务的科目编号
+            var guoku = GuoKuData.Where(t => caiWus.Select(c => c.Number).Any(n => n == t.Number)).ToList();
+            var caiwu = caiWus.GroupJoin(guoku, c => c.Number, g => g.Number,
+                (c, g) => new CaiWuItem
+                {
+                    CreditAmount = c.CreditAmount,
+                    Originator = c.Originator,
+                    Remark = c.Remark,
+                    VoucherDate = c.VoucherDate,
+                    VoucherNumber = c.VoucherNumber,
+                    //如果匹配上了国库记录，则查询科目编号，否则用原编号
+                    SubjectCode = g.Any(x => x.Number == c.Number) 
+                    ? GetSubjectCode(
+                        g.Where(x => x.Number == c.Number)
+                        .FirstOrDefault().NatureOfFunds
+                        ) 
+                    : c.SubjectCode
+                }).ToList();
+
             //合并两个集合为一个集合，便于报表处理
-            var table = new TiaoJieTable(caiWus, guoKus);
+            //此处财务记录为更新科目编号后的数据
+            var table = new TiaoJieTable(caiwu, guoKus);
             //计算发生额累计
             var caiWuTotal = CaiWuData.Sum(t => t.CreditAmount);
             var guoKuTotal = GuoKuData.Sum(t => t.Amount);
             //设置报表内标题与sheet名称
             var reportTitles = GetReportTitles;
             //取财务的入账日期
-            var voucherDate = CaiWuData.First().VoucherDate.ToDateTime();
+            var voucherDate = CaiWuData.First().VoucherDate.ToDateTime2();
             //文件名
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
@@ -414,7 +460,7 @@ namespace JournalVoucherAudit.WinformsUI
 
             if (DialogResult.OK.Equals(saveFileDlg.ShowDialog()))
             {
-             
+
                 try
                 {
                     //导出excel
@@ -422,10 +468,10 @@ namespace JournalVoucherAudit.WinformsUI
                     export.Save(saveFileDlg.FileName, reportTitles, caiWuTotal, guoKuTotal, table.Data);
                 }
                 catch (Exception ex)
-                {                    
+                {
                     MessageBox.Show(ex.Message);
                 }
-                
+
                 //提示消息
                 lbl_Message.Text = Resources.ResultMessage;
             }
