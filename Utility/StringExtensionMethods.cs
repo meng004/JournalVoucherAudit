@@ -69,7 +69,7 @@ namespace JournalVoucherAudit.Utility
             return result;
         }
         /// <summary>
-        /// 转换为日期yyyymmdd
+        /// 转换为日期yyyy-mm-dd
         /// 若为空则返回今日
         /// </summary>
         /// <param name="str"></param>
@@ -77,22 +77,19 @@ namespace JournalVoucherAudit.Utility
         public static DateTime ToDateTime(this string str)
         {
             //无法处理20211108格式
-            //var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);
-            var date = DateTime.Now;
-            DateTime.TryParseExact(str, "yyyyMMdd", null, System.Globalization.DateTimeStyles.None, out date);
+            var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);            
             return date;
         }
         /// <summary>
-        /// 转换日期yyyy-mm-dd
+        /// 转换日期yyyymmdd
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
         public static DateTime ToDateTime2(this string str)
         {
             //无法处理20211108格式
-            //var date = string.IsNullOrWhiteSpace(str) ? DateTime.Today : Convert.ToDateTime(str);
             var date = DateTime.Now;
-            DateTime.TryParseExact(str, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out date);
+            DateTime.TryParseExact(str, "yyyyMMdd", null, System.Globalization.DateTimeStyles.None, out date);
             return date;
         }
 
