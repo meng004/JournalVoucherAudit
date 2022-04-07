@@ -24,6 +24,14 @@ namespace JournalVoucherAudit.Domain
         /// </summary>
         public string Remark { get; set; }
         /// <summary>
+        /// 制单人
+        /// </summary>
+        public string Originator { get; set; }
+        /// <summary>
+        /// 科目编号
+        /// </summary>
+        public string SubjectCode { get; set; }
+        /// <summary>
         /// 取出凭证号
         /// </summary>
         /// <returns></returns>

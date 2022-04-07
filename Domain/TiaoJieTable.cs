@@ -53,7 +53,8 @@ namespace JournalVoucherAudit.Domain
                         CreditAmount = caiWu.CreditAmount,
                         Remark = caiWu.Remark,
                         VoucherDate = caiWu.VoucherDate,
-                        VoucherNumber = caiWu.VoucherNumber
+                        VoucherNumber = caiWu.VoucherNumber,
+                        Originator = caiWu.Originator
                     };
                     //填国库数据
                     if (i < guoKuCount)

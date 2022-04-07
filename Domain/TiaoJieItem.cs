@@ -18,7 +18,14 @@
         /// 摘要
         /// </summary>
         public string Remark { get; set; }
-
+        /// <summary>
+        /// 制单人
+        /// </summary>
+        public string Originator { get; set; }
+        /// <summary>
+        /// 科目编号
+        /// </summary>
+        public string SubjectCode { get; set; }
         /// <summary>
         /// 支付令编号
         /// </summary>
