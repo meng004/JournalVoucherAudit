@@ -93,7 +93,7 @@ namespace JournalVoucherAudit.Service
                 var caiWu = new CaiWu();
                 caiWu.CreditAmount = sheetRow.GetCell(cells["贷金额"]).NumericCellValue;
                 caiWu.Remark = sheetRow.GetCell(cells["摘要"]).StringCellValue;
-                caiWu.VoucherDate = sheetRow.GetCell(cells["凭证日期"]).StringCellValue.ToDateTime().ToString("yyyy-MM-dd");//先转成日期，再转格式
+                caiWu.VoucherDate = sheetRow.GetCell(cells["凭证日期"]).StringCellValue.ToDateTime2().ToString("yyyy-MM-dd");//先转成日期，再转格式
                 caiWu.VoucherNumber = sheetRow.GetCell(cells["凭证编号"]).StringCellValue;
                 caiWu.Originator = sheetRow.GetCell(cells["制单"]).StringCellValue;
                 caiWu.SubjectCode = sheetRow.GetCell(cells["科目编号"]).StringCellValue;
