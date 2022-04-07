@@ -63,24 +63,24 @@ namespace JournalVoucherAudit.WinformsUI
                 //[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
                 //编号:41010101
                 //名称:事业收入_教育事业收入_纳入专户管理的非税收入
-                var index_begin = caiwuTitle.IndexOf('[');
-                var index_end = caiwuTitle.IndexOf(']');
+                //var index_begin = caiwuTitle.IndexOf('[');
+                //var index_end = caiwuTitle.IndexOf(']');
 
-                var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
-                var name = caiwuTitle.Substring(index_end + 1);
+                //var number = caiwuTitle.Substring(index_begin + 1, index_end - index_begin - 1);
+                //var name = caiwuTitle.Substring(index_end + 1);
 
                 //依据财务报表科目编号，读取配置文件中的国库报表标题和导出excel的sheet名称
                 //"零余额公共"101101
                 //"零余额非税";//101102
                 //"财政拨款";//400101
                 //"教育事业收入";//41010101 
-                var value = ConfigurationManager.AppSettings[number];
+                var value = ConfigurationManager.AppSettings[caiwuTitle];
 
                 //使用逗号做分隔符
                 var titles = value.Split(',');
                 var list = titles.ToList();
                 //报表名称放在最后
-                list.Add(name);
+                //list.Add(name);
                 return list;
             }
         }
