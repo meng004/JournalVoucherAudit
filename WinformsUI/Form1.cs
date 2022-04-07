@@ -256,7 +256,20 @@ namespace JournalVoucherAudit.WinformsUI
                 return title + "-" + version;
             }
         }
-
+        /// <summary>
+        /// 依据资金性质筛选国库
+        /// </summary>
+        private IList<GuoKuItem> GuoKuDataFiltedByFund
+        {
+            get
+            {
+                //读取资金性质
+                var natureOfFunds = GetNatureOfFunds;
+                //筛选国库
+                var guoKuData = GuoKuData.Where(t => natureOfFunds.Contains(t.NatureOfFunds)).ToList();
+                return guoKuData;
+            }
+        }
         #endregion
 
         #region 初始化
@@ -368,20 +381,17 @@ namespace JournalVoucherAudit.WinformsUI
             lbl_Message.Text = string.Empty;
             //设置rule
             SetRule();
-            //读取资金性质
-            var natureOfFunds = GetNatureOfFunds;
-            //筛选国库
-            var guoKuData = GuoKuData.Where(t => natureOfFunds.Contains(t.NatureOfFunds)).ToList();
+  
             //对账
             var caiWuAudit = new CaiWuAudit(_rule);
             var guoKuAudit = new GuoKuAudit(_rule);
             //取不符合要求的数据
-            var caiWuException = caiWuAudit.Audit(CaiWuData, guoKuData);
-            var guoKuException = guoKuAudit.Audit(CaiWuData, guoKuData);
+            var caiWuException = caiWuAudit.Audit(CaiWuData, GuoKuDataFiltedByFund);
+            var guoKuException = guoKuAudit.Audit(CaiWuData, GuoKuDataFiltedByFund);
 
             //统计数据
             var caiwu_total = CaiWuData.Sum(t => t.CreditAmount);
-            var guoku_total = guoKuData.Sum(t => t.Amount);
+            var guoku_total = GuoKuDataFiltedByFund.Sum(t => t.Amount);
             var caiwu_subtotal = caiWuException.Sum(t => t.CreditAmount);
             var guoku_subtotal = guoKuException.Sum(t => t.Amount);
             var caiwu_balance = caiwu_total - caiwu_subtotal;
@@ -448,11 +458,11 @@ namespace JournalVoucherAudit.WinformsUI
             var table = new TiaoJieTable(caiwu, guoKus);
             //计算发生额累计
             var caiWuTotal = CaiWuData.Sum(t => t.CreditAmount);
-            var guoKuTotal = GuoKuData.Sum(t => t.Amount);
+            var guoKuTotal = GuoKuDataFiltedByFund.Sum(t => t.Amount);
             //设置报表内标题与sheet名称
             var reportTitles = GetReportTitles;
             //取财务的入账日期
-            var voucherDate = CaiWuData.First().VoucherDate.ToDateTime2();
+            var voucherDate = CaiWuData.First().VoucherDate.ToDateTime();
             //文件名
             var filename = $"{voucherDate.Year}年{voucherDate.Month}月-{reportTitles.Item3}-财务国库对账单";
             //保存文件对话
