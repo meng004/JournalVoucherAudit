@@ -24,6 +24,10 @@ namespace JournalVoucherAudit.Domain
         /// </summary>
         public string RemarkReason { get; set; }
         /// <summary>
+        /// 资金性质
+        /// </summary>
+        public string NatureOfFunds { get; set; }
+        /// <summary>
         /// 从摘要事由中取出凭证号
         /// </summary>
         /// <returns></returns>

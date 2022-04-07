@@ -54,7 +54,8 @@ namespace JournalVoucherAudit.Domain
                         Remark = caiWu.Remark,
                         VoucherDate = caiWu.VoucherDate,
                         VoucherNumber = caiWu.VoucherNumber,
-                        Originator = caiWu.Originator
+                        Originator = caiWu.Originator,
+                        SubjectCode = caiWu.SubjectCode
                     };
                     //填国库数据
                     if (i < guoKuCount)
@@ -92,6 +93,8 @@ namespace JournalVoucherAudit.Domain
                         tiaoJie.Remark = caiWu.Remark;
                         tiaoJie.VoucherDate = caiWu.VoucherDate;
                         tiaoJie.VoucherNumber = caiWu.VoucherNumber;
+                        tiaoJie.Originator = caiWu.Originator;
+                        tiaoJie.SubjectCode = caiWu.SubjectCode;                     
                     }
                     tiaoJieBiao.Add(tiaoJie);
                 }
