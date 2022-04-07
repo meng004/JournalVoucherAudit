@@ -2,6 +2,7 @@
 using NPOI.Extend;
 using System.Collections.Generic;
 using System.Linq;
+using JournalVoucherAudit.Utility;
 
 namespace JournalVoucherAudit.Service
 {
@@ -59,7 +60,7 @@ namespace JournalVoucherAudit.Service
             var sheet = workbook.GetSheetAt(0);
             //读取标题行
             var row = sheet.GetRow(_TitleRowIndex);
-            //用表头创建‘标题名-列号’字典
+            //用表头创建‘标题名-列索引’字典
             var cells = new Dictionary<string, int>();
             if (null != row)
             {
@@ -78,12 +79,11 @@ namespace JournalVoucherAudit.Service
                 }
             }
 
-
             //新建list
             var list = new List<CaiWu>();
             //在list中插入数据
             //去掉第一行及最后两行数据
-            for (int i = _TitleRowIndex + 2; i < sheet.LastRowNum - 2; i++)
+            for (int i = _TitleRowIndex + 1; i < sheet.LastRowNum - 1; i++)
             {
                 //取excel的行数据
                 var sheetRow = sheet.GetRow(i);
@@ -91,10 +91,12 @@ namespace JournalVoucherAudit.Service
                 if (null == sheetRow) continue;
                 //新建财务
                 var caiWu = new CaiWu();
-                caiWu.CreditAmount = sheetRow.GetCell(cells["贷方金额"]).NumericCellValue;
+                caiWu.CreditAmount = sheetRow.GetCell(cells["贷金额"]).NumericCellValue;
                 caiWu.Remark = sheetRow.GetCell(cells["摘要"]).StringCellValue;
-                caiWu.VoucherDate = sheetRow.GetCell(cells["凭证日期"]).StringCellValue;
-                caiWu.VoucherNumber = sheetRow.GetCell(cells["凭证号"]).StringCellValue;
+                caiWu.VoucherDate = sheetRow.GetCell(cells["凭证日期"]).StringCellValue.ToDateTime().ToString("yyyy-MM-dd");//先转成日期，再转格式
+                caiWu.VoucherNumber = sheetRow.GetCell(cells["凭证编号"]).StringCellValue;
+                caiWu.Originator = sheetRow.GetCell(cells["制单"]).StringCellValue;
+                caiWu.SubjectCode = sheetRow.GetCell(cells["科目编号"]).StringCellValue;
                 list.Add(caiWu);
             }
 
@@ -109,6 +111,8 @@ namespace JournalVoucherAudit.Service
                     list.Remove(item);
                 }
             }
+
+            SetCaiwuTitle(list);
 
             return list;
         }
@@ -178,39 +182,61 @@ namespace JournalVoucherAudit.Service
 
             return list;
         }
+
+        /// <summary>
+        /// 设置财务报表的title
+        /// </summary>
+        /// <typeparam name="Caiwu"></typeparam>
+        /// <param name="rows"></param>
+        private void SetCaiwuTitle<Caiwu>(IList<Caiwu> rows) 
+            where Caiwu : CaiWuItem, new()
+        {
+            //将财务记账编号分组，记录数最多的编号命中，返回前6位编号
+            var result = rows.GroupBy(t => t.SubjectCode)
+                .Select(t => new { AccountingNumber = t.Key, Count = t.Count() })
+                .OrderByDescending(t => t.Count)
+                .FirstOrDefault();
+            var title = result.AccountingNumber;
+            _CaiWuTitle = title.Substring(0, 6);
+        }
+        /// <summary>
+        /// 财务报表标题
+        /// </summary>
+        private string _CaiWuTitle = string.Empty;
         /// <summary>
         /// 标准化财务报表标题
         /// </summary>
         public string CaiWuTitle
         {
-            get
-            {
-                //读取excel
-                var workbook = NPOIHelper.LoadWorkbook(_FilePath);
-                //读取第一个sheet
-                var sheet = workbook.GetSheetAt(0);
+            get { return _CaiWuTitle; }
+            //get
+            //{
+            //    //读取excel
+            //    var workbook = NPOIHelper.LoadWorkbook(_FilePath);
+            //    //读取第一个sheet
+            //    var sheet = workbook.GetSheetAt(0);
 
-                //读取财务导出数据的标题行
-                var rownum = _TitleRowIndex - 2 < 0 ? 0 : _TitleRowIndex - 2;
-                var titleRow = sheet.GetRow(rownum);
-                //取单元值
-                var titleCell = titleRow.Cells[0].StringCellValue;
-                //取标题关键字
-                //var keys = _TitleDict.Keys;
-                //excel文件中是否包含该关键字
-                //var key = keys.SingleOrDefault(k => titleCell.Contains(k));
-                //取标准标题
-                var value = string.Empty;
-                //_TitleDict.TryGetValue(key, out value);
+            //    //读取财务导出数据的标题行
+            //    var rownum = _TitleRowIndex - 2 < 0 ? 0 : _TitleRowIndex - 2;
+            //    var titleRow = sheet.GetRow(rownum);
+            //    //取单元值
+            //    var titleCell = titleRow.Cells[0].StringCellValue;
+            //    //取标题关键字
+            //    //var keys = _TitleDict.Keys;
+            //    //excel文件中是否包含该关键字
+            //    //var key = keys.SingleOrDefault(k => titleCell.Contains(k));
+            //    //取标准标题
+            //    var value = string.Empty;
+            //    //_TitleDict.TryGetValue(key, out value);
 
-                //取科目编号
-                //如[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
-                var index_begin = titleCell.IndexOf('[');
-                //var index_end = titleCell.IndexOf(']');
-                value = titleCell.Substring(index_begin);
+            //    //取科目编号
+            //    //如[41010101]事业收入_教育事业收入_纳入专户管理的非税收入
+            //    var index_begin = titleCell.IndexOf('[');
+            //    //var index_end = titleCell.IndexOf(']');
+            //    value = titleCell.Substring(index_begin);
 
-                return value;
-            }
+            //    return value;
+            //}
         }
     }
 }
